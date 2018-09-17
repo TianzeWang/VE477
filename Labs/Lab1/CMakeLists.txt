@@ -3,4 +3,4 @@ project(Lab1)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Lab1 problem2.c Problem2.c)
+add_executable(Lab1 main.c)

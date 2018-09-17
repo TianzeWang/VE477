@@ -39,7 +39,7 @@ int find(int val) {
     struct hash_node **hash_key;
     int flag = 0;
     for (hash_key = &Hash_table[id]; *hash_key; hash_key = &(*hash_key)->next_hash_node) {
-        if ((*hash_key)->val== val) {
+        if ((*hash_key)->val == val) {
             printf("Found it!");
             flag = 1;
             break;
@@ -50,16 +50,30 @@ int find(int val) {
     }
 }
 
-int delete(int val) {
+void delete(int val) {
     int id = val % MAX;
     struct hash_node *hash_entry;
     struct hash_node **hash_key;
     int flag = 0;
+    int pos = 0;
     for (hash_key = &Hash_table[id]; *hash_key; hash_key = &(*hash_key)->next_hash_node) {
-        if ((*hash_key)->val== val) {
-            printf("Found it!");
-            flag = 1;
-            break;
+        if ((*hash_key)->val == val) break;
+        else ++pos;
+    }
+    if (pos == 0) {
+        struct hash_node *temp1 = *hash_key;
+        hash_entry = temp1->next_hash_node;
+        free(temp1);
+    }
+    else {
+        for (hash_key = &Hash_table[id]; *hash_key; hash_key = &(*hash_key)->next_hash_node) {
+            if ((*hash_key)->next_hash_node->val == val) break;
+            else ++pos;
         }
+        struct hash_node *temp1 = *hash_key;
+        struct hash_node *temp2 = (*hash_key)->next_hash_node;
+        struct hash_node *temp3 = (*hash_key)->next_hash_node->next_hash_node;
+        temp1->next_hash_node = temp3;
+        free(temp2);
     }
 }

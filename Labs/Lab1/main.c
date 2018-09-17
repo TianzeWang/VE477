@@ -3,8 +3,13 @@
 #include<stdio.h>
 
 typedef struct node *nodeptr;
-typedef struct node {
+typedef struct pair {
+    int key;
     int val;
+};
+
+typedef struct node {
+    struct pair node_pair;
     nodeptr prev;
     nodeptr next;
 };
@@ -15,8 +20,8 @@ struct node *tail = NULL;
 // Description: Search for the detailed key
 struct node *search(struct node *begin, int key) {
     struct node *current_ptr = begin;
-    while (current_ptr->val != tail->val) {
-        if (current_ptr->val == key) {
+    while (current_ptr->node_pair.key != tail->node_pair.key) {
+        if (current_ptr->node_pair.key == key) {
             return current_ptr;
         }
         else {
@@ -28,7 +33,7 @@ struct node *search(struct node *begin, int key) {
 // Description: Insert
 void Insert(int key) {
     struct node *node_temp = (struct node *) malloc(sizeof(struct node));
-    node_temp->val = key;
+    node_temp->node_pair.key = key;
     node_temp->prev = NULL;
     node_temp->next = NULL;
     if (head == NULL) {
@@ -38,7 +43,7 @@ void Insert(int key) {
     else {
         struct node *current_cmp = head;
         while (current_cmp != tail) {
-            if (current_cmp->val < key) {
+            if (current_cmp->node_pair.key < key) {
                 current_cmp = current_cmp->next;
             }
             else {
@@ -142,19 +147,19 @@ int main() {
             printf("Please enter the number you want to find predecessor:");
             int val;
             scanf("%i", &val);
-            printf("The predecessor of the given val is %d", pre(val)->val);
+            printf("The predecessor of the given val is %d", pre(val)->node_pair.key);
         }
         else if (strcmp(str, "Suc") == 0) {
             printf("Please enter the number you want to find successor:");
             int val;
             scanf("%i", &val);
-            printf("The successor of the given val is %d", next(val)->val);
+            printf("The successor of the given val is %d", next(val)->node_pair.key);
         }
         else if (strcmp(str, "Min") == 0) {
-            printf("The min value is %d", minimum()->val);
+            printf("The min value is %d", minimum()->node_pair.key);
         }
         else if (strcmp(str, "Max") == 0) {
-            printf("The max value is %d", maximum()->val);
+            printf("The max value is %d", maximum()->node_pair.key);
         }
         else if (strcmp(str, "Ext") == 0) {
             break;
