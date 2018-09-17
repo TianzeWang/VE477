@@ -2,6 +2,7 @@
  * C++ Program to Implement Sorted Doubly Linked List
  */
 #include<stdio.h>
+
 int c = 0;
 struct node
 {

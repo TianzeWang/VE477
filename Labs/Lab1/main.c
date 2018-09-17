@@ -1,120 +1,164 @@
-/*
- * C++ Program to Implement Sorted Doubly Linked List
- */
+#include<stdlib.h>
+#include<string.h>
 #include<stdio.h>
-#include<conio.h>
-#include<iostream.h>
-using namespace std;
-int c = 0;
-struct node
-{
-    node *next, *prev;
-    string data;
-}
-        *head = NULL, *tail = NULL, *p = NULL, *r = NULL, *np = NULL;
-void create(int x)
-{
-    np = new node;
-    np->data = x;
-    np->next = NULL;
-    np->prev = NULL;
-    if (c == 0)
-    {
-        tail = np;
-        head = np;
-        p = head;
-        p->next = NULL;
-        p->prev = NULL;
-        c++;
-    }
-    else
-    {
-        p = head;
-        r = p;
-        if (np->data < p->data)
-        {
-            np->next = p;
-            p->prev = np;
-            np->prev = NULL;
-            head = np;
-            p = head;
-            do
-            {
-                p = p->next;
-            }
-            while (p->next != NULL);
-            tail = p;
+
+typedef struct node *nodeptr;
+typedef struct node {
+    int val;
+    nodeptr prev;
+    nodeptr next;
+};
+
+struct node *head = NULL;
+struct node *tail = NULL;
+
+// Description: Search for the detailed key
+struct node *search(struct node *begin, int key) {
+    struct node *current_ptr = begin;
+    while (current_ptr->val != tail->val) {
+        if (current_ptr->val == key) {
+            return current_ptr;
         }
-        else if (np->data > p->data)
-        {
-            while (p != NULL && np->data > p->data)
-            {
-                r = p;
-                p = p->next;
-                if (p == NULL)
-                {
-                    r->next = np;
-                    np->prev = r;
-                    np->next = NULL;
-                    tail = np;
-                    break;
-                }
-                else if (np->data < p->data)
-                {
-                    r->next = np;
-                    np->prev = r;
-                    np->next = p;
-                    p->prev = np;
-                    if (p->next != NULL)
-                    {
-                        do
-                        {
-                            p = p->next;
-                        }
-                        while (p->next !=NULL);
-                    }
-                    tail = p;
-                    break;
-                }
-            }
+        else {
+            current_ptr = current_ptr->next;
         }
     }
 }
-void traverse_tail()
-{
-    node *t = tail;
-    while (t != NULL)
-    {
-        cout<<t->data<<"\t";
-        t = t->prev;
+
+// Description: Insert
+void Insert(int key) {
+    struct node *node_temp = (struct node *) malloc(sizeof(struct node));
+    node_temp->val = key;
+    node_temp->prev = NULL;
+    node_temp->next = NULL;
+    if (head == NULL) {
+        head = node_temp;
+        tail = head;
     }
-    cout<<endl;
+    else {
+        struct node *current_cmp = head;
+        while (current_cmp != tail) {
+            if (current_cmp->val < key) {
+                current_cmp = current_cmp->next;
+            }
+            else {
+                struct node *current_cmp_prev = current_cmp->prev;
+                if (current_cmp_prev == NULL) {
+                    current_cmp->prev = node_temp;
+                    node_temp->next = current_cmp;
+                    head = node_temp;
+                }
+                else {
+                    current_cmp->prev = node_temp;
+                    current_cmp_prev->next = node_temp;
+                    node_temp->prev = current_cmp_prev;
+                    node_temp->next = current_cmp;
+                }
+                break;
+            }
+        }
+        if (current_cmp == tail) {
+            struct node *prev_tail = tail;
+            prev_tail->next = node_temp;
+            node_temp->prev = prev_tail;
+            tail = node_temp;
+        }
+    }
 }
-void traverse_head()
-{
-    node *t = head;
-    while (t != NULL)
-    {
-        cout<<t->data<<"\t";
-        t = t->next;
+
+// Description: Delete
+void Delete(struct node *node_del) {
+    if (node_del == head && node_del == tail) {
+        head = NULL;
+        tail = NULL;
     }
-    cout<<endl;
+    else if (node_del == head && node_del != tail) {
+        struct node *nodetemp = head->next;
+        nodetemp->prev = NULL;
+        head = nodetemp;
+    }
+    else if (node_del != head && node_del == tail) {
+        struct node *nodetemp = tail->prev;
+        nodetemp->next = NULL;
+        tail = nodetemp;
+    }
+    else {
+        struct node *nodetemp1 = node_del->prev;
+        struct node *nodetemp2 = node_del->next;
+        nodetemp1->next = nodetemp2;
+        nodetemp2->prev = nodetemp1;
+    }
+    node_del->next = NULL;
+    node_del->prev = NULL;
+    free(node_del);
 }
-int main()
-{
-    int i = 0, n, x, ch;
-    cout<<"enter the no of nodes\n";
-    cin>>n;
-    while (i < n)
-    {
-        cout<<"\nenter value of node\n";
-        cin>>x;
-        create(x);
-        i++;
+
+struct node *minimum() {
+    if (head == NULL) {
+        exit(2);
     }
-    cout<<"\nTraversing Doubly Linked List head first\n";
-    traverse_head();
-    cout<<"\nTraversing Doubly Linked List tail first\n";
-    traverse_tail();
-    getch();
+    else return head;
+}
+
+struct node *maximum() {
+    if (tail == NULL) {
+        exit(2);
+    }
+    else return tail;
+}
+
+struct node *pre(struct node *temp) {
+    return temp->prev;
+}
+
+struct node *next(struct node *temp) {
+    return temp->next;
+}
+
+int main() {
+    printf("Please enter the command from: Insert, Search, Delete, Pre, Succ, Min, Max, Exit");
+    while (1) {
+        char str[3];
+        scanf("%3s", str);
+        if (strcmp(str, "Ins") == 0) {
+            printf("Please enter the number you want to insert:");
+            int val;
+            scanf("%i", &val);
+            Insert(val);
+        }
+        else if (strcmp(str, "Sea") == 0) {
+            printf("Please enter the number you want to Search:");
+            int val;
+            scanf("%i", &val);
+            search(head, val);
+        }
+        else if (strcmp(str, "Del") == 0) {
+            printf("Please enter the number you want to Delete:");
+            int val;
+            scanf("%i", &val);
+            Delete(val);
+        }
+        else if (strcmp(str, "Pre") == 0) {
+            printf("Please enter the number you want to find predecessor:");
+            int val;
+            scanf("%i", &val);
+            printf("The predecessor of the given val is %d", pre(val)->val);
+        }
+        else if (strcmp(str, "Suc") == 0) {
+            printf("Please enter the number you want to find successor:");
+            int val;
+            scanf("%i", &val);
+            printf("The successor of the given val is %d", next(val)->val);
+        }
+        else if (strcmp(str, "Min") == 0) {
+            printf("The min value is %d", minimum()->val);
+        }
+        else if (strcmp(str, "Max") == 0) {
+            printf("The max value is %d", maximum()->val);
+        }
+        else if (strcmp(str, "Ext") == 0) {
+            break;
+        }
+        else continue;
+    }
 }
