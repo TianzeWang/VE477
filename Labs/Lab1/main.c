@@ -20,7 +20,7 @@ struct node *tail = NULL;
 // Description: Search for the detailed key
 struct node *search(struct node *begin, int key) {
     struct node *current_ptr = begin;
-    while (current_ptr->node_pair.key != tail->node_pair.key) {
+    while (current_ptr->node_pair.key != NULL) {
         if (current_ptr->node_pair.key == key) {
             return current_ptr;
         }
@@ -35,6 +35,7 @@ struct node *search(struct node *begin, int key) {
 void Insert(int key) {
     struct node *node_temp = (struct node *) malloc(sizeof(struct node));
     node_temp->node_pair.key = key;
+    node_temp->node_pair.val = 0; //Initialize
     node_temp->prev = NULL;
     node_temp->next = NULL;
     if (head == NULL) {
@@ -64,10 +65,33 @@ void Insert(int key) {
             }
         }
         if (current_cmp == tail) {
-            struct node *prev_tail = tail;
-            prev_tail->next = node_temp;
-            node_temp->prev = prev_tail;
-            tail = node_temp;
+            if (node_temp->node_pair.key >= tail->node_pair.key) {
+                if (tail->next == NULL) {
+                    tail = node_temp;
+                    tail->prev = head;
+                    head->next = tail;
+                }
+                else {
+                    struct node *prev_tail = tail;
+                    prev_tail->next = node_temp;
+                    node_temp->prev = prev_tail;
+                    tail = node_temp;
+                }
+            }
+            else {
+                if (tail->prev == NULL) {
+                    head = node_temp;
+                    head->next = tail;
+                    tail->prev = head;
+                }
+                else {
+                    struct node *tail_prev = tail->prev;
+                    tail_prev->next = node_temp;
+                    tail->prev = node_temp;
+                    node_temp->next = tail;
+                    node_temp->prev = tail_prev;
+                }
+            }
         }
     }
 }
@@ -142,21 +166,21 @@ int main() {
             printf("Please enter the number you want to Delete:");
             int val;
             scanf("%i", &val);
-            struct node * a = search(head, val);
+            struct node *a = search(head, val);
             Delete(a);
         }
         else if (strcmp(str, "Pre") == 0) {
             printf("Please enter the number you want to find predecessor:");
             int val;
             scanf("%i", &val);
-            struct node * a = search(head, val);
+            struct node *a = search(head, val);
             printf("The predecessor of the given val is %d", pre(a)->node_pair.key);
         }
         else if (strcmp(str, "Suc") == 0) {
             printf("Please enter the number you want to find successor:");
             int val;
             scanf("%i", &val);
-            struct node * a = search(head, val);
+            struct node *a = search(head, val);
             printf("The successor of the given val is %d", next(a)->node_pair.key);
         }
         else if (strcmp(str, "Min") == 0) {
