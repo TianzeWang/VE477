@@ -48,6 +48,7 @@ int find(int val) {
     if (flag == 0) {
         printf("Not found. Sigh");
     }
+    return 0;
 }
 
 void delete(int val) {

@@ -123,32 +123,32 @@ Lab1/fast:
 	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/build
 .PHONY : Lab1/fast
 
-main.o: main.c.o
+Problem2.o: Problem2.c.o
 
-.PHONY : main.o
+.PHONY : Problem2.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/main.c.o
-.PHONY : main.c.o
+Problem2.c.o:
+	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/Problem2.c.o
+.PHONY : Problem2.c.o
 
-main.i: main.c.i
+Problem2.i: Problem2.c.i
 
-.PHONY : main.i
+.PHONY : Problem2.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/main.c.i
-.PHONY : main.c.i
+Problem2.c.i:
+	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/Problem2.c.i
+.PHONY : Problem2.c.i
 
-main.s: main.c.s
+Problem2.s: Problem2.c.s
 
-.PHONY : main.s
+.PHONY : Problem2.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/main.c.s
-.PHONY : main.c.s
+Problem2.c.s:
+	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/Problem2.c.s
+.PHONY : Problem2.c.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Lab1"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... Problem2.o"
+	@echo "... Problem2.i"
+	@echo "... Problem2.s"
 .PHONY : help
 
 
