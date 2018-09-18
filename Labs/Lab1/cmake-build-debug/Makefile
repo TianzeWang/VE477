@@ -150,6 +150,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/main.c.s
 .PHONY : main.c.s
 
+p2_new.o: p2_new.c.o
+
+.PHONY : p2_new.o
+
+# target to build an object file
+p2_new.c.o:
+	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/p2_new.c.o
+.PHONY : p2_new.c.o
+
+p2_new.i: p2_new.c.i
+
+.PHONY : p2_new.i
+
+# target to preprocess a source file
+p2_new.c.i:
+	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/p2_new.c.i
+.PHONY : p2_new.c.i
+
+p2_new.s: p2_new.c.s
+
+.PHONY : p2_new.s
+
+# target to generate assembly for a file
+p2_new.c.s:
+	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/p2_new.c.s
+.PHONY : p2_new.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +189,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... p2_new.o"
+	@echo "... p2_new.i"
+	@echo "... p2_new.s"
 .PHONY : help
 
 
