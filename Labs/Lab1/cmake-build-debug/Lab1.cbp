@@ -80,7 +80,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/Problem2.c">
+		<Unit filename="/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/main.c">
 			<Option target="Lab1"/>
 		</Unit>
 		<Unit filename="/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/CMakeLists.txt">

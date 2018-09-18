@@ -28,6 +28,7 @@ struct node *search(struct node *begin, int key) {
             current_ptr = current_ptr->next;
         }
     }
+    return NULL;
 }
 
 // Description: Insert
@@ -141,19 +142,22 @@ int main() {
             printf("Please enter the number you want to Delete:");
             int val;
             scanf("%i", &val);
-            Delete(val);
+            struct node * a = search(head, val);
+            Delete(a);
         }
         else if (strcmp(str, "Pre") == 0) {
             printf("Please enter the number you want to find predecessor:");
             int val;
             scanf("%i", &val);
-            printf("The predecessor of the given val is %d", pre(val)->node_pair.key);
+            struct node * a = search(head, val);
+            printf("The predecessor of the given val is %d", pre(a)->node_pair.key);
         }
         else if (strcmp(str, "Suc") == 0) {
             printf("Please enter the number you want to find successor:");
             int val;
             scanf("%i", &val);
-            printf("The successor of the given val is %d", next(val)->node_pair.key);
+            struct node * a = search(head, val);
+            printf("The successor of the given val is %d", next(a)->node_pair.key);
         }
         else if (strcmp(str, "Min") == 0) {
             printf("The min value is %d", minimum()->node_pair.key);

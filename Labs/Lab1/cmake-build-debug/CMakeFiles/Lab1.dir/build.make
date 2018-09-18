@@ -57,38 +57,38 @@ include CMakeFiles/Lab1.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Lab1.dir/flags.make
 
-CMakeFiles/Lab1.dir/Problem2.c.o: CMakeFiles/Lab1.dir/flags.make
-CMakeFiles/Lab1.dir/Problem2.c.o: ../Problem2.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Lab1.dir/Problem2.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Lab1.dir/Problem2.c.o   -c /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/Problem2.c
+CMakeFiles/Lab1.dir/main.c.o: CMakeFiles/Lab1.dir/flags.make
+CMakeFiles/Lab1.dir/main.c.o: ../main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Lab1.dir/main.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Lab1.dir/main.c.o   -c /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/main.c
 
-CMakeFiles/Lab1.dir/Problem2.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Lab1.dir/Problem2.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/Problem2.c > CMakeFiles/Lab1.dir/Problem2.c.i
+CMakeFiles/Lab1.dir/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Lab1.dir/main.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/main.c > CMakeFiles/Lab1.dir/main.c.i
 
-CMakeFiles/Lab1.dir/Problem2.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Lab1.dir/Problem2.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/Problem2.c -o CMakeFiles/Lab1.dir/Problem2.c.s
+CMakeFiles/Lab1.dir/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Lab1.dir/main.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/main.c -o CMakeFiles/Lab1.dir/main.c.s
 
-CMakeFiles/Lab1.dir/Problem2.c.o.requires:
+CMakeFiles/Lab1.dir/main.c.o.requires:
 
-.PHONY : CMakeFiles/Lab1.dir/Problem2.c.o.requires
+.PHONY : CMakeFiles/Lab1.dir/main.c.o.requires
 
-CMakeFiles/Lab1.dir/Problem2.c.o.provides: CMakeFiles/Lab1.dir/Problem2.c.o.requires
-	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/Problem2.c.o.provides.build
-.PHONY : CMakeFiles/Lab1.dir/Problem2.c.o.provides
+CMakeFiles/Lab1.dir/main.c.o.provides: CMakeFiles/Lab1.dir/main.c.o.requires
+	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/main.c.o.provides.build
+.PHONY : CMakeFiles/Lab1.dir/main.c.o.provides
 
-CMakeFiles/Lab1.dir/Problem2.c.o.provides.build: CMakeFiles/Lab1.dir/Problem2.c.o
+CMakeFiles/Lab1.dir/main.c.o.provides.build: CMakeFiles/Lab1.dir/main.c.o
 
 
 # Object files for target Lab1
 Lab1_OBJECTS = \
-"CMakeFiles/Lab1.dir/Problem2.c.o"
+"CMakeFiles/Lab1.dir/main.c.o"
 
 # External object files for target Lab1
 Lab1_EXTERNAL_OBJECTS =
 
-Lab1: CMakeFiles/Lab1.dir/Problem2.c.o
+Lab1: CMakeFiles/Lab1.dir/main.c.o
 Lab1: CMakeFiles/Lab1.dir/build.make
 Lab1: CMakeFiles/Lab1.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable Lab1"
@@ -99,7 +99,7 @@ CMakeFiles/Lab1.dir/build: Lab1
 
 .PHONY : CMakeFiles/Lab1.dir/build
 
-CMakeFiles/Lab1.dir/requires: CMakeFiles/Lab1.dir/Problem2.c.o.requires
+CMakeFiles/Lab1.dir/requires: CMakeFiles/Lab1.dir/main.c.o.requires
 
 .PHONY : CMakeFiles/Lab1.dir/requires
 
