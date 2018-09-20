@@ -18,7 +18,9 @@ typedef struct hash_node {
 
 typedef struct tb {
     struct hash_node *ARR[Hash_Val];
-} hash_table;
+} hashtable;
+
+hashtable hash_table;
 
 void Insert_hash(int key) {
     struct hash_node *node_temp = (struct hash_node *) malloc(sizeof(struct hash_node));
@@ -31,7 +33,7 @@ void Insert_hash(int key) {
     }
     else {
         hash_table.ARR[val]->next = node_temp;
-        node_temp->prev = hash_table.ARR[val]->next;
+        node_temp->prev = hash_table.ARR[val];
         hash_table.ARR[val] = node_temp;
     }
 }
@@ -81,9 +83,16 @@ void Display() {
     struct hash_node *node_temp;
     for (int i = 0; i < Hash_Val; i++) {
         node_temp = hash_table.ARR[i];
+        printf("Hash table %i",i);
         while (node_temp != NULL) {
             printf("%i", node_temp->val);
             node_temp = node_temp->prev;
+        }
+    }
+    for (int i = 0; i < Hash_Val; i++) {
+        node_temp = hash_table.ARR[i];
+        while (node_temp != NULL) {
+            node_temp = node_temp->next;
         }
     }
 }
@@ -102,6 +111,7 @@ int main() {
         else if (strcmp(str, "Fin") == 0) {
             printf("Please enter the number you want to Search:");
             int val;
+            scanf("%i", &val);
             find(val);
         }
         else if (strcmp(str, "Del") == 0) {

@@ -80,9 +80,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/main.c">
-			<Option target="Lab1"/>
-		</Unit>
 		<Unit filename="/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/p2_new.c">
 			<Option target="Lab1"/>
 		</Unit>

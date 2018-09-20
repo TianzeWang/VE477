@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/main.c
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab1/p2_new.c
 stdlib.h
 -
-string.h
--
 stdio.h
+-
+string.h
 -
 
