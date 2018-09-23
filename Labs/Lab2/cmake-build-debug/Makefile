@@ -150,33 +150,6 @@ kruskal.c.s:
 	$(MAKE) -f CMakeFiles/Lab2.dir/build.make CMakeFiles/Lab2.dir/kruskal.c.s
 .PHONY : kruskal.c.s
 
-main.o: main.cpp.o
-
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/Lab2.dir/build.make CMakeFiles/Lab2.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/Lab2.dir/build.make CMakeFiles/Lab2.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/Lab2.dir/build.make CMakeFiles/Lab2.dir/main.cpp.s
-.PHONY : main.cpp.s
-
 union_find.o: union_find.c.o
 
 .PHONY : union_find.o
@@ -216,9 +189,6 @@ help:
 	@echo "... kruskal.o"
 	@echo "... kruskal.i"
 	@echo "... kruskal.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 	@echo "... union_find.o"
 	@echo "... union_find.i"
 	@echo "... union_find.s"

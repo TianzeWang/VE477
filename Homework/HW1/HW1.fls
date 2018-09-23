@@ -1,4 +1,4 @@
-PWD /Users/peter/Desktop/Peter/JI/VE477/Homework
+PWD /Users/peter/Desktop/Peter/JI/VE477/Homework/HW1
 INPUT /usr/local/texlive/2016/texmf.cnf
 INPUT /usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt
@@ -225,12 +225,6 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/stringenc.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/stringenc.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang2.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang2.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang3.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang3.sty
 INPUT HW1.aux
 INPUT HW1.aux
 OUTPUT HW1.aux

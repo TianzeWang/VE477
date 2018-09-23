@@ -86,12 +86,6 @@
 		<Unit filename="/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/kruskal.c">
 			<Option target="Lab2"/>
 		</Unit>
-		<Unit filename="/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/main.cpp">
-			<Option target="Lab2"/>
-		</Unit>
-		<Unit filename="/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/tree.h">
-			<Option target="Lab2"/>
-		</Unit>
 		<Unit filename="/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/union_find.c">
 			<Option target="Lab2"/>
 		</Unit>

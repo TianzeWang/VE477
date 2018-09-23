@@ -5,17 +5,20 @@
 #ifndef LAB2_UNION_FIND_H
 #define LAB2_UNION_FIND_H
 
-typedef struct nd * nodeptr;
-typedef struct nd {
-    int val;
-    nodeptr parent;
-    int rank;
-} node;
+#include "graph.h"
+//typedef struct vt * vtptr;
+//
+//typedef struct vt{
+//    int val;
+//    vtptr parent;
+//    int rank;
+//} vertice;
 
-void getset(node *x);
 
-node *find(node *x);
+void getset(vertice *x);
 
-node *_union(node *x, node *y);
+vertice *find(vertice *x);
+
+void _union(vertice *x, vertice *y);
 
 #endif //LAB2_UNION_FIND_H

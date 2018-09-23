@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1537359143 "HW1.tex" "HW1.pdf" "HW1" 1537359146
+["pdflatex"] 1537676496 "HW1.tex" "HW1.pdf" "HW1" 1537676499
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -119,9 +119,6 @@
   "/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/hyperref.cfg" 1254097189 235 6031e5765137be07eed51a510b2b8fb7 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.cfg" 1434304428 1827 d72ad54409ca5c1068a1939c63441bd2 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.sty" 1434304428 80336 ff90c926c3d7bfdaa3d80ca57123b0bb ""
-  "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty" 1434304428 93445 48e5be20ba2d0a2ca5c4ce7e292a4bbc ""
-  "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang2.sty" 1434304428 90665 9ccb99340dc741fc0a15edb411365e94 ""
-  "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang3.sty" 1434304428 87367 4ae6f7be2500b80e72633dfead8e6c4f ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty" 1434304428 77028 c3eb00afb55a32bc13ca8da7f5234377 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/microtype-xetex.def" 1463263853 14059 c14dc3a1ef141f6c38c00a4aa2d88804 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/microtype.cfg" 1463263853 23387 9deaa7c030891bce421bba5f9c5433a7 ""
@@ -157,14 +154,14 @@
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1484319860 3520381 ff8107c8aac6ea0a9b25c7e51d4d2ff4 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "HW1.aux" 1537359145 994 a5d734b23f40bbec9094ab9b6e66a930 ""
-  "HW1.out" 1537359145 196 8550a07db86b6723976f1dba0bedb8b0 ""
-  "HW1.tex" 1537359139 3820 95ace915f96883de6e4c696fb6e608d9 ""
+  "HW1.aux" 1537676498 2697 e3a9cb13152ed87799b2298b3679ab03 ""
+  "HW1.out" 1537676498 1061 760b11d1deb688d03d4d2aa0d2664a94 ""
+  "HW1.tex" 1537676496 11321 deb385982bebf88de810eaff1bcf7824 ""
   "Logo2.png" 1506329285 23557 e963250a164034ed0f577fe4308eb37b ""
   (generated)
-  "HW1.log"
-  "/Users/peter/Desktop/Peter/JI/VE477/Homework/HW1.log"
-  "/Users/peter/Desktop/Peter/JI/VE477/Homework/HW1.pdf"
-  "HW1.out"
   "HW1.pdf"
+  "/Users/peter/Desktop/Peter/JI/VE477/Homework/HW1.pdf"
   "HW1.aux"
+  "HW1.log"
+  "HW1.out"
+  "/Users/peter/Desktop/Peter/JI/VE477/Homework/HW1.log"

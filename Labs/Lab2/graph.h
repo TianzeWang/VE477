@@ -9,6 +9,8 @@ typedef struct vt * vtptr;
 
 typedef struct vt{
     int val;
+    vtptr parent;
+    int rank;
 } vertice;
 
 typedef struct ed{
@@ -20,6 +22,8 @@ typedef struct ed{
 typedef struct gra{
     edge * _edge;
     vertice * _vertice;
+    int edge_num;
+    int vertice_num;
 } graph;
 
 #endif //LAB2_GRAPH_H

@@ -1,0 +1,308 @@
+%!TEX program = xelatex
+\documentclass{article}
+\textwidth 155mm \textheight 220mm \oddsidemargin 5mm
+\evensidemargin 5mm \topmargin -10mm
+\usepackage{amsmath}
+\usepackage{amsfonts,amssymb}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage{blkarray}
+\usepackage{tikz}
+\usepackage{dsfont}
+\usepackage{booktabs}
+\usepackage{enumerate}
+%\usepackage{indentfirst}
+\usepackage{mathrsfs}
+\usepackage{listings}
+%\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{epsf}
+\usepackage[linesnumbered,ruled,longend]{algorithm2e}
+\usepackage[colorlinks=true,linkcolor=purple]{hyperref}
+\newfontfamily\Inputmono{Consolas}
+\renewcommand\thesection{Question\ \arabic{section}}%\arabic{section}}
+\renewcommand\thesubsection{(\arabic{subsection})}
+\renewcommand\thesubsubsection{\arabic{subsubsection}.}
+\newcommand{\qedhere}{$\hfill\ensuremath{\square}$}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+%\setmainfont{Citadel Script}
+%\setmainfont{Chalkboard}
+\setmainfont{Optima}
+%\setmainfont{Apple Chancery}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\renewcommand{\familydefault}{\sfdefault}
+%\renewcommand{\footnotesize}{\sfdefault}
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0em}
+
+%%%%%%%%%%%Configurations for code%%%%%%%%%%%%%%%%%%%%%%%
+\SetKwInOut{Input}{Input} 
+\SetKwInOut{Output}{Output} 
+\SetKwProg{Fn}{Function}{\string:}{end} 
+\SetKwFunction{mstnew}{MST\_New}
+\SetKwFunction{tw}{TreeWeight}
+\SetKwFunction{dps}{DFS}
+\SetKwFunction{con}{Is\_Connected}
+\SetKwFunction{hor}{Three\_Fastest\_Horses}
+%%%%%%%%%%%Here is the configurations for Code%%%%%%%%%%%
+
+%\definecolor{mygreen}{rgb}{0,0.6,0}
+%\definecolor{mygray}{rgb}{0.7,0.7,0.7}
+%\definecolor{mymauve}{rgb}{0.58,0,0.82}
+%\definecolor{mywhite}{rgb}{1,1,1}
+%\definecolor{myblack}{rgb}{0,0,0}
+%\definecolor{myblue}{RGB}{27,154,154}
+%\lstset{
+% backgroundcolor=\color{white}, 
+% basicstyle = \footnotesize\Inputmono,       
+% breakatwhitespace = false,        
+% breaklines = true,                 
+% captionpos = b,                    
+% commentstyle = \color{mygray}\bfseries,
+% extendedchars = false,             
+% frame =shadowbox, 
+% framerule=0.5pt,
+% frameround=tttt,
+% keepspaces=true,
+% keywordstyle=\color{myblue}\bfseries, % keyword style
+% language = Verilog,                     % the language of code
+% otherkeywords={string}, 
+% numbers=left, 
+% numbersep=5pt,
+% numberstyle=\tiny\color{mymauve},
+% rulecolor=\color{black},         
+% showspaces=false,  
+% showstringspaces=false, 
+% showtabs=false,    
+% stepnumber=0,         
+% stringstyle=\color{mymauve},        % string literal style
+% tabsize=2,          
+% title=\lstname                      
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%\setmainfont{Savoye LET}
+\setmainfont{Cormorant Upright}
+\renewcommand\arraystretch{1.5}
+
+
+\thispagestyle{empty}
+
+\begin{center}
+\begin{large}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{Logo2.png}
+\end{figure}
+\hrule
+\vspace*{0.25cm}
+\sc{UM--SJTU Joint Institute \vspace*{0.3em}} \\ 
+VE477 Intro to Algorithms\\
+\end{large}
+\hrulefill
+
+\vspace*{3cm}
+
+\begin{Large}
+\sc{{Homework 1}} \\
+\end{Large}
+\vspace*{2cm}
+\begin{large}
+\sc{{Wang, Tianze, 515370910202}} \\
+\end{large}
+\end{center}
+\newpage
+\setmainfont{Optima}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\tableofcontents
+%\newpage
+\setcounter{page}{1}
+\section{Hash Tables}
+\subsection{}
+The condition \textit{exactly k keys hash to a same slot} means \textit{exactly k keys hash to a same slot and the rest $(n-k)$ keys hash to the other slots}.
+Then the probability is calculated as \[
+	P_k = \frac{\text{Combs satisfying the condition}}{\text{All Combs}} = \frac{\binom{n}{k}\cdot 1^{n-k	}\cdot (n-1)^{n-k}}{n^n} = \frac{1}{n}^k \left(1- \frac{1}{n} \right)^{n-k} \binom{n}{k}
+\]	
+The numerator means \textit{choosing k numbers from n which only belongs to one slot, and the rest has totally $(n-1)$ spaces to go.} And the denominator means \textit{All combinations for n numbers.}
+\subsection{}
+The probability of exactly $k$ keys hash to a same slot is $P_k$. And the probability of exactly one slot has $k$ hash keys is $nP_k$. 
+\par If $k \geq \frac{1}{2}n$, there will be only one slot, so $P_k' = nP_k$. For other cases, namely $k < \frac{1}{2}n$, have the probability $P_k'< nP_k$.
+\subsection{}
+The Stirling formula is given as 
+\[
+	n! \approx \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n
+\] 
+Then $ \binom{m}{n}$ could be represented as
+\[
+	\binom{m}{n} = \frac{m!}{n!(m-n)!} = \frac{\sqrt{2 \pi m} \left(\frac{m}{e}\right)^m}{\sqrt{2 \pi n} \left(\frac{n}{e}\right)^n \cdot \sqrt{2 \pi (m-n)} \left(\frac{m-n}{e}\right)^{(m-n)}} = \frac{m^m}{n^n\cdot (m-n)^{m-n}}\cdot \frac{\sqrt{m}}{\sqrt{2 \pi n} \sqrt{m-n}}
+\]
+For $\frac{\sqrt{m}}{\sqrt{2 \pi n} \sqrt{m-n}}$, we have 
+\[
+	\frac{\sqrt{m}}{\sqrt{2 \pi n(m-n)}}
+\]	
+%And $\frac{1}{4}m^2-mn+n^2 \geq 0$, which means $\frac{1}{4}m^2\geq mn-n^2 = (m-n)\cdot n$, 
+When $m= \frac{1}{2}$, $n=1$, it exists the biggest value, but it's still smaller than 1. So we could conclude that 
+\[
+	\frac{1}{\sqrt{2 \pi n(m-n)/m}} = \frac{1}{\sqrt{2 \pi (n- \frac{n^2}{m})}} <1
+\]
+Then \[
+	\binom{m}{n} < \frac{m^m}{n^n\cdot (m-n)^{m-n}}
+\]
+We put this formula back into the definition of $P_k$, 
+\[
+\begin{aligned}
+	\frac{1}{n}^k \left(1- \frac{1}{n} \right)^{n-k} \binom{n}{k} &< \frac{1}{n}^k \left(1- \frac{1}{n} \right)^{n-k} \frac{n^n}{k^k\cdot (n-k)^{n-k}}\\
+	& = \frac{(n-1)^{n-k}}{k^k\cdot (n-k)^{n-k}}\\
+	&< \frac{n^{n-k}}{k^k(n-k)^{n-k}}
+\end{aligned}
+\]
+As $e = (1+\frac{1}{x})^x$, 
+\[
+	\begin{aligned}
+	\frac{n^{n-k}}{k^k(n-k)^{n-k}} &= \frac{1}{k^k} \cdot \frac{n}{n-k}^{n-k} \\
+	&=\frac{1}{k^k} \cdot \left(1+\frac{k}{n-k} \right)^{n-k} \\
+	&= \frac{1}{k^k} ((1+\frac{1}{t})^t)^k, \text{\ \ \ let $t = \frac{n-k}{k}$} \\
+	&= \frac{1}{k^k} e^k
+	\end{aligned}
+\]
+\qedhere
+\subsection{}
+Not done yet.
+
+\subsection{}
+Not done yet.
+
+\section{MST}
+\SetKwFunction{mult}{mult}
+\begin{algorithm}[H]
+\Input{Graph: $G$, Tree: $T$, The weight-decreased edge that not in $T$: $E$}
+\Output{New Tree T'}
+\BlankLine
+\Fn{\tw{T}}{
+	sum $\leftarrow$ 0\;
+	\For{All edges in T}{
+		sum $\leftarrow$ sum + edge.weight\;
+	}
+	\KwRet{sum}
+}
+\BlankLine
+\Fn{\dps(n)}{
+	mark n as visited\;
+	\For{each node u connected to v}{
+		\If{u is not visited}{\dps(u)}
+	}
+}
+\BlankLine
+\Fn{\con(G)}{
+	choose any one of the node in G as n\;
+	\dps(n)\;
+	\uIf{All the nodes u in G are visited}{
+		\KwRet{True}
+	}
+	\Else{\KwRet{False}}
+}
+\BlankLine
+\Fn{\mstnew{T, G, E}}{
+	src $\leftarrow$ E.begin\;
+	dst $\leftarrow$ E.end\;
+	T' $\leftarrow$ T\;
+	%e\_before $\leftarrow$ E\;
+	\For{All edges in T connected to \underline{src and dst}, denoted as e}{
+	T\_temp $\leftarrow$ T' remove e add E\;
+		\If{e.length > E.length \textbf{and} \con{T\_temp}}{
+			\If{\tw{T\_temp}<\tw{T'}}{
+				T' $\leftarrow$ T\_temp\;
+				e\_before $\leftarrow$ e\;
+			}
+		}
+	}
+	\KwRet{T'}
+}
+\caption{Ex. 2, Pseudo code}
+\end{algorithm}
+\newpage
+\section{Simple Algorithms}
+\subsection{}
+Not so hard, leave blank first.
+\subsection{}
+\subsubsection{}
+\begin{algorithm}[H]
+\BlankLine
+\Input{two integers x,y}
+\Output{Their multiplication}
+\Fn{\mult{x,y}}{
+	\uIf{x = 0 or y = 0}{
+		\KwRet{0}
+	}
+	\Else{
+		\KwRet{\mult{2x, $\lfloor y/2 \rfloor$} + x$\cdot$ (y mod 2)}
+	}
+}
+\caption{Ex. 3, Pseudo code}
+\end{algorithm}
+\subsubsection{}
+The essence of this algorithm is to carry out the multiplication algorithm in \textbf{binary} form.
+\par For two integers $x$ and $y$, we transform into two arrays $A$ and $B$, each element of the array corresponds to each digit of the binary number.
+\par Then we see array $A$ as a keep shifting one and we use it as a whole, and array $B$ as an indicator to tell when to multiple, we use it bit by bit. The \mult{2x, $\lfloor y/2 \rfloor$} operation means array $A$ shift left one digit and array $B$ shift left one digit. The $i-th$ calculation means calculating the former sum plus the value at $i-th$ digit of B. Then we need to read the current digit of array $B$, which is \textit{y mod 2}, if it's $1$, it means their will be a multiplication, otherwise there will be none. And multiply by the shifted array $A$, which is $x \cdot (\text{y mod 2})$.
+
+\section{Horse Race Problem}
+\subsection{Algorithm}
+\par The minimum number of races is 7. It is described as follows.
+\par First separate 25 horses into 5 groups $A, B, C, D, E$, and race inside these groups, this will count to \textbf{5} races. This will result into an sorted array $A[1]$ to $A[5]$, etc. The smaller index means the faster.
+\par Then choose the fastest horses from each group, namely $A[1], B[1], C[1], D[1], E[1]$ , and let them race, count to \textbf{1} race. (We denote this group as $R$, smaller index means the faster)
+\par Finally, We choose \underline{$X[2]$} and \underline{$X[3]$}, where $R[1] \in X, X=\{A, B, C, D, E\}$, \\ and we choose \underline{$R[2]$} and \underline{$Y[2]$}, where $R[2] \in Y, Y=\{A, B, C, D, E\}$, \\and \underline{$R[3]$}. \\Let them race. (We denote this group as $S$, smaller index means the faster)
+\par Then we take $R[1]$ and $S[1]$ and $S[2]$. These are the fastest horses.
+\qedhere 
+\par 
+\vspace*{1em}
+\SetKwFunction{rac}{Race}
+\begin{algorithm}[H]
+\Input{5 horse}
+\Output{An array X[1:5], smaller index means faster horse}
+\Fn{\rac{5 horses}}{
+	Five horse races\;
+	\KwRet{X}
+}
+\BlankLine
+\Input{25 horses}
+\Output{The fastest among them}
+\Fn{\hor{25 horses}}{
+	Randomly separate them into 5 groups $A, B, C, D, E$, each with 5 horses\;
+	\For{i in $\{A,B,C,D,E\}$}{
+		i $\leftarrow$ \rac{i}\;
+	}
+	R $\leftarrow$ \rac{A[1], B[1], C[1], D[1], E[1]} \;
+	X $\leftarrow$ $X\in \{A,B,C,D,E\} \cap R[2] \in X$\;
+	Y $\leftarrow$ $Y\in \{A,B,C,D,E\} \cap R[3] \in Y$\;
+	S $\leftarrow$ \rac{X[2], X[3], R[2], Y[2], R[3]} \;
+	\KwRet{R[1], S[1], S[2]}
+}
+\caption{Ex. 4, Pseudo code}
+\end{algorithm}
+
+\subsection{Correctness}
+The correctness of this method: $R[1]$ is obviously the fastest, so the hard point is to get the second and third fastest. So we need to use one race to tell the second and third fastest. In the $X$ group as defined before, at most 3 can be the top-3 fastest, in the $Y$ group as defined before, at most 2 can be the top-3 fastest, since $R[1]$ is faster than any one of $Y$. In the group $R[3]$ belongs to, only one can be chosen, since $R[1]$ and $R[2]$ are faster than any one from them. 
+
+\section{Critical Thinking}
+\subsection{Knapsack problem}
+Fit the knapsack with the largest items first. This is because putting totally same weight of small items need more operations than big items. Which means if we put small items first, we will need more time on our trial till we get an error. 
+\subsection{Hash number}
+The choice of hash number is to avoid hash collision, or to decrease the possibility of the chance it happens. 
+\subsection{Greedy non globally optimal}
+A easy example is shown as making changes. Suppose we have 4 kinds of coin, \$1, \$5, \$10, \$12, and we wish to make a change of \$15. According to greedy algorithm, we will try to go from the most to the least, so we will use \textbf{1} \$12 and \textbf{3} \$1 coins. However, this use more than \textbf{1} \$10 and \textbf{1} \$5. In this case, we reach locally optimal via the greedy method, however, it's not globally optimal.
+\end{document}
+
+
+
+
+
+
+
+
+
+

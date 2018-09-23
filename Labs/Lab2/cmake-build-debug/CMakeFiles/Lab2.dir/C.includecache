@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/graph.h
+
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/kruskal.c
+stdlib.h
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/stdlib.h
+union_find.h
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/union_find.h
+graph.h
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/graph.h
+
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/union_find.c
+union_find.h
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/union_find.h
+
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/union_find.h
+graph.h
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/graph.h
+
