@@ -80,9 +80,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/graph.h">
-			<Option target="Lab2"/>
-		</Unit>
 		<Unit filename="/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/kruskal.c">
 			<Option target="Lab2"/>
 		</Unit>

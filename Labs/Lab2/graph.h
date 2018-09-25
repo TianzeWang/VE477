@@ -5,6 +5,8 @@
 #ifndef LAB2_GRAPH_H
 #define LAB2_GRAPH_H
 
+#define MAX 100
+
 typedef struct vt * vtptr;
 
 typedef struct vt{

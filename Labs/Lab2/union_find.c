@@ -10,7 +10,7 @@ void getset(vertice *x) {
 }
 
 vertice *find(vertice *x) {
-    if (x->parent != x) x->parent = find(x);
+    if (x->parent != x) x->parent = find(x->parent);
     return x->parent;
 }
 

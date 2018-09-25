@@ -15,6 +15,8 @@ union_find.h
 /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/union_find.h
 graph.h
 /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/graph.h
+stdio.h
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/stdio.h
 
 /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/union_find.c
 union_find.h

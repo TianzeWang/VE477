@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/new/kruskal-master/Graph.h
+
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/new/kruskal-master/functions.h
+Graph.h
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/new/kruskal-master/Graph.h
+time.h
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/new/kruskal-master/time.h
+
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/new/kruskal-master/randmst.c
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+string.h
+-
+math.h
+-
+assert.h
+-
+functions.h
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/new/kruskal-master/functions.h
+
