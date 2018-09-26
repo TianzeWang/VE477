@@ -123,32 +123,32 @@ Lab2/fast:
 	$(MAKE) -f CMakeFiles/Lab2.dir/build.make CMakeFiles/Lab2.dir/build
 .PHONY : Lab2/fast
 
-kruskal.o: kruskal.c.o
+Prim.o: Prim.c.o
 
-.PHONY : kruskal.o
+.PHONY : Prim.o
 
 # target to build an object file
-kruskal.c.o:
-	$(MAKE) -f CMakeFiles/Lab2.dir/build.make CMakeFiles/Lab2.dir/kruskal.c.o
-.PHONY : kruskal.c.o
+Prim.c.o:
+	$(MAKE) -f CMakeFiles/Lab2.dir/build.make CMakeFiles/Lab2.dir/Prim.c.o
+.PHONY : Prim.c.o
 
-kruskal.i: kruskal.c.i
+Prim.i: Prim.c.i
 
-.PHONY : kruskal.i
+.PHONY : Prim.i
 
 # target to preprocess a source file
-kruskal.c.i:
-	$(MAKE) -f CMakeFiles/Lab2.dir/build.make CMakeFiles/Lab2.dir/kruskal.c.i
-.PHONY : kruskal.c.i
+Prim.c.i:
+	$(MAKE) -f CMakeFiles/Lab2.dir/build.make CMakeFiles/Lab2.dir/Prim.c.i
+.PHONY : Prim.c.i
 
-kruskal.s: kruskal.c.s
+Prim.s: Prim.c.s
 
-.PHONY : kruskal.s
+.PHONY : Prim.s
 
 # target to generate assembly for a file
-kruskal.c.s:
-	$(MAKE) -f CMakeFiles/Lab2.dir/build.make CMakeFiles/Lab2.dir/kruskal.c.s
-.PHONY : kruskal.c.s
+Prim.c.s:
+	$(MAKE) -f CMakeFiles/Lab2.dir/build.make CMakeFiles/Lab2.dir/Prim.c.s
+.PHONY : Prim.c.s
 
 union_find.o: union_find.c.o
 
@@ -186,9 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Lab2"
-	@echo "... kruskal.o"
-	@echo "... kruskal.i"
-	@echo "... kruskal.s"
+	@echo "... Prim.o"
+	@echo "... Prim.i"
+	@echo "... Prim.s"
 	@echo "... union_find.o"
 	@echo "... union_find.i"
 	@echo "... union_find.s"

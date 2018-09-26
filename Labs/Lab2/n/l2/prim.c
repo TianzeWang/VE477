@@ -21,6 +21,8 @@ primgraph* create_primgraph(int vex_num,graphnode vex[vex_num], edge (*edge_arr)
     }
     new_graph->MSTedge=(edge*)malloc(sizeof(edge));
     new_graph->MSTedge=MSTedge;
+
+    return new_graph;
 }
 
 void MiniSpanTree_Prim(primgraph *new_graph){

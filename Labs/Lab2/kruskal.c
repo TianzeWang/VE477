@@ -72,7 +72,7 @@ int main() {
     for (int j = 0; j < 5; j++) {
         vertice1[j].rank = 0;
         vertice1[j].val = j;
-        edge1[j].len = j + 1;
+        edge1[j].len = 7-j;
     }
 
     edge1[0].src = &vertice1[0];
