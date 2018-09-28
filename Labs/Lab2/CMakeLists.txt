@@ -3,4 +3,4 @@ project(Lab2)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Lab2 Prim.c union_find.c)
+add_executable(Lab2 kruskal.c union_find.c)

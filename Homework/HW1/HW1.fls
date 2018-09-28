@@ -8,6 +8,16 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/size10.clo
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/size10.clo
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -51,8 +61,6 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/euenc/eu1lmss.fd
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/euenc/eu1lmss.fd
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
@@ -203,8 +211,6 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.st
 INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/auxhook.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/auxhook.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty

@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Lab2.dir/Prim.c.o"
+  "CMakeFiles/Lab2.dir/kruskal.c.o"
   "CMakeFiles/Lab2.dir/union_find.c.o"
   "Lab2.pdb"
   "Lab2"

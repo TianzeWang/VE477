@@ -6,17 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/Prim.c
-stdbool.h
-/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/stdbool.h
-stdlib.h
-/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/stdlib.h
-stdio.h
-/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/stdio.h
-graph.h
 /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/graph.h
 
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/kruskal.c
+stdlib.h
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/stdlib.h
+union_find.h
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/union_find.h
+graph.h
 /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/graph.h
+stdio.h
+/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/stdio.h
 
 /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/union_find.c
 union_find.h

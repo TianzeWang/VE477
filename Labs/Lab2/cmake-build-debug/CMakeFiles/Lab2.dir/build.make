@@ -57,28 +57,28 @@ include CMakeFiles/Lab2.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Lab2.dir/flags.make
 
-CMakeFiles/Lab2.dir/Prim.c.o: CMakeFiles/Lab2.dir/flags.make
-CMakeFiles/Lab2.dir/Prim.c.o: ../Prim.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Lab2.dir/Prim.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Lab2.dir/Prim.c.o   -c /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/Prim.c
+CMakeFiles/Lab2.dir/kruskal.c.o: CMakeFiles/Lab2.dir/flags.make
+CMakeFiles/Lab2.dir/kruskal.c.o: ../kruskal.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Lab2.dir/kruskal.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Lab2.dir/kruskal.c.o   -c /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/kruskal.c
 
-CMakeFiles/Lab2.dir/Prim.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Lab2.dir/Prim.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/Prim.c > CMakeFiles/Lab2.dir/Prim.c.i
+CMakeFiles/Lab2.dir/kruskal.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Lab2.dir/kruskal.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/kruskal.c > CMakeFiles/Lab2.dir/kruskal.c.i
 
-CMakeFiles/Lab2.dir/Prim.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Lab2.dir/Prim.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/Prim.c -o CMakeFiles/Lab2.dir/Prim.c.s
+CMakeFiles/Lab2.dir/kruskal.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Lab2.dir/kruskal.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/peter/Desktop/Peter/JI/VE477/Labs/Lab2/kruskal.c -o CMakeFiles/Lab2.dir/kruskal.c.s
 
-CMakeFiles/Lab2.dir/Prim.c.o.requires:
+CMakeFiles/Lab2.dir/kruskal.c.o.requires:
 
-.PHONY : CMakeFiles/Lab2.dir/Prim.c.o.requires
+.PHONY : CMakeFiles/Lab2.dir/kruskal.c.o.requires
 
-CMakeFiles/Lab2.dir/Prim.c.o.provides: CMakeFiles/Lab2.dir/Prim.c.o.requires
-	$(MAKE) -f CMakeFiles/Lab2.dir/build.make CMakeFiles/Lab2.dir/Prim.c.o.provides.build
-.PHONY : CMakeFiles/Lab2.dir/Prim.c.o.provides
+CMakeFiles/Lab2.dir/kruskal.c.o.provides: CMakeFiles/Lab2.dir/kruskal.c.o.requires
+	$(MAKE) -f CMakeFiles/Lab2.dir/build.make CMakeFiles/Lab2.dir/kruskal.c.o.provides.build
+.PHONY : CMakeFiles/Lab2.dir/kruskal.c.o.provides
 
-CMakeFiles/Lab2.dir/Prim.c.o.provides.build: CMakeFiles/Lab2.dir/Prim.c.o
+CMakeFiles/Lab2.dir/kruskal.c.o.provides.build: CMakeFiles/Lab2.dir/kruskal.c.o
 
 
 CMakeFiles/Lab2.dir/union_find.c.o: CMakeFiles/Lab2.dir/flags.make
@@ -107,13 +107,13 @@ CMakeFiles/Lab2.dir/union_find.c.o.provides.build: CMakeFiles/Lab2.dir/union_fin
 
 # Object files for target Lab2
 Lab2_OBJECTS = \
-"CMakeFiles/Lab2.dir/Prim.c.o" \
+"CMakeFiles/Lab2.dir/kruskal.c.o" \
 "CMakeFiles/Lab2.dir/union_find.c.o"
 
 # External object files for target Lab2
 Lab2_EXTERNAL_OBJECTS =
 
-Lab2: CMakeFiles/Lab2.dir/Prim.c.o
+Lab2: CMakeFiles/Lab2.dir/kruskal.c.o
 Lab2: CMakeFiles/Lab2.dir/union_find.c.o
 Lab2: CMakeFiles/Lab2.dir/build.make
 Lab2: CMakeFiles/Lab2.dir/link.txt
@@ -125,7 +125,7 @@ CMakeFiles/Lab2.dir/build: Lab2
 
 .PHONY : CMakeFiles/Lab2.dir/build
 
-CMakeFiles/Lab2.dir/requires: CMakeFiles/Lab2.dir/Prim.c.o.requires
+CMakeFiles/Lab2.dir/requires: CMakeFiles/Lab2.dir/kruskal.c.o.requires
 CMakeFiles/Lab2.dir/requires: CMakeFiles/Lab2.dir/union_find.c.o.requires
 
 .PHONY : CMakeFiles/Lab2.dir/requires

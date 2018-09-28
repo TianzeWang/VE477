@@ -1,7 +1,7 @@
 %!TEX program = xelatex
-\documentclass{article}
-\textwidth 155mm \textheight 220mm \oddsidemargin 5mm
-\evensidemargin 5mm \topmargin -10mm
+\documentclass[A4paper]{article}
+\usepackage{geometry}
+\geometry{left = 3cm, right = 3cm, top = 3cm, bottom = 3cm}
 \usepackage{amsmath}
 \usepackage{amsfonts,amssymb}
 \usepackage{fontspec}
@@ -26,6 +26,8 @@
 \renewcommand\thesubsubsection{\arabic{subsubsection}.}
 \newcommand{\qedhere}{$\hfill\ensuremath{\square}$}
 \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\newcommand\mycommfont[1]{\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
 %\setmainfont{Citadel Script}
 %\setmainfont{Chalkboard}
 \setmainfont{Optima}
@@ -175,7 +177,33 @@ As $e = (1+\frac{1}{x})^x$,
 Not done yet.
 
 \subsection{}
-Not done yet.
+We need to construct the $k$ using the result from $1.4$.
+According to the definition of $E[x]$, \[
+	E[M] = \sum_{i=0}^n i\cdot P(M=i)
+\]
+So 
+\[
+	\begin{aligned}
+	E[M] &= P(M=1) + 2P(M=2) + \cdots + nP(M=n) \\
+	&= \left(P(M=1) + 2P(M=2) + \cdots + (k-1)P(M=k-1)\right)+ (kP(M=k)+ \cdots + nP(M=n)) \\
+	& \leq (k-1) (P(M=1) + P(M=2) + \cdots + P(M=k-1)) + n(P(M=k)+ \cdots + P(M=n)) 
+	\end{aligned}
+\]
+We now choose $k$ as: $\displaystyle k > \frac{c \log{n}}{\log{\log{n}}}$ and $\displaystyle k-1 \leq \frac{c \log{n}}{\log{\log{n}}}$ 
+\par Then $E[M]$ becomes
+\[
+	E[M] \leq \frac{c \log{n}}{\log{\log{n}}} P(M \leq \frac{c \log{n}}{\log{\log{n}}}) + n P(M>\frac{c \log{n}}{\log{\log{n}}})
+\]
+And from the conclusion in 1.4, $\displaystyle P(M>\frac{c \log{n}}{\log{\log{n}}}) < \frac{1}{n^2}$, thus $E[M]$ becomes
+\[
+	\begin{aligned}
+	E[M] &\leq \frac{c \log{n}}{\log{\log{n}}} P(M \leq \frac{c \log{n}}{\log{\log{n}}}) + n \sum_{i=k}^n \frac{1}{n^2} \\
+	& \leq \frac{c \log{n}}{\log{\log{n}}}\cdot 1+ 1
+	\end{aligned}
+\]
+Which means \[
+	E[M] = \mathcal{O}(\frac{\log{n}}{\log{\log{n}}})
+\]
 
 \section{MST}
 \SetKwFunction{mult}{mult}
@@ -207,6 +235,7 @@ Not done yet.
 	\Else{\KwRet{False}}
 }
 \BlankLine
+\SetKwFunction{find}{Find}
 \Fn{\mstnew{T, G, E}}{
 	src $\leftarrow$ E.begin\;
 	dst $\leftarrow$ E.end\;
@@ -214,7 +243,8 @@ Not done yet.
 	%e\_before $\leftarrow$ E\;
 	\For{All edges in T connected to \underline{src and dst}, denoted as e}{
 	T\_temp $\leftarrow$ T' remove e add E\;
-		\If{e.length > E.length \textbf{and} \con{T\_temp}}{
+	\tcc{Here I directly use the function `Find()' from course slides \textit{c1.38}}
+		\If{e.length > E.length \textbf{and} \con{T\_temp} \textbf{and} \find{e.src} $\neq$ \find{e.dst}}{
 			\If{\tw{T\_temp}<\tw{T'}}{
 				T' $\leftarrow$ T\_temp\;
 				e\_before $\leftarrow$ e\;
