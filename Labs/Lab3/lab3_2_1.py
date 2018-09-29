@@ -20,19 +20,22 @@ def knapsack_smallfirst(L, weight):
             return knapsack_smallfirst(L[1:], weight)
 
 # The next implementation is the increasing order
+
+
 def List(len):
     L = []
     for i in range(len):
         L.append(i)
     return L
 
-#The next implementation is the decreasing order
+# The next implementation is the decreasing order
 # def List(len):
 #     L = []
 #     for i in range(len):
 #         L.append(len - i)
 #     print(L)
 #     return L
+
 
 # L = [1, 2, 3, 4, 6, 7]
 weight = 18
