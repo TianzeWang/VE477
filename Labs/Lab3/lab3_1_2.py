@@ -69,6 +69,6 @@ LYH.define_wishlist([CYG, LYX])
 LYX.define_wishlist([FXH, LYH])
 m = [FXH, LYH]
 f = [CYG, LYX]
-result = pair(m,f)
+result = pair(m, f)
 for i in result:
     print(i[0].name, i[1].name, "form one pair!")
