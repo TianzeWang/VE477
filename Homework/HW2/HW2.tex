@@ -1,0 +1,250 @@
+%!TEX program = xelatex
+\documentclass[A4paper]{article}
+\usepackage{geometry}
+\geometry{left = 3cm, right = 3cm, top = 3cm, bottom = 3cm}
+\usepackage[linesnumbered,ruled,longend]{algorithm2e}
+\usepackage{amsmath}
+\usepackage{amsfonts,amssymb}
+\usepackage{blkarray}
+\usepackage{booktabs}
+\usepackage{dsfont}
+\usepackage{enumerate}
+\usepackage{epsf}
+\usepackage{fontspec}
+\usepackage{forest}
+\usepackage[colorlinks=true,linkcolor=purple]{hyperref}
+\usepackage{listings}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{tikz}
+%\usepackage{indentfirst}
+%\usepackage[usenames,dvipsnames]{xcolor}
+\newfontfamily\Inputmono{Consolas}
+\renewcommand\thesection{Question\ \arabic{section}}%\arabic{section}}
+\renewcommand\thesubsection{(\arabic{subsection})}
+\renewcommand\thesubsubsection{\arabic{subsubsection}.}
+\newcommand{\qedhere}{$\hfill\ensuremath{\square}$}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\newcommand\mycommfont[1]{\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+%\setmainfont{Citadel Script}
+%\setmainfont{Chalkboard}
+\setmainfont{Optima}
+%\setmainfont{Apple Chancery}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\renewcommand{\familydefault}{\sfdefault}
+%\renewcommand{\footnotesize}{\sfdefault}
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0em}
+
+%%%%%%%%%%%Configurations for code%%%%%%%%%%%%%%%%%%%%%%%
+\SetKwInOut{Input}{Input} 
+\SetKwInOut{Output}{Output} 
+\SetKwProg{Fn}{Function}{\string:}{end} 
+\SetKwFunction{mstnew}{MST\_New}
+\SetKwFunction{tw}{TreeWeight}
+\SetKwFunction{dps}{DFS}
+\SetKwFunction{con}{Is\_Connected}
+\SetKwFunction{hor}{Three\_Fastest\_Horses}
+%%%%%%%%%%%Here is the configurations for Code%%%%%%%%%%%
+
+%\definecolor{mygreen}{rgb}{0,0.6,0}
+%\definecolor{mygray}{rgb}{0.7,0.7,0.7}
+%\definecolor{mymauve}{rgb}{0.58,0,0.82}
+%\definecolor{mywhite}{rgb}{1,1,1}
+%\definecolor{myblack}{rgb}{0,0,0}
+%\definecolor{myblue}{RGB}{27,154,154}
+%\lstset{
+% backgroundcolor=\color{white}, 
+% basicstyle = \footnotesize\Inputmono,       
+% breakatwhitespace = false,        
+% breaklines = true,                 
+% captionpos = b,                    
+% commentstyle = \color{mygray}\bfseries,
+% extendedchars = false,             
+% frame =shadowbox, 
+% framerule=0.5pt,
+% frameround=tttt,
+% keepspaces=true,
+% keywordstyle=\color{myblue}\bfseries, % keyword style
+% language = Verilog,                     % the language of code
+% otherkeywords={string}, 
+% numbers=left, 
+% numbersep=5pt,
+% numberstyle=\tiny\color{mymauve},
+% rulecolor=\color{black},         
+% showspaces=false,  
+% showstringspaces=false, 
+% showtabs=false,    
+% stepnumber=0,         
+% stringstyle=\color{mymauve},        % string literal style
+% tabsize=2,          
+% title=\lstname                      
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%\setmainfont{Savoye LET}
+\setmainfont{Cormorant Upright}
+\renewcommand\arraystretch{1.5}
+
+
+\thispagestyle{empty}
+
+\begin{center}
+\begin{large}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{Logo2.png}
+\end{figure}
+\hrule
+\vspace*{0.25cm}
+\sc{UM--SJTU Joint Institute \vspace*{0.3em}} \\ 
+VE477 Intro to Algorithms\\
+\end{large}
+\hrulefill
+
+\vspace*{3cm}
+
+\begin{Large}
+\sc{{Homework 2}} \\
+\end{Large}
+\vspace*{2cm}
+\begin{large}
+\sc{{Wang, Tianze\\ 515370910202}} \\
+\end{large}
+\end{center}
+\newpage
+\setmainfont{Optima}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\tableofcontents
+%\newpage
+\setcounter{page}{1}
+\section{Basic complexity}
+\subsection*{1. a)}
+\par We first prove that $n^3 - 3n^2 -n +1 = \mathcal{O}(n^3)$. We choose $c=2$ and $n=4$, next we calculate 
+\[
+	c\cdot g(n)-f(n) = 2n^3-(n^3-3n^2-n+1) =n((n- \frac{3}{2})^2- \frac{13}{4})
+\]
+For $n>4$, obviously the former equation yields to a result greater than 0. Since we have found the $c$ and $n$ to make the condition validate, which means $n^3 - 3n^2 -n +1 = \mathcal{O}(n^3)$.
+\par Next is $n^3 - 3n^2 -n +1 = \Omega (n^3)$. We choose $c=\frac{1}{2}$ and $n=7$. 
+\[
+	f(n)-c\cdot g(n) = (n^3-3n^2-n+1) - \frac{1}{2}n^3 = \frac{1}{2}n [(n-3)^2-11]+1
+\]
+For $n\geq 7$, the former equation yields to a result greater than 0, which means $n^3 - 3n^2 -n +1 = \Omega (n^3)$.
+\par Since $n^3 - 3n^2 -n +1 = \mathcal{O}(n^3)$ and $n^3 - 3n^2 -n +1 = \Omega (n^3)$, we could conclude that $$n^3 - 3n^2 -n +1 = \Theta (n^3)$$
+\qedhere
+\subsection*{1. b)}
+We set $c = 1$ and $n = 2$. We will find that when $n=2$, $2^n = n^2$, for easier comparison, we transform them into $log$ basis. which is $2\log n$ and $n \log 2$
+\par then we use 
+\[
+	f(x) = \int f'(x)
+\]
+So next we need to compare $\frac{d}{dn} 2 \log n = \frac{2}{n}$ and $\log 2$.\par  Obviously, $\frac{2}{n}\leq 1$, $\forall n \geq 2$, so we have \[
+	\frac{d}{dn} 2 \log n \leq \frac{d}{dn} n \log 2
+\]
+And then 
+\[
+	f(n) = 2 \log 2 + \int_{2}^n f'(n)
+\]
+and \[
+	g(n) = 2\log 2 + \int_2^n g'n
+\]
+So  $\forall 	n\geq 2$, and $c =1$, \[
+	f(n) \leq g(n)
+\]
+namely
+\[
+	n^2 = \mathcal{O}(2^ )
+\]
+\qedhere
+\subsection*{2. a)}
+$f(n) = \mathcal{O}(g(n))$. We choose $c = 1$ and $n = 9$. For the base case, namely $f(9)$ and $g(9)$, $f(n) \leq g(n)$. And we apply the same methods as 1.b), since $f'(n)<g'(n)$, $\forall n \geq 9$, we could conclude that 
+\[
+f(n) = \mathcal{O}(g(n))
+\] 
+\subsection*{3. a)}
+Not exist.
+\subsection*{3. b)}
+$f(n) = n$, $g(n) = 10$ 
+\subsection*{4}
+When n is approaching $\infty$,
+\[
+	f_4(n) > f_1(n) > f_3(n) > f_2(n)
+\]
+It is easy to obtain the order of $f_2$ and $f_3$, \[
+	\frac{f_3}{f_2} = \frac{\sqrt{n}}{\sqrt{\log n}} >1 \Rightarrow  f_3 > f_2
+\]
+\par Next we need to compare $f_3$ and $f_1$. After observing the form of $f_3$ and $f_1$, we divide them into pairs, namely $p_i= \sqrt{i}+\sqrt{n+1-i}$ for $f_1$ and $q = 2 \sqrt{n}$ for $f_3$.
+\par Note that $f_1 = \sum_{i=1}^{n/2} p_i$ and $f_3 = \sum_{i=1}^{n/2} q $.
+Then we calculate $p_1^2-q^2$,
+\[
+	p_1^2-q^2 = n+ 2\sqrt{n}+1 - 4 \log n > n - 4\log n
+\]
+when $n\geq 9$, we will have $f_1^2-f_3^2>0$. Similarly, we can derive that for every pair, $p_i > q$. And this tells $f_1>f_3$.
+\par $f_4>f_1$ is also obvious. That 
+\[
+	f_4 > n \sqrt{n} > \underbrace{\sqrt{n} + \sqrt{n} + \cdots + \sqrt{n}}_{\text{totally n items}} > 1 + \sqrt{2} + \cdots + \sqrt{n} = f_1
+\]
+\qedhere
+\section{Master Theorem}
+\subsection*{1 a)}
+\begin{center}
+\begin{forest}
+[$f(n)$,draw
+	[$f(n/b)$,draw
+		[$f(n/b^2)$,draw
+			[$\cdots$]
+			[$\cdots$]
+			[$\cdots$]
+		]
+		[$\cdots$]
+		[$f(n/b^2)$,draw
+			[$\cdots$]
+			[$\cdots$]
+			[$\cdots$]
+		]
+	]
+	[$\cdots$]
+	[$\cdots$]
+	[$\cdots$]
+	[$\cdots$]
+	[$\cdots$]
+	[$f(n/b)$,draw
+		[$f(n/b^2)$,draw
+			[$\cdots$]
+			[$\cdots$]
+			[$\cdots$]
+		]
+		[$\cdots$]
+		[$f(n/b^2)$,draw
+			[$\cdots$]
+			[$\cdots$]
+			[$\cdots$]
+		]
+	]
+]
+\end{forest}
+\end{center}
+where each node has $b$ number of child nodes.
+\subsection*{1 b)}
+\begin{enumerate}[i)]
+\item The depth of the tree is $\log_{b}n$
+\item The leaves are $\displaystyle a^{depth} = a^{\log_{b}n}$
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
+
+
+
+
