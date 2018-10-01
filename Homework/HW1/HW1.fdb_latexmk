@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1537952492 "HW1.tex" "HW1.pdf" "HW1" 1538234704
+["pdflatex"] 1538360161 "HW1.tex" "HW1.pdf" "HW1" 1538360163
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -157,14 +157,12 @@
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1484319860 3520381 ff8107c8aac6ea0a9b25c7e51d4d2ff4 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "HW1.aux" 1537952494 2697 e3a9cb13152ed87799b2298b3679ab03 ""
-  "HW1.out" 1537952494 1061 760b11d1deb688d03d4d2aa0d2664a94 ""
+  "HW1.aux" 1538360163 2697 e3a9cb13152ed87799b2298b3679ab03 ""
+  "HW1.out" 1538360163 1061 760b11d1deb688d03d4d2aa0d2664a94 ""
   "HW1.tex" 1538234703 12640 ffa17cb30657e05f905f27a76e0ca19b ""
   "Logo2.png" 1506329285 23557 e963250a164034ed0f577fe4308eb37b ""
   (generated)
-  "HW1.out"
-  "/Users/peter/Desktop/Peter/JI/VE477/Homework/HW1.pdf"
   "HW1.pdf"
   "HW1.aux"
   "HW1.log"
-  "/Users/peter/Desktop/Peter/JI/VE477/Homework/HW1.log"
+  "HW1.out"

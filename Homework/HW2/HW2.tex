@@ -236,9 +236,65 @@ where each node has $b$ number of child nodes.
 \begin{enumerate}[i)]
 \item The depth of the tree is $\log_{b}n$
 \item The leaves are $\displaystyle a^{depth} = a^{\log_{b}n}$
+\item In each level, denote as level $j$, the cost is $a^j\cdot f(n/b^j)$
+\item T(n) is the rest items plus the calculation on each level,
+\[
+	T(n) = \sum_{j=0}^{\log_b {n-1}} a^j f(n/b^j) + \Theta(n^{log_ba})
+\]
+Please note that the layer is calculated to the $log_b n-1$ recursive call of $f(x)$, And for the bottom, namely the leaves, it will run several operations, which is $\Theta(a^{log_bn}) = \Theta(n^{log_ba})$, which is derived from the property of logarithm.
 \end{enumerate}
-\end{document}
+\subsection*{2 a)}
+\begin{enumerate}
 
+\item 
+We prove from the definition, that $\exists c1, c2, n_0$ s.t. $\forall n \geq n_0$, $ c_1 \cdot n^{\log_ba} \leq f(n) \leq c_2 \cdot n^{\log_ba }$.
+\par We first prove the upper bound, and the lower bound can also be derived symmetrically.
+\[
+	\begin{aligned}
+	g(n) \leq \sum_{j=0}^{\log_bn-1} a^j (c_2\frac{n}{b^j})^{\log_ba} = c_2^{\log_ba} \left(\sum_{j=0}^{\log_bn-1} a^j (\frac{n}{b^j})^{\log_ba}\right)
+	\end{aligned}
+\]
+Similarly, 
+\[
+	g(n) \geq c_1^{\log_ba} \left(\sum_{j=0}^{\log_bn-1} a^j (\frac{n}{b^j})^{\log_ba}\right)
+\]
+So we find $c_2 = c_1^{\log_ba}$ and $c_3 = c_2^{\log_ba}$ s.t., $\forall n \geq n_0$, $$c_1^{\log_ba} \left(\sum_{j=0}^{\log_bn-1} a^j (\frac{n}{b^j})^{\log_ba}\right) \leq g(n) \leq c_2^{\log_ba} \left(\sum_{j=0}^{\log_bn-1} a^j (\frac{n}{b^j})^{\log_ba}\right)$$
+
+which means 
+\[
+	g(n) = \Theta(\sum_{j=0}^{\log_bn-1} a^j (\frac{n}{b^j})^{\log_ba})
+\]
+\qedhere
+
+\item 
+\item 
+We use the result from \textit{2.a.ii}, that \[
+	\sum_{j=0}^{\log_bn-1} a^j (\frac{n}{b^j})^{\log_ba} = n^{\log_ba} \log_bn
+\]
+And we substitute this into the result above, that 
+\[
+	g(n) = \Theta(n^{\log_ba} \log_bn)
+\]
+\end{enumerate}	
+\newpage
+\subsection*{2 b)}
+By observation, we can see that actually we need to show
+\[
+	\sum_{j=0}^{\log_bn-1} \frac{a^j}{(b^j)^{\log_b a- \varepsilon}} = \frac{n^\varepsilon -1}{b^\varepsilon -1}
+\]	
+And we apply transformations to the left part inside the sum, which is 
+\[
+	\sum_{j=0}^{\log_bn-1} \frac{a^j}{(b^{\log_b a- \varepsilon})^j} = \frac{n^\varepsilon -1}{b^\varepsilon -1}
+\]
+%which is then to prove 
+%\[
+	%\sum_{j=0}^{\log_bn-1} \frac{a^j}{(a- \varepsilon)^j} =  \sum _{j=0}^{\log_bn-1} (\frac{a}{a- \varepsilon})^j =  \frac{n^\varepsilon %-1}{b^\varepsilon -1}
+%\]
+%And this is a geometric sequence, whose sum is 
+%\[
+	%S_n = \frac{a_1(1-r^n)}{1-r} = \frac{(\frac{a}{a- \varepsilon} )^0 \cdot (1- (\frac{a}{a- \varepsilon} )^{\log_bn -1+1})}{1-(\frac{a}{a- \varepsilon} )}
+%\]	
+\end{document}
 
 
 
