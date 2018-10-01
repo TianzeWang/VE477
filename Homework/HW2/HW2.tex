@@ -357,6 +357,20 @@ so \[
 	g(n) = \Theta(f(n))
 \]
 \end{enumerate}
+\subsection*{3}
+The master theorem is then given as:
+\par Let $ a \geq 1$ , $b > 1$, be two constants, $f(n)$ be a function, and $n$ is explicitly defined as a power of $b$. $T(n) = aT(n/b) +f(n)$ be a recurrence relation over the positive integers. Then the asymptotic bound on $T(n)$ is given by
+\[
+	T(n) = \left\{
+	\begin{aligned}
+	&\Theta(n^{log_ba}) \ \ & f(n) = \Theta(n^{log_ba})\\
+	& \Theta(n^{log_ba})\ \ \  & f(n) = O(n^{log_ba- \varepsilon}) \\
+	& \Theta(f(n))\ \  & af(n/b) \leq cf(n)
+	\end{aligned}
+	\right.
+\]
+
+
 %which is then to prove 
 %\[
 	%\sum_{j=0}^{\log_bn-1} \frac{a^j}{(a- \varepsilon)^j} =  \sum _{j=0}^{\log_bn-1} (\frac{a}{a- \varepsilon})^j =  \frac{n^\varepsilon %-1}{b^\varepsilon -1}
@@ -364,7 +378,73 @@ so \[
 %And this is a geometric sequence, whose sum is 
 %\[
 	%S_n = \frac{a_1(1-r^n)}{1-r} = \frac{(\frac{a}{a- \varepsilon} )^0 \cdot (1- (\frac{a}{a- \varepsilon} )^{\log_bn -1+1})}{1-(\frac{a}{a- \varepsilon} )}
-%\]	
+%\]\
+\newpage
+\section{Ramanujam numbers}
+\begin{algorithm}
+\SetKwFunction{RamanH}{RamanHelper}
+\Input{An integer n}
+\Output{A list containing all numbers smaller the n that is formed by sum of two cubes}
+\Fn{\RamanH{n}}{
+	i $\leftarrow$ 2\;
+	temp $\leftarrow$ 9\; 
+	\tcc{$9 = 1^3 + 2^3$, which is the minimum possible sum of two different possible integers}
+	temp\_list $\leftarrow$ [] \;
+	\tcc{The temp\_list is a data structure that allows repeated elements inside}
+	\While{temp $\leq$ n}{
+		\For{all $j$ $\leq$ $i$}{
+		\tcc{It only checks at the next iteration after $2 i^3 > n$ is because to avoid cases like $100^3+100^3 > 101^3 + 1^3$}
+			\If{$j == i$ \textbf{and} $2 (i-1)^3 > n$}{
+				\KwRet{temp\_list}\;
+			}
+			\If{$i^3+j^3 \leq n$}{
+				temp\_list.append($i^3 + j^3$)\;
+			}
+		}
+		i $\leftarrow$ i+1 \;
+	} 
+
+}
+\Input{\RamanH{n}}
+\Output{All Ramanujam numbers smaller or equal to $n$}
+\SetKwFunction{Raman}{Raman}
+\Fn{\Raman{L}}{
+	\For{All numbers in list $L$}{
+		\KwRet{All numbers that have occurred twice}
+	}
+}
+\end{algorithm}	
+The complexity of the algorithm is due to the iteration in the helper function, which will be \[
+	\mathcal{O}(\sqrt[3]{n})
+\]
+Since the iteration will mostly occur $2 \sqrt[3]{n}$ times. And the count operation can be ignored compared to this operation.
+\newpage
+\section{Pirates Sharing Gold}
+We use a strategy called trace-back, namely we use the what-if statement. We first consider the case for only one pirate, then two, so on and so forth, and 6 at last.
+
+\par To make our life easier, we use a table, with each column as each pirate, the most left is the earliest, namely the last to share.
+\begin{table}[!htbp]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+number of pirate alive & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+1 & 300 & dead & dead & dead & dead & dead \\
+2 & 0 & 300 & dead & dead & dead & dead\\
+3 & 1 & 0 & 299 & dead & dead & dead \\
+4 & 0 & 1 & 0 & 297 & dead & dead \\
+5 & 1 & 0 & 1 & 0 & 298 & dead \\
+6 & 0 & 1 & 0 & 1 & 0 & 298 \\
+\hline
+\end{tabular}
+\end{table}
+This table is derived upside-down. 
+\par When there is only one pirate, he will definitely get all the coins.
+\par When there are two pirates, since one person's vote is enough for the \textbf{third rule}, namely the second pirate will also up vote, and the first pirate will always reject to get all the money. So the second pirate will take all the coins.
+\par When there are three pirates, he will needs two votes from the remaining three pirates. The second pirate knows that he can get all the coins for his turn, so he will always vote no, whatever coins other gives him. So the third pirate needs to give no coin to him. And then he need to bribe the first pirate, since the first pirate will get no coin next turn, he will only need give this pirate one coin, which satisfies that he can get more money, and then pirate 1 will vote for him. 
+\par When there are four pirates, he needs two votes. Since pirate 2 will get no coin next turn, he will let this one has a little favor, namely one coin, and then take all the rest 299 coins. Then he is able to win the vote.
+\par When there are five pirates, he needs three votes. Similarly, he only needs to give one coin to those who has nothing for next turn, namely pirate 1 and pirate 3, then he is able to win the vote.
+\par When there are six pirates, similarly, he can win the vote by giving pirate 2 and pirate 4 one coin.
+
 \end{document}
 
 
