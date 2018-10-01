@@ -1,4 +1,4 @@
-%!TEX program = xelatex
+%!TEX program = xelatex 
 \documentclass[A4paper]{article}
 \usepackage{geometry}
 \geometry{left = 3cm, right = 3cm, top = 3cm, bottom = 3cm}
@@ -278,14 +278,85 @@ And we substitute this into the result above, that
 \end{enumerate}	
 \newpage
 \subsection*{2 b)}
+\begin{enumerate}[i)]
+\item  Not done yet.
+\item 
 By observation, we can see that actually we need to show
 \[
 	\sum_{j=0}^{\log_bn-1} \frac{a^j}{(b^j)^{\log_b a- \varepsilon}} = \frac{n^\varepsilon -1}{b^\varepsilon -1}
 \]	
 And we apply transformations to the left part inside the sum, which is 
 \[
-	\sum_{j=0}^{\log_bn-1} \frac{a^j}{(b^{\log_b a- \varepsilon})^j} = \frac{n^\varepsilon -1}{b^\varepsilon -1}
+	\sum_{j=0}^{\log_bn-1} \frac{a^j}{(b^{\log_b a- \varepsilon})^j} = \sum_{j=0}^{\log_bn-1} b^{\varepsilon j} = \frac{1-b^{\varepsilon \cdot \log_bn}}{1-b^ \varepsilon} =  \frac{1-(b^{\log_bn})^{\varepsilon}}{1-b^ \varepsilon}= \frac{n^\varepsilon -1}{b^\varepsilon -1}
 \]
+\qedhere
+
+\item 
+\[
+	\frac{n^\varepsilon-1}{b^\varepsilon-1} n^{\log_b a - \varepsilon} = \frac{n^\varepsilon-1}{(b^\varepsilon -1)\cdot n^\varepsilon} n^{log_ba} 
+\]
+We set $c_0 = 1$, and solve \[
+	\frac{n^\varepsilon-1}{(b^\varepsilon -1)\cdot n^\varepsilon} \leq 1
+\]	
+which is 
+\[
+	n^\varepsilon \cdot (2- b^ \varepsilon) \leq 1
+\]
+if $2- b^\varepsilon \leq 0$, this equation obviously holds, and then we could conclude that $\forall n > n_0$, $\exists c_0 = 1$ s.t.
+\[
+	\frac{n^\varepsilon-1}{b^\varepsilon-1} n^{\log_b a - \varepsilon}  \leq C\cdot  n^{\log_ba}
+\]
+which means \[
+	g(n) = O(n^{\log_ba})
+\]
+
+\end{enumerate}
+\subsection*{2 c)}
+\begin{enumerate}
+\item Simply set $c = 1$, and it is obvious that 
+\[
+	\begin{aligned}
+	g(n) &= a^0 f(n/b^0) + af(n/b) + a^2 f(n/b^2) \\
+		& > a^0 f(n/b^0) = f(n)
+	\end{aligned}
+\]
+which means 
+\[
+	g(n) = \Omega (f(n))
+\]
+\qedhere
+\item Let $t = n/b^{j-1}$,
+\[
+	a^j f(n/b^j)= a^j f(t/b) = a^{j-1} \cdot (a\cdot f(t/b)) \leq  a^{j-1} c f(t) = c(a^{j-1}  f(n/b^{j-1}))
+\]
+Similarly, we apply the same method to $a^{j-1}f(n/b^{j-1})$, and so on and so forth,
+\[
+	a^jf(n/b^j\leq c\cdot a^{j-1} f(n/b^{j-1}) \leq c^2 \cdot  a^{j-1} f(n/b^{j-2} \leq \cdots \leq c^j f(n)
+\]
+\qedhere
+\item We recall the definition of $g(n)$ is that 
+\[
+ 	g(n) = \sum_{j=0} ^{\log_b n-1} a^j f(n/b^j) 	
+\]
+So 
+\[
+	\begin{aligned}
+	g(n) &= a^0 f(n/b^0) + af(n/b) + a^2 f(n/b^2) + \cdots + a^{\log_bn-1}f(n/b^{\log_bn-1})
+	\\ & \leq f(n) + c f(n) + c^2 f(n) + \cdots + c^{\log_b n-1} f(n)
+	\\ & < \frac{1}{1-c} f(n) \ \ \text{(Derived from infinite geometric sequence sum)}
+	\end{aligned}
+\]
+Let $c_0= \frac{1}{1-c}$, this yields to \[
+	g(n)= \mathcal{O} (f(n))
+\]
+\item Since we can find $c_0$, $c_1$ s.t. 
+\[
+	c_0 f(n) \leq g(n) \leq c_1 f(n)
+\]
+so \[
+	g(n) = \Theta(f(n))
+\]
+\end{enumerate}
 %which is then to prove 
 %\[
 	%\sum_{j=0}^{\log_bn-1} \frac{a^j}{(a- \varepsilon)^j} =  \sum _{j=0}^{\log_bn-1} (\frac{a}{a- \varepsilon})^j =  \frac{n^\varepsilon %-1}{b^\varepsilon -1}
