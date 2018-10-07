@@ -11,15 +11,27 @@
 \renewcommand{\familydefault}{\sfdefault}
 %\RequirePackage[cm]{sfmath}
 \RequirePackage{cmbright}
+
 \RequirePackage[colorlinks=true, breaklinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+
 \RequirePackage{setspace}
 \onehalfspacing
-\setlength\parindent{0pt}
+%\setlength\parindent{0pt} % noindent
+
+% figures + tables
+\RequirePackage{graphicx}
+\RequirePackage{subfigure,caption}
+\usepackage{multicol,multirow,booktabs}
+\usepackage{float}
 
 % math
 \RequirePackage{amsmath,amssymb,amsfonts}
-\RequirePackage{commath}
+\RequirePackage{commath,cases,bm}
 \numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}  
+\newtheorem{lemma}{Lemma}  
+\newtheorem{definition}{Definition}
 
 % pseudocode
 \RequirePackage[linesnumbered,ruled,longend]{algorithm2e}
