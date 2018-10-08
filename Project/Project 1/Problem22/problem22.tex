@@ -36,8 +36,6 @@
 \item [Common applications:] DNA computing, sociology studies, data mining.%most common fields where this algorithm is used
 \end{overview}
 
-
-
 \begin{problem}{\pbname}
 	The clique problem is to find the maximum clique in a given undirected graph. A clique is defined as all nodes are connected to each other through an edge, namely a complete subgraph.
 \end{problem} 
@@ -62,29 +60,29 @@
 	\SetKwFunction{main}{Main}
 	\SetKwFunction{clique}{Clique}
 	\Fn{\main{G}}{
-		\cmt{C* is the final clique of our algorithm, which will be used in later algorithms}.\\
+		\cmt{C* is the current discovered maximum clique}\\
 		C* $\leftarrow$ $\varnothing$\;
 		\clique{C*,$\varnothing$, $V$}\;
 		\Ret{C*}\;
 	}
 	\BlankLine
 	\Fn{\clique{set C*, set C, set P}}{
+		\cmt{$C$ is clique, $P$ is candidate vertex set}
 		\cmt{$|C|$ means the cardinality of $C$}\\
 		\If{$|C| > |C*|$}{ 
 			C* $\leftarrow$ C\;
 		}
 		\If{$|C|+|P|>|C*|$}{
-			\For{$p$ in $P$}{
-				P $\leftarrow$ P $\backslash$ $\{p\}$\;
+			\For{$p$ sorted with degree-ascending in $P$}{
+				P $\leftarrow$ P $\backslash$ $\{p\}$ \;
 				C' $\leftarrow$ C $\cup$ $\{p\}$\;
-				P $\leftarrow$ P $\cap$ vertices adjacent to $p$\;
+				P' $\leftarrow$ P $\cap$ vertices adjacent to $p$\;
+				\clique{set C*, set C', set P'} \;
 			}
 		}
 	}
-	\Ret
-
 \end{Algorithm}
-
+\newpage
 \subsection*{References}
 % list references where to find information on the given problem
 % prefer books, research articles, or internet sources that are likely to remain available over time
