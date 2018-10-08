@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  8 OCT 2018 14:23
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  8 OCT 2018 17:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -997,38 +997,43 @@ LaTeX Font Info:    Try loading font information for OML+cmbrm on input line 33
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/cmbright/omlcmbrm.fd
 File: omlcmbrm.fd 2005/04/13 v8.1 (WaS)
-)
-
-LaTeX Font Warning: Font shape `OT1/cmbr/bx/n' in size <7> not available
-(Font)              Font shape `OT1/cmbr/m/n' tried instead on input line 68.
-
-LaTeX Font Info:    Try loading font information for OT1+cmtl on input line 68.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/cmbright/ot1cmtl.fd
-File: ot1cmtl.fd 2005/04/13 v8.1 (WaS)
 ) [1
 
-] [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 101.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 101.
+]
+
+LaTeX Font Warning: Font shape `OT1/cmbr/bx/n' in size <7> not available
+(Font)              Font shape `OT1/cmbr/m/n' tried instead on input line 101.
+
+LaTeX Font Info:    Try loading font information for OT1+cmtl on input line 101
+.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/cmbright/ot1cmtl.fd
+File: ot1cmtl.fd 2005/04/13 v8.1 (WaS)
+)
+Missing character: There is no – in font cmbr10!
+ [2]
+Missing character: There is no – in font cmbr10!
+Missing character: There is no – in font cmbr10!
+ [3]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 133.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 133.
 
 (./problem22.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 101.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 101.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 101.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 133.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 133.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 133.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level
-(\end occurred when \ifx on line 100 was incomplete) 
+(\end occurred when \ifx on line 132 was incomplete) 
 Here is how much of TeX's memory you used:
  24826 strings out of 493591
  460006 string characters out of 6143546
- 565923 words of memory out of 5000000
+ 563903 words of memory out of 5000000
  27865 multiletter control sequences out of 15000+600000
  11476 words of font info for 42 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 61i,19n,88p,1005b,13836s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,18n,88p,1005b,13836s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on problem22.pdf (2 pages).
+Output written on problem22.pdf (3 pages).
