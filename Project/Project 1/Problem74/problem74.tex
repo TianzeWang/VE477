@@ -1,0 +1,104 @@
+%
+% do not add anything in this part
+%
+\ifx\onefile\undefined
+
+	\documentclass{article}
+
+	%if tcolorbox and tikz are installed use next line
+	\usepackage[tcbox]{projectalgo}
+	\usepackage{projectalgo}
+
+	% replace type by one of graph, math, combinatory, string, network, datastructure, ai, image
+	\pbtype{string}
+
+	\begin{document}
+\fi
+
+%
+% things can be added below
+%
+
+\def\pbname{Finite state machine minimization} %change this, do not use any number, just the name
+
+\section{\pbname} 
+
+% only for overview, so short description (no more than 1-2 lines)
+\begin{overview}
+\item [Algorithm:] Finite state machine minimization~(algo.~\ref{problem74}) 
+	% - replace nb with problem number (e.g. problem101)
+	% -	must match the label of the algorithm 
+	% - for more than one algo list each of them and use problem101a, problem101b, problem101c etc.
+\item [Input:] A finite state machine
+\item [Complexity:] $\mathcal{O}(n^{2\log n})$
+\item [Data structure compatibility:] Finite state machine (Deterministic finite automaton)
+\item [Common applications:] compilers, network protocols, theory of computation
+\end{overview}
+
+
+
+\begin{problem}{\pbname}
+	Given a finite state machine, minimize the states.
+\end{problem}
+
+\subsection*{Description}
+%Detailed description of the problem; More detailed information on the input and complexity; more applications with details on how they relate to each other (if this is the case).
+\begin{enumerate}
+\item Definition of FSM
+
+The formal definition of a finite state machine (deterministic finite automaton) is 
+\[
+	M:~(Q, \Sigma, \delta, q_0, F)
+\]
+\begin{enumerate}
+\item $Q$: finite set of states
+\item $\Sigma$: finite set of input symbols
+\item $\delta: Q\times \Sigma \leftarrow Q$: transition function 
+\item $q_0 \in Q$: initial state
+\item $F \subseteq Q$: accept state
+\end{enumerate}
+The automaton will accept a string $w$ if it starts at start state $q_0 $, and given each character in $w$, the transition rule will transit state to state according to $\delta$, and the final state shall halt at $F$ states.
+
+\item Input 
+
+The input of the algorithm shall be a finite state machine.
+
+\item Complexity
+
+
+
+% add comment in the pseudocode: \cmt{comment}
+% define a function name: \SetKwFunction{shortname}{Name of the function}
+% use the defined function: \shortname{$variables$}
+% use the keyword ``function'': \Fn{function name}, e.g. \Fn{\shortname{$var$}}
+\begin{Algorithm}[FSM minimization\label{problem74}]
+	% - replace nb with problem number (e.g. problem101)
+	% -	must match the reference in the overview
+	% - when writing more than one algo use problem101a, problem101b, problem101c etc.
+	%\SetKwFunction{myfunction}{MyFunction}	
+	\Input{}
+	\Output{}
+	%	\Fn{\myfunction{$a,b$}}{
+	%	}
+	\BlankLine
+
+	\Ret
+
+\end{Algorithm}
+\end{enumerate}
+\subsection*{References}
+% list references where to find information on the given problem
+% prefer books, research articles, or internet sources that are likely to remain available over time
+% as much as possible offer several options, including at least one which provide a detailed study of the problem
+% if available include links to programs/code solving the problem
+
+\begin{itemize}\itemsep .125cm
+	\item If available provide URLs, e.g.~\url{http://mywebsite.org}
+	\item Wikipedia is not acceptable if this is the unique reference
+	\item Reference some books, or published articles
+	\item Use reliable websites (no blog allowed) that are not likely to disappear any time soon
+\end{itemize}
+
+\ifx\onefile\undefined
+	\end{document}
+\fi

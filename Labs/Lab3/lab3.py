@@ -4,6 +4,7 @@ Lab3, Python 1.1
 '''
 
 # Sort and Count Algorithm
+import math
 
 
 def MergeCount(L1, L2):
@@ -19,7 +20,7 @@ def MergeCount(L1, L2):
             i = i + 1
         else:
             L.append(L2[j])
-            count = count + len(L1) - i + 1
+            count = count + len(L1) - i
             j = j + 1
     if i >= len(L1):
         # print("j and len(L2) are ", j, len(L2))
@@ -36,17 +37,18 @@ def SortCount(a):
     if (len(a) == 1):
         return (0, a)
     else:
-        L1 = a[0: int(len(a) / 2)]
-        L2 = a[int(len(a) / 2):]
+        L1 = a[0: math.ceil(len(a) / 2)]
+        L2 = a[math.ceil(len(a) / 2):]
         # print("L1 and L2 are", L1, L2)
         (count1, L1) = SortCount(L1)
         (count2, L2) = SortCount(L2)
         (count, L) = MergeCount(L1, L2)
     count = count + count1 + count2
-
     return (count, L)
 
+
 # To run python 1.1, run the following codes
-# s = [3, 5, 6, 8, 2, 1]
-# a = SortCount(s)
-# print(a[1])
+s = [1, 5, 4, 8, 10, 2, 6, 9, 3, 7]
+a = SortCount(s)
+print(a[1])
+print(a[0])

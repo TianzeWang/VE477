@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1539161264 "problem22.tex" "problem22.pdf" "problem22" 1539161266
+["pdflatex"] 1539163086 "problem74.tex" "problem74.pdf" "problem74" 1539163087
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -153,12 +153,12 @@
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1484319860 3520381 ff8107c8aac6ea0a9b25c7e51d4d2ff4 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "problem22.aux" 1539161266 986 89e00cad0d607c9e03e2a250d7f66f8c ""
-  "problem22.out" 1539161266 52 b755bf366d95a426103945caad833350 ""
-  "problem22.tex" 1539161264 6573 4f8af411f75652856a93308fa98b604e ""
+  "problem74.aux" 1539163087 999 fd7fa0edf370e63546bcd8fa73c21651 ""
+  "problem74.out" 1539163087 77 e10d3a2ebd1b7ffe1868f7da057afffe ""
+  "problem74.tex" 1539163083 3528 8067906ad3fd9fdc83837f541d25747e ""
   "projectalgo.sty" 1538929969 3383 a427046229453de5e64cdd223fd856a4 ""
   (generated)
-  "problem22.out"
-  "problem22.aux"
-  "problem22.pdf"
-  "problem22.log"
+  "problem74.aux"
+  "problem74.pdf"
+  "problem74.out"
+  "problem74.log"

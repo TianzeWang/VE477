@@ -15,9 +15,11 @@ def knapsack_smallfirst(L, weight):
         elif current_wei + i == weight:
             current_wei += i
             _L.append(i)
-            return _L
-        else:
-            return knapsack_smallfirst(L[1:], weight)
+            break
+        if current_wei + i > weight:
+            print("Boom shakalaka")
+            break
+    return _L
 
 # The next implementation is the increasing order
 
@@ -29,6 +31,7 @@ def List(len):
     return L
 
 # The next implementation is the decreasing order
+
 # def List(len):
 #     L = []
 #     for i in range(len):
@@ -38,12 +41,12 @@ def List(len):
 
 
 # L = [1, 2, 3, 4, 6, 7]
-weight = 18
+weight = 10
 a = knapsack_smallfirst(List(10), weight)
 print(a)
 
-weight_b = 48
-b = List(10)
+weight_b = 32
+b = List(11)
 weight_c = 1495
 c = List(100)
 weight_d = 1729
@@ -78,7 +81,10 @@ def knap_f():
 # t3 = timeit.timeit('knap_d()', 'from __main__ import knap_d', number=1)
 # t4 = timeit.timeit('knap_e()', 'from __main__ import knap_e', number=1)
 # t5 = timeit.timeit('knap_f()', 'from __main__ import knap_f', number=1)
-
+print(knap_b())
+print(knap_c())
+print(knap_d())
+print(knap_e())
 t1 = timeit.timeit('knap_b()', number=1, globals=globals())
 t2 = timeit.timeit('knap_c()', number=1, globals=globals())
 t3 = timeit.timeit('knap_d()', number=1, globals=globals())
