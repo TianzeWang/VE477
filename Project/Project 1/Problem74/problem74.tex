@@ -8,7 +8,7 @@
 	%if tcolorbox and tikz are installed use next line
 	\usepackage[tcbox]{projectalgo}
 	\usepackage{projectalgo}
-
+	\usepackage{algorithm2e}
 	% replace type by one of graph, math, combinatory, string, network, datastructure, ai, image
 	\pbtype{string}
 
@@ -30,7 +30,7 @@
 	% -	must match the label of the algorithm 
 	% - for more than one algo list each of them and use problem101a, problem101b, problem101c etc.
 \item [Input:] A finite state machine
-\item [Complexity:] $\mathcal{O}(n^{2\log n})$
+\item [Complexity:] $O(|\Sigma|\cdot |F|)$
 \item [Data structure compatibility:] Finite state machine (Deterministic finite automaton)
 \item [Common applications:] compilers, network protocols, theory of computation
 \end{overview}
@@ -53,7 +53,7 @@ The formal definition of a finite state machine (deterministic finite automaton)
 \begin{enumerate}
 \item $Q$: finite set of states
 \item $\Sigma$: finite set of input symbols
-\item $\delta: Q\times \Sigma \leftarrow Q$: transition function 
+\item $\delta: Q\times \Sigma \rightarrow Q$: transition function 
 \item $q_0 \in Q$: initial state
 \item $F \subseteq Q$: accept state
 \end{enumerate}
@@ -61,11 +61,30 @@ The automaton will accept a string $w$ if it starts at start state $q_0 $, and g
 
 \item Input 
 
-The input of the algorithm shall be a finite state machine.
+The input of the algorithm shall be a well-defined finite state machine. Any illegal input should not be considered.
 
 \item Complexity
 
+The time complexity of this algorithm is defined by the cost of each iteration and iteration time. For the outer iteration, it will need at most $|\Sigma|$ iterations, and for the inner iteration, it will need around $|F|$ operations. Thus we will need $O(|\Sigma|\cdot |F|)$ complexity.
+\newpage
+\item Application
 
+In computer science field, finite state machine can be used to treat string. It can set up several states to check whether to accept an arrival of strings or not.
+
+
+In digital circuits field, finite state machine can be used to depict the behavior of a certain circuit, and it could link the combinatoric circuits with a desired function.
+
+
+Finite State Machine can also be used to depict a lot of behaviors in natural science or social science. For example, it could be applied to analyze the relation in different social characters, and to analyze how an social event is carried out.
+
+
+\item Detailed Algorithm
+
+This algorithm is introduced by Hopcroft. The idea behind is partition refinement, which means partition a large set into several small sets by their behavior. 
+
+At the very beginning, the are partitioned into two different groups, that is $\{F\}$ and $\{Q\backslash F\}$. These two groups are accepting states and rejecting states, obviously they are inequivalent.
+
+Then it comes with the magic of this algorithm. That it separates $\{A\}$ with $\{W\backslash A\}$, where $W$ initially to be $F$, 
 
 % add comment in the pseudocode: \cmt{comment}
 % define a function name: \SetKwFunction{shortname}{Name of the function}
@@ -76,8 +95,28 @@ The input of the algorithm shall be a finite state machine.
 	% -	must match the reference in the overview
 	% - when writing more than one algo use problem101a, problem101b, problem101c etc.
 	%\SetKwFunction{myfunction}{MyFunction}	
-	\Input{}
-	\Output{}
+	\SetKwFunction{min}{MinimizeFSM}
+	\Input{A formally defined FSM}
+	\Output{Minimized FSM}
+	\Fn{\min{$M:~(Q, \Sigma, \delta, q_0, F)$}}{
+		set $P$ $\leftarrow$ $\{F, Q\backslash F\}$\;
+		set $W$ $\leftarrow$ $\{F\}$\;
+		\While{$W \neq \varnothing$ }{
+			Choose $A \in W$\;
+			$W \leftarrow W \backslash A$\;
+			\For{$s$ in $\Sigma$}{
+				X $\leftarrow$ $\{X: \delta(X \times c) \rightarrow A\}$; \cmt{In natural language, it means that X is a state that: the transition rule takes $c$ in the state $X$ will go to a state in set $A$} \\	
+				\For{$Y \subset P$ s.t. $X \cap Y \neq \varnothing$ $\and$ $Y \backslash X \neq \varnothing$}{
+					\If{$|X\cap Y| \leq |Y\backslash X|$}{
+						W $\leftarrow$ W $\cup$ $(X \cap Y)$\;
+					}
+					\Else{
+						W $\leftarrow$ W $\cup$ $(Y \backslash X)$\; 
+					}
+				}
+			}
+		}
+	}
 	%	\Fn{\myfunction{$a,b$}}{
 	%	}
 	\BlankLine

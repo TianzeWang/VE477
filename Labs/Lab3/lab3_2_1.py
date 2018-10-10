@@ -17,7 +17,7 @@ def knapsack_smallfirst(L, weight):
             _L.append(i)
             break
         if current_wei + i > weight:
-            print("Boom shakalaka")
+            print("Next Boom shakalaka")
             break
     return _L
 
