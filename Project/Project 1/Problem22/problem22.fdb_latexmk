@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1539328131 "problem74.tex" "problem74.pdf" "problem74" 1539328132
+["pdflatex"] 1539342157 "problem22.tex" "problem22.pdf" "problem22" 1539342158
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cmbright/cmbr10.tfm" 1136768653 1304 95ad082f6791446dc43df559d5c79878 ""
@@ -13,7 +13,6 @@
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cmbright/cmbrmi10.tfm" 1136768653 1544 20b33e3c0f9b0012adb04ac9d418afaa ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cmbright/cmbrmi8.tfm" 1136768653 1536 e5dc1fc92eaa02a077dfd8f5bb78f6ce ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cmbright/cmbrsl10.tfm" 1136768653 1504 ddfb912c594fbc2fb3c85d6fe11e64ed ""
-  "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cmbright/cmbrsl8.tfm" 1136768653 1504 64f9bcf2a84b7e894d1d02262ce3e08f ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cmbright/cmbrsy10.tfm" 1136768653 1124 00df9b89c9eb5dfe10f722aab27b3560 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cmbright/cmbrsy8.tfm" 1136768653 1120 90e1ff57236ed6769cdb8e6d58469358 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cmbright/cmtl10.tfm" 1136768653 768 a723c4266cb3fba12f4a46cc38c2802e ""
@@ -165,14 +164,12 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1484319832 1888048 f2c5faed5981a516f406b2ccc20bff71 ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1484319887 3873397 c856433cca128ce7e83d2c948755f050 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "problem74.aux" 1539328132 1033 8b2169846a5647bf25cee220df23f300 ""
-  "problem74.out" 1539328132 68 e2f4f5fe3533b447aad4b2311b1df399 ""
-  "problem74.tex" 1539328128 7911 23a615533f126837357280e0fbb9770b ""
-  "projectalgo.sty" 1539183584 3383 a427046229453de5e64cdd223fd856a4 ""
+  "problem22.aux" 1539342158 1020 ecb92f570e990e2a09797f1159a95240 ""
+  "problem22.out" 1539342158 49 caa498ec5b7dd88eb465c9fb5e2dd3f9 ""
+  "problem22.tex" 1539342152 6573 4f8af411f75652856a93308fa98b604e ""
+  "projectalgo.sty" 1538929969 3383 a427046229453de5e64cdd223fd856a4 ""
   (generated)
-  "problem74.pdf"
-  "/Users/peter/Desktop/Peter/JI/VE477/Project/Project 1/Problem74/problem74.pdf"
-  "problem74.out"
-  "/Users/peter/Desktop/Peter/JI/VE477/Project/Project 1/Problem74/problem74.log"
-  "problem74.aux"
-  "problem74.log"
+  "problem22.aux"
+  "problem22.pdf"
+  "problem22.log"
+  "problem22.out"

@@ -1,0 +1,134 @@
+%
+% do not add anything in this part
+%
+\ifx\onefile\undefined
+
+	\documentclass{article}
+
+	%if tcolorbox and tikz are installed use next line
+	\usepackage[tcbox]{projectalgo}
+	\usepackage{projectalgo}
+	\usepackage{algorithm2e}
+	%\usepackage[linesnumbered,ruled,longend]{algorithm2e}
+	% replace type by one of graph, math, combinatory, string, network, datastructure, ai, image
+	\pbtype{graph}
+
+	\begin{document}
+\fi
+
+%
+% things can be added below
+%
+
+\def\pbname{Clique Problem} %change this, do not use any number, just the name
+
+\section{\pbname} 
+
+% only for overview, so short description (no more than 1-2 lines)
+\begin{overview}
+\item [Algorithm:] Finding maximum clique in a given graph~(algo.~\ref{problem22}) 
+	% - replace nb with problem number (e.g. problem101)
+	% -	must match the label of the algorithm 
+	% - for more than one algo list each of them and use problem101a, problem101b, problem101c etc.
+\item [Input:] An undirected graph with a set of vertices $V$ and a set of edges $E$.
+\item [Complexity:] $\mathcal{O}(2^{n^{1-\epsilon/r^{1+\epsilon}}})$
+\item [Data structure compatibility:] Undirected Graphs.
+\item [Common applications:] DNA computing, sociology studies, data mining.%most common fields where this algorithm is used
+\end{overview}
+
+\begin{problem}{\pbname}
+	The clique problem is to find the maximum clique in a given undirected graph. A clique is defined as all nodes are connected to each other through an edge, namely a complete subgraph.
+\end{problem} 
+
+\subsection*{Description}
+\begin{enumerate}
+\item Problem Clarification
+
+%Detailed description of the problem; More detailed information on the input and complexity; more applications with details on how they relate to each other (if this is the case).
+ Suppose we have an undirected graph with a set of vertices and a set of edges, we wish to find a fully connected subgraph with maximum nodes, which is known as a \textit{maximum complete subgraph}. The input 
+ shall be the undirected graph. 
+
+ \item Algorithm Clarification
+
+ We will introduce a basic algorithm used to solve the clique problem, the method used is called \textbf{B\&B framework}. (Branch and Bound) In algo.~\ref{problem22}, it uses two key sets, $C$ represents the clique and $P$ represents all candidate vertices. The formal definition of $P$ is :
+ \[
+  	P \subset V\backslash C \cap \{\forall v \in P, \forall u \in C, {u,v} \in E\}
+ \] The key operation of this algorithm is on line 10 and 11, line 10 is the bounding criteria, and line 11 is the branching condition. 
+ \begin{enumerate}
+ \item Bound: Since we need to maximize $C*$, from the definition of the graph, $|C|+|P|$ necessarily defines a maximum bound for the clique, and if our currently discovered clique is larger than $|C|+|P|$, we shall stop since we have already found the largest clique.
+ \item Branch: During the branch operation, the property of $P$ must be maintained. So each time we update $P$ as $P \ \cap $ adjacent vertices to $p$. And $p$ is chosen as the vertices from smallest degree to biggest degree.
+ \end{enumerate}
+After each iteration, it will lead to either a bigger clique, or the function will halt on the bound condition.
+
+\item  Applications with Details and complexity
+
+The clique problem can be applied into many specific fields, such as DNA computing, sociology studies, data mining.
+
+We will discuss about an abstract application, that the clique problem can be related with a standard quadratic programming problem in graph. The problem is defined as
+\begin{center}
+To maximize $\displaystyle \sum_{i=1}^n w_ix_w $, given that 
+$
+	x_ix_j =0 ~~\forall{i,j}\in E, x_i^2-x_i = 0
+$
+\end{center}
+Let $A_G = (a_{ij})_{i,j\in V} $ be the adjacency matrix of $G$, and $g(x)=x^{T}A_Gx$. The global optimal solution is $x*$ that \[
+	\omega(G) = \frac{1}{1-g(x*)}
+\]
+The $\omega(G)$ is the maximum clique of $G$.
+The computational complexity of this problem is given by $\mathcal{O}(2^{n^{1-\epsilon/r^{1+\epsilon}}})$.%$\mathcal{O}^*(\gamma^n),(\gamma<2)$, with $\mathcal{(O)}^*$ means $\mathcal{(0)}$ ignoring the polynomial factors.  
+\end{enumerate}
+% add comment in the pseudocode: \cmt{comment}
+% define a function name: \SetKwFunction{shortname}{Name of the function}
+% use the defined function: \shortname{$variables$}
+% use the keyword ``function'': \Fn{function name}, e.g. \Fn{\shortname{$var$}}
+\begin{Algorithm}[Maximum Clique Problem\label{problem22}]
+	% - replace nb with problem number (e.g. problem101)
+	% -	must match the reference in the overview
+	% - when writing more than one algo use problem101a, problem101b, problem101c etc.
+	%\SetKwFunction{myfunction}{MyFunction}	
+	\Input{A graph $G$}
+	\Output{Clique $C$}
+	%	\Fn{\myfunction{$a,b$}}{
+	%	}
+	\SetKwFunction{main}{Main}
+	\SetKwFunction{clique}{Clique}
+	\Fn{\main{G}}{
+		\cmt{C* is the current discovered maximum clique}\\
+		C* $\leftarrow$ $\varnothing$\;
+		\clique{C*,$\varnothing$, $V$}\;
+		\Ret{C*}\;
+	}
+	\BlankLine
+	\Fn{\clique{set C*, set C, set P}}{
+		\cmt{$C$ is clique, $P$ is candidate vertex set}
+		\cmt{$|C|$ means the cardinality of $C$}\\
+		\If{$|C| > |C*|$}{ 
+			C* $\leftarrow$ C\;
+		}
+		\If{$|C|+|P|>|C*|$}{
+			\For{$p$ sorted with degree-ascending in $P$}{
+				P $\leftarrow$ P $\backslash$ $\{p\}$ \;
+				C' $\leftarrow$ C $\cup$ $\{p\}$\;
+				P' $\leftarrow$ P $\cap$ vertices adjacent to $p$\;
+				\clique{set C*, set C', set P'} \;
+			}
+		}
+	}
+\end{Algorithm}
+\subsection*{References}
+% list references where to find information on the given problem
+% prefer books, research articles, or internet sources that are likely to remain available over time
+% as much as possible offer several options, including at least one which provide a detailed study of the problem
+% if available include links to programs/code solving the problem
+
+\begin{itemize}\itemsep .125cm
+%	\item If available provide URLs, e.g.~\url{http://mywebsite.org}
+	%\item ~\url{http://www.cs.ecu.edu/karl/6420/spr16/Notes/NPcomplete/clique.html}
+	\item Ausiello, G., Crescenzi, P., Gambosi, G., Kann, V., Marchetti-Spaccamela, A., \& Protasi, M. (1999). Complexity and approximation: Combinatorial optimization problems and their approximability properties. Berlin: Springer.
+	\item Babel, L., \& Tinhofer, G. (1990). A branch and bound algorithm for the maximum clique problem. Methods and Models of Operations Research, 34(3), 207–217.
+	\item Engebretsen, L., \& Holmerin, J. (2003). Towards optimal lower bounds for clique and chromatic number. Theoretical Computer Science, 299(1–3), 537–584.
+\end{itemize}
+
+\ifx\onefile\undefined
+	\end{document}
+\fi
