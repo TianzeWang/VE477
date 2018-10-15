@@ -1,0 +1,211 @@
+%!TEX program = xelatex 
+\documentclass[A4paper]{article}
+\usepackage{geometry}
+\geometry{left = 3cm, right = 3cm, top = 3cm, bottom = 3cm}
+\usepackage[linesnumbered,ruled,longend]{algorithm2e}
+\usepackage{amsmath}
+\usepackage{amsfonts,amssymb}
+\usepackage{blkarray}
+\usepackage{booktabs}
+\usepackage{dsfont}
+\usepackage{enumerate}
+\usepackage{epsf}
+\usepackage{fontspec}
+\usepackage{forest}
+\usepackage[colorlinks=true,linkcolor=purple]{hyperref}
+\usepackage{listings}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{tikz}
+%\usepackage{indentfirst}
+%\usepackage[usenames,dvipsnames]{xcolor}
+\newfontfamily\Inputmono{Consolas}
+\renewcommand\thesection{Question\ \arabic{section}}%\arabic{section}}
+\renewcommand\thesubsection{(\arabic{subsection})}
+\renewcommand\thesubsubsection{\arabic{subsubsection}.}
+\newcommand{\qedhere}{$\hfill\ensuremath{\square}$}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\newcommand\mycommfont[1]{\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+%\setmainfont{Citadel Script}
+%\setmainfont{Chalkboard}
+\setmainfont{CMU Bright}
+%\setmainfont{Apple Chancery}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\renewcommand{\familydefault}{\sfdefault}
+%\renewcommand{\footnotesize}{\sfdefault}
+\setlength{\parskip}{0.25em}
+\setlength{\parindent}{0em}
+
+%%%%%%%%%%%Configurations for code%%%%%%%%%%%%%%%%%%%%%%%
+\SetKwInOut{Input}{Input} 
+\SetKwInOut{Output}{Output} 
+\SetKwProg{Fn}{Function}{\string:}{end} 
+\SetKwFunction{mstnew}{MST\_New}
+\SetKwFunction{tw}{TreeWeight}
+\SetKwFunction{dps}{DFS}
+\SetKwFunction{con}{Is\_Connected}
+\SetKwFunction{hor}{Three\_Fastest\_Horses}
+%%%%%%%%%%%Here is the configurations for Code%%%%%%%%%%%
+
+%\definecolor{mygreen}{rgb}{0,0.6,0}
+%\definecolor{mygray}{rgb}{0.7,0.7,0.7}
+%\definecolor{mymauve}{rgb}{0.58,0,0.82}
+%\definecolor{mywhite}{rgb}{1,1,1}
+%\definecolor{myblack}{rgb}{0,0,0}
+%\definecolor{myblue}{RGB}{27,154,154}
+%\lstset{
+% backgroundcolor=\color{white}, 
+% basicstyle = \footnotesize\Inputmono,       
+% breakatwhitespace = false,        
+% breaklines = true,                 
+% captionpos = b,                    
+% commentstyle = \color{mygray}\bfseries,
+% extendedchars = false,             
+% frame =shadowbox, 
+% framerule=0.5pt,
+% frameround=tttt,
+% keepspaces=true,
+% keywordstyle=\color{myblue}\bfseries, % keyword style
+% language = Verilog,                     % the language of code
+% otherkeywords={string}, 
+% numbers=left, 
+% numbersep=5pt,
+% numberstyle=\tiny\color{mymauve},
+% rulecolor=\color{black},         
+% showspaces=false,  
+% showstringspaces=false, 
+% showtabs=false,    
+% stepnumber=0,         
+% stringstyle=\color{mymauve},        % string literal style
+% tabsize=2,          
+% title=\lstname                      
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%\setmainfont{Savoye LET}
+\setmainfont{Cormorant Upright}
+\renewcommand\arraystretch{1.5}
+
+
+\thispagestyle{empty}
+
+\begin{center}
+\begin{large}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{Logo2.png}
+\end{figure}
+\hrule
+\vspace*{0.25cm}
+\sc{UM--SJTU Joint Institute \vspace*{0.3em}} \\ 
+VE477 Intro to Algorithms\\
+\end{large}
+\hrulefill
+
+\vspace*{3cm}
+
+\begin{Large}
+\sc{{Homework 3}} \\
+\end{Large}
+\vspace*{2cm}
+\begin{large}
+\sc{{Wang, Tianze\\ 515370910202}} \\
+\end{large}
+\end{center}
+\newpage
+\setmainfont{Optima}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\tableofcontents
+%\newpage
+\setcounter{page}{1}
+\section{Hamilton Path}
+A Hamilton Path is a path that visit each vertex in a graph exactly once.
+\subsection{}
+Not done yet.
+\subsection{}
+Not done yet.
+\subsection{}
+\begin{algorithm}
+\caption{Hamilton Algorithm}
+\SetKwFunction{hc}{Hamilton}
+\Input{An undirected graph $G$}
+\Output{The Hamilton Path in $G$}
+\Fn{\hc{$G$}}{
+	L $\leftarrow$ []\;
+	S $\leftarrow$ nodes with no coming edges\;
+	\If{S size >1}{
+		\KwRet{No result}
+	}
+	\While{$S$ $\neq  \varnothing$}{
+		remove $n$ from $S$\;
+		Append $n$ to tail of $L$\;
+		\For{node $m$ with an edge $e$ from $n$ to $m$}{
+			remove $e$ from graph.
+		}
+	}
+	\If{Graph has other edges}{
+		\KwRet{No result}
+	}
+	\Else{
+		\KwRet{L}
+	}
+}
+\end{algorithm}
+
+
+\end{document}	
+
+\begin{algorithm}
+\caption{Hamilton Algorithm}
+\SetKwFunction{hc}{Hamilton}
+\Input{An undirected graph $G$}
+\Output{The Hamilton Path in $G$}
+\Fn{\hc{$G$}}{
+	Arbitrary get a permutation of vertices in any way\;
+	\For{vertices in the permutation not being adjacent}{
+		Mark these vertices as break points\;
+	}
+	\For{All break points except for one left}{
+		add edge to break points, which shall be deleted later\;
+	}
+	main\_break\_point $\leftarrow$ the only breakpoint\;
+	main\_break\_point\_list\ $\leftarrow$ []\;
+	\textbf{Append} main\_break\_point \textbf{to} main\_break\_point\_list\;
+	\While{There is at least one breakpoint}{
+		Cut a segment from the permutation with only one break point\;
+		
+		\If{All break points in main\_break\_point\_list are different from newly-created break point \textbf{and}\\
+			The number of new break point to be least \textbf{or} no new breakpoint}{
+				Insert it in the cycle\;
+				\If{no new break point}{\textbf{break}\;}
+				main\_break\_point\_list $\leftarrow$ new break point\;
+				\textbf{Append} main\_break\_point \textbf{to} main\_break\_point\_list\;
+			}
+	}
+	\KwRet{The permutation, namely the Hamilton Path}
+}
+\end{algorithm}
+\subsection{}
+The complexity is mainly decided by the updating process. Now we have the number of all possible break points to be 
+\[
+	(N-1)^2
+\]
+and each iteration, it will take polynomial time ($\mathcal{O}(N)$) computation since there is no recursive call inside iteration. The maximum cost will be visiting all the possible break points, and that will cost no more than
+\[
+	\mathcal{O}(N^3)
+\]
+So the complexity is polynomial time.
+\subsection{}
+It belongs to cubic time complexity.
+
+
+
+
+
