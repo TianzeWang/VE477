@@ -89,6 +89,7 @@
 
 \begin{document}
 %\setmainfont{Savoye LET}
+%\setmainfont{Cormorant Upright}
 \setmainfont{Cormorant Upright}
 \renewcommand\arraystretch{1.5}
 
@@ -143,14 +144,39 @@ Not done yet.
 	\If{S size >1}{
 		\KwRet{No result}
 	}
+	\If{S size == 0}{
+		Reverse the direction of all edges\;
+		S' $\leftarrow$ nodes with no coming edges\;
+		\uIf{S' size ==0}{
+			\KwRet{Exist Hamilton Path}
+		}
+		\Else{
+			\While{$S$ $\neq  \varnothing$}{
+		remove $n$ from $S$\;
+		Append $n$ to tail of $L$\;
+		\For{node $m$ with an edge $e$ from $n$ to $m$}{
+			remove $e$ from graph.
+		}
+		Update $S$\;
+	}
+	\uIf{Graph has other edges}{
+		\KwRet{No result}
+	}
+	\Else{
+		\KwRet{L}
+	}
+		}
+
+	}
 	\While{$S$ $\neq  \varnothing$}{
 		remove $n$ from $S$\;
 		Append $n$ to tail of $L$\;
 		\For{node $m$ with an edge $e$ from $n$ to $m$}{
 			remove $e$ from graph.
 		}
+		Update $S$\;
 	}
-	\If{Graph has other edges}{
+	\uIf{Graph has other edges}{
 		\KwRet{No result}
 	}
 	\Else{
@@ -158,9 +184,107 @@ Not done yet.
 	}
 }
 \end{algorithm}
+\newpage
+\begin{flushleft}
+\subsection{Complexity}
+The complexity is a DFS with stack, and the algorithm will visit every vertex and every edge in the graph for only once, so the overall complexity is 
+\[
+ 	\mathcal{O}(V+E)
+ \] 
+\end{flushleft}
+\subsection{}
+Linear Complexity.
 
-
+\section{Critical Thinking}
+\subsection{}
+The answer is no. The reason is that, to be bounded by polynomial, it should have time complexity of $\mathcal{O}(n^k)$. However, in this case, for\[
+	\lceil \log n \rceil !
+\] 
+We are not able to find a $k$ satisfying the condition since the existing factorial calculation.
+\subsection{}
+Yes.\\
+The definition of $\log ^*$ is 
+\[
+	x = \left\{
+	\begin{aligned}
+	&0 \ \ \ & x \leq 1\\
+	&1 + \log^* \log_2 x & x > 1
+	\end{aligned}
+	\right.
+\]
+And the definition of $f(x)$ to be asymptotically larger than $g(x)$ is 
+\[
+	\underset{x\rightarrow \infty}{lim} \frac{f(x)}{g(x)} = \infty
+\]
+In this problem, \[
+	\begin{aligned}
+	\log^* \log n & = \log^* (\frac{\log_2 n}{\log_2e} )
+	\end{aligned}
+\]
+which means,
+\[
+	\log^* n -2 <\log^* \log n < \log* n -1
+\]
+And we can conclude
+\[
+	\log^* \log n = O(\log^* n)
+\]
+The result is then
+\[
+	\underset{x\rightarrow \infty}{lim} \frac{\log^* n -1}{\log\log^* n} = \underset{a\rightarrow \infty}{lim} \frac{a}{\log a} = \infty
+\]
+\qedhere
+\subsection{}
+We will only need 3 weigh.
+\begin{algorithm}
+\SetKwFunction{bs}{get\_ball}
+\Input{8 balls with one lighter and 7 same weight}
+\Output{The light weight ball}
+\Fn{\bs{8 balls}}{
+	Divide 8 balls into two 4-ball groups, $A_1 $, $A_2$\;
+	Weigh $A_1$, $A_2$\;
+	Divide lighter-weight 4 balls into two 2-ball groups, $B_1$, $B_2$\;
+	Weigh $B_1$, $B_2$\;
+	Weigh inside the lighter-weight group from $B_1$ and $B_2$.
+	\KwRet{Lighter weight ball from previous weigh}
+}
+\end{algorithm}
+\section{Rubik's Cube}
+The Rubik's cube is a cube with 6 sides in different color, and each side is cut into 9 identical square pieces. There is an internal pivot such that enable each side to rotate, when the side is rotating, 3 adjacent square pieces that adjacent to the rotating side in all 4 adjacent sides will move with the side. To solve a Rubik's cube, all sides should be restored to same color. \\
+\par \textbf{Solving Strategy 1: CFOP} A method called CFOP, which is a short spelling for Cross, First-2-layers, Orienting-the-last-layer, Permutation-last-layer. First build a cross, on a single layer, the cross should be also valid for the adjacent for side. Second, finish the bottom two layer according to formula. Third, finish upper slide, without considering the permutation of the layer.(namely the color are correct however the position may be wrong) Fourth, finish the permutation, using formula.
+\par \textbf{Solving Strategy 2: Heise Method}  A method is defined in 4 steps. First, build 4 successive square-shaped blocks. 
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.1\textwidth]{HW3_pb1.png}
+\end{figure}
+\begin{flushleft}
+Second, match the sequence and orient edges.
+\end{flushleft}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.1\textwidth]{HW3_pb2.png}
+\end{figure}
+Third, solve the remaining edges and any two corners. Fourth, solve all the corners. \\
+\url{https://www.ryanheise.com/cube/heise_method.html} 
 \end{document}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \begin{algorithm}
 \caption{Hamilton Algorithm}

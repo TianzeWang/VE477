@@ -318,4 +318,6 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+INPUT HW3_pb1.png
+INPUT HW3_pb2.png
 INPUT HW3.aux

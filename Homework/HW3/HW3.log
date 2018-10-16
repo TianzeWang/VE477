@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  15 OCT 2018 08:40
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  16 OCT 2018 00:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1593,26 +1593,26 @@ Package microtype Info: Loading generic settings for font family
 . - 'bold italic small caps'  (bx/itsc) with NFSS spec.: 
 .................................................
 LaTeX Font Info:    Font shape `EU1/CormorantUpright(0)/m/n' will be
-(Font)              scaled to size 11.16577pt on input line 92.
+(Font)              scaled to size 11.16577pt on input line 93.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `CormorantUpright' (encoding: EU1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `EU1/CormorantUpright(0)/m/n' will be
-(Font)              scaled to size 13.39893pt on input line 99.
+(Font)              scaled to size 13.39893pt on input line 100.
 File: Logo2.png Graphic file (type QTm)
  <use  "Logo2.png" >
 
 LaTeX Font Warning: Font shape `EU1/CormorantUpright(0)/m/sc' undefined
 (Font)              using `EU1/CormorantUpright(0)/m/n' instead on input line 1
-06.
+07.
 
 LaTeX Font Info:    Font shape `EU1/CormorantUpright(0)/m/n' will be
-(Font)              scaled to size 16.07869pt on input line 113.
-LaTeX Font Info:    Font shape `EU1/CormorantUpright(0)/m/sc' will be
 (Font)              scaled to size 16.07869pt on input line 114.
 LaTeX Font Info:    Font shape `EU1/CormorantUpright(0)/m/sc' will be
-(Font)              scaled to size 13.39893pt on input line 118.
+(Font)              scaled to size 16.07869pt on input line 115.
+LaTeX Font Info:    Font shape `EU1/CormorantUpright(0)/m/sc' will be
+(Font)              scaled to size 13.39893pt on input line 119.
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
@@ -1631,7 +1631,7 @@ File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 . Optima scale = 0.90505043384643.
 .................................................
 LaTeX Font Info:    Font shape `EU1/Optima(1)/m/n' will be
-(Font)              scaled to size 9.05045pt on input line 122.
+(Font)              scaled to size 9.05045pt on input line 123.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `Optima' (encoding: EU1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1657,27 +1657,27 @@ Package microtype Info: Loading generic settings for font family
 . Optima scale = 0.9050440254796661.
 .................................................
 LaTeX Font Info:    Font shape `EU1/Optima(1)/m/n' will be
-(Font)              scaled to size 13.03262pt on input line 128.
+(Font)              scaled to size 13.03262pt on input line 129.
 LaTeX Font Info:    Font shape `EU1/Optima(1)/bx/n' will be
-(Font)              scaled to size 12.84454pt on input line 128.
+(Font)              scaled to size 12.84454pt on input line 129.
 LaTeX Font Info:    Font shape `EU1/Optima(1)/m/n' will be
-(Font)              scaled to size 10.86053pt on input line 130.
+(Font)              scaled to size 10.86053pt on input line 131.
 LaTeX Font Info:    Font shape `EU1/Optima(1)/bx/n' will be
-(Font)              scaled to size 10.7038pt on input line 130.
+(Font)              scaled to size 10.7038pt on input line 131.
 LaTeX Font Info:    Font shape `EU1/Optima(1)/bx/n' will be
-(Font)              scaled to size 8.91983pt on input line 136.
+(Font)              scaled to size 8.91983pt on input line 137.
 LaTeX Font Info:    Font shape `EU1/CMUBright(0)/m/n' will be
-(Font)              scaled to size 6.39192pt on input line 138.
+(Font)              scaled to size 6.39192pt on input line 139.
 LaTeX Font Info:    Font shape `EU1/CMUBright(0)/m/n' will be
-(Font)              scaled to size 4.56566pt on input line 138.
-LaTeX Font Info:    Try loading font information for U+msa on input line 138.
+(Font)              scaled to size 4.56566pt on input line 139.
+LaTeX Font Info:    Try loading font information for U+msa on input line 139.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 138.
+LaTeX Font Info:    Try loading font information for U+msb on input line 139.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1685,7 +1685,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 138.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 139.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -1695,18 +1695,27 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 LaTeX Font Info:    Font shape `EU1/Optima(1)/bx/n' will be
-(Font)              scaled to size 6.24388pt on input line 160.
+(Font)              scaled to size 6.24388pt on input line 186.
 LaTeX Font Info:    Font shape `EU1/Optima(1)/m/it' will be
-(Font)              scaled to size 9.12689pt on input line 160.
+(Font)              scaled to size 9.12689pt on input line 186.
 LaTeX Font Info:    Font shape `EU1/Optima(0)/m/n' will be
-(Font)              scaled to size 9.05045pt on input line 160.
+(Font)              scaled to size 9.05045pt on input line 186.
  [1]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 163.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 163.
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 253--254
 
-(./HW3.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 163.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 163.
+ []
+
+[3]
+File: HW3_pb1.png Graphic file (type QTm)
+ <use  "HW3_pb1.png" >
+File: HW3_pb2.png Graphic file (type QTm)
+ <use  "HW3_pb2.png" > [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 269.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 269.
+ (./HW3.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 269.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 269.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1717,12 +1726,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 43937 strings out of 493591
- 915974 string characters out of 6143546
- 971991 words of memory out of 5000000
- 46801 multiletter control sequences out of 15000+600000
+ 43945 strings out of 493591
+ 916052 string characters out of 6143546
+ 976454 words of memory out of 5000000
+ 46807 multiletter control sequences out of 15000+600000
  6482 words of font info for 62 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 61i,18n,105p,10362b,33226s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,24n,105p,10362b,33356s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on HW3.pdf (2 pages).
+Output written on HW3.pdf (5 pages).
