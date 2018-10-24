@@ -73,6 +73,44 @@ class fibheap:
                     if i.key < self.min_node.key:
                         self.min_node = i
 
+    def fib_link(self, y, x):
+        self.root_list.remove(y)
+        x.children.append(y)
+        x.degree += 1
+        y.mark = False
+
+    def fib_decreasekey(self, x, k):
+        if k > x.key:
+            print("New key is greater")
+            return
+        x.key = k
+        y = x.parent
+        if y is not None and x.key < y.key:
+            self.cut(x, y)
+            self.cascut(y)
+        if x.key < self.min_node.key:
+            self.min_node = x
+
+    def cut(self, x, y):
+        y.children.remove(x)
+        y.degree -= 1
+        self.root_list.append(x)
+        x.parent = None
+        x.mark = False
+
+    def cascut(self, y):
+        z = y.parent
+        if z is not None:
+            if y.mark is not False:
+                y.mark = True
+            else:
+                self.cut(y, z)
+                self.cascut(z)
+
+    def delete(self, x):
+        self.fib_decreasekey(x, -9999999999)
+        self.fib_extractmin()
+
 
 def Union(H1, H2):
     H = fibheap(None)
