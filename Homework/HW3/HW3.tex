@@ -124,6 +124,7 @@ VE477 Intro to Algorithms\\
 \setmonofont{Optima}
 \setsansfont{Optima}
 %\tableofcontents
+\large
 %\newpage
 \setcounter{page}{1}
 \section{Hamilton Path}
@@ -144,30 +145,7 @@ Not done yet.
 	\If{S size >1}{
 		\KwRet{No result}
 	}
-	\If{S size == 0}{
-		Reverse the direction of all edges\;
-		S' $\leftarrow$ nodes with no coming edges\;
-		\uIf{S' size ==0}{
-			\KwRet{Exist Hamilton Path}
-		}
-		\Else{
-			\While{$S$ $\neq  \varnothing$}{
-		remove $n$ from $S$\;
-		Append $n$ to tail of $L$\;
-		\For{node $m$ with an edge $e$ from $n$ to $m$}{
-			remove $e$ from graph.
-		}
-		Update $S$\;
-	}
-	\uIf{Graph has other edges}{
-		\KwRet{No result}
-	}
-	\Else{
-		\KwRet{L}
-	}
-		}
-
-	}
+	
 	\While{$S$ $\neq  \varnothing$}{
 		remove $n$ from $S$\;
 		Append $n$ to tail of $L$\;
@@ -193,7 +171,7 @@ The complexity is a DFS with stack, and the algorithm will visit every vertex an
  \] 
 \end{flushleft}
 \subsection{}
-Linear Complexity.
+Karp has proved that the complexity of finding a Hamilton cycle belongs to $\mathcal{NP}$-complete. And obviously, this problem could be reduced to the problem of \textit{finding a Hamilton path}, which means finding a Hamilton path will be $\mathcal{NP}$-complete problem.
 
 \section{Critical Thinking}
 \subsection{}
@@ -266,6 +244,23 @@ Second, match the sequence and orient edges.
 \end{figure}
 Third, solve the remaining edges and any two corners. Fourth, solve all the corners. \\
 \url{https://www.ryanheise.com/cube/heise_method.html} 
+\section{The $\mathcal{NP}$ classes}
+\subsection{Simple Path}
+This problem is hard to decide, but easy to verify. To prove it is in $\mathcal{NP}$, we need to have a certificate $y$ s.t. we let $y$ to be the path. And with $y$, we can check whether it is a simple path in $\mathcal{O}(N)$ and gives a $True$ answer. This proves that it is in $\mathcal{NP}$.
+\subsection{}
+Not done yet.
+\subsection{Vertex cover} 
+To prove it is in $\mathcal{NP}$, let the certificate $y$ be the vertex cover. And we can verify it by visiting every vertex and every adjacent to the node, which will lead to a time complexity at most $\mathcal{O}(VE)$, which is polynomial time and gives a $True$ answer. This proves it is in $\mathcal{NP}$
+\section{\textit{PRIMES} is in $\mathcal{P}$}
+Prime number theorem is described as 
+\[
+	\underset{x\rightarrow \infty}{lim} \frac{\pi(x)}{\frac{x}{\log(x)}} = 1
+\]
+which means the primes become less common when the number becomes larger. At first glance, it seems that the problem will take $\mathcal{O}(n)$ time complexity in that it takes trial division, however, the point is that, to test the primes, for different scale numbers, it will take different time. This is due to when we consider the bits of the decimal numbers, for a number $n$, it will be $\log n$ bits, and thus it is no longer a polynomial time problem. 
+\par So we can conclude that 
+\[
+	\text{PRIMES} \nsubseteq \mathcal{P}
+\]
 \end{document}	
 
 
@@ -330,6 +325,29 @@ So the complexity is polynomial time.
 It belongs to cubic time complexity.
 
 
+\If{S size == 0}{
+		Reverse the direction of all edges\;
+		S' $\leftarrow$ nodes with no coming edges\;
+		\uIf{S' size ==0}{
+			\KwRet{Exist Hamilton Path}
+		}
+		\Else{
+			\While{$S$ $\neq  \varnothing$}{
+		remove $n$ from $S$\;
+		Append $n$ to tail of $L$\;
+		\For{node $m$ with an edge $e$ from $n$ to $m$}{
+			remove $e$ from graph.
+		}
+		Update $S$\;
+	}
+	\uIf{Graph has other edges}{
+		\KwRet{No result}
+	}
+	\Else{
+		\KwRet{L}
+	}
+		}
 
+	}
 
 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  16 OCT 2018 00:06
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  19 OCT 2018 10:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1657,27 +1657,27 @@ Package microtype Info: Loading generic settings for font family
 . Optima scale = 0.9050440254796661.
 .................................................
 LaTeX Font Info:    Font shape `EU1/Optima(1)/m/n' will be
-(Font)              scaled to size 13.03262pt on input line 129.
-LaTeX Font Info:    Font shape `EU1/Optima(1)/bx/n' will be
-(Font)              scaled to size 12.84454pt on input line 129.
+(Font)              scaled to size 10.86053pt on input line 127.
 LaTeX Font Info:    Font shape `EU1/Optima(1)/m/n' will be
-(Font)              scaled to size 10.86053pt on input line 131.
+(Font)              scaled to size 13.03262pt on input line 130.
 LaTeX Font Info:    Font shape `EU1/Optima(1)/bx/n' will be
-(Font)              scaled to size 10.7038pt on input line 131.
+(Font)              scaled to size 12.84454pt on input line 130.
 LaTeX Font Info:    Font shape `EU1/Optima(1)/bx/n' will be
-(Font)              scaled to size 8.91983pt on input line 137.
+(Font)              scaled to size 10.7038pt on input line 132.
+LaTeX Font Info:    Font shape `EU1/Optima(1)/bx/n' will be
+(Font)              scaled to size 8.91983pt on input line 138.
 LaTeX Font Info:    Font shape `EU1/CMUBright(0)/m/n' will be
-(Font)              scaled to size 6.39192pt on input line 139.
+(Font)              scaled to size 6.39192pt on input line 140.
 LaTeX Font Info:    Font shape `EU1/CMUBright(0)/m/n' will be
-(Font)              scaled to size 4.56566pt on input line 139.
-LaTeX Font Info:    Try loading font information for U+msa on input line 139.
+(Font)              scaled to size 4.56566pt on input line 140.
+LaTeX Font Info:    Try loading font information for U+msa on input line 140.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 139.
+LaTeX Font Info:    Try loading font information for U+msb on input line 140.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1685,7 +1685,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 139.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 140.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -1695,27 +1695,65 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 LaTeX Font Info:    Font shape `EU1/Optima(1)/bx/n' will be
-(Font)              scaled to size 6.24388pt on input line 186.
+(Font)              scaled to size 6.24388pt on input line 164.
 LaTeX Font Info:    Font shape `EU1/Optima(1)/m/it' will be
-(Font)              scaled to size 9.12689pt on input line 186.
+(Font)              scaled to size 9.12689pt on input line 164.
 LaTeX Font Info:    Font shape `EU1/Optima(0)/m/n' will be
-(Font)              scaled to size 9.05045pt on input line 186.
+(Font)              scaled to size 9.05045pt on input line 164.
  [1]
+LaTeX Font Info:    Font shape `EU1/CMUBright(0)/m/n' will be
+(Font)              scaled to size 10.95758pt on input line 169.
+LaTeX Font Info:    Font shape `EU1/CMUBright(0)/m/n' will be
+(Font)              scaled to size 7.30505pt on input line 169.
+LaTeX Font Info:    Font shape `EU1/CMUBright(0)/m/n' will be
+(Font)              scaled to size 5.47879pt on input line 169.
+LaTeX Font Info:    Font shape `EU1/Optima(1)/m/it' will be
+(Font)              scaled to size 10.95227pt on input line 174.
+
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 253--254
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
 
  []
 
-[3]
 File: HW3_pb1.png Graphic file (type QTm)
- <use  "HW3_pb1.png" >
+<use  "HW3_pb1.png" >
 File: HW3_pb2.png Graphic file (type QTm)
- <use  "HW3_pb2.png" > [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 269.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 269.
+ <use  "HW3_pb2.png" >
+LaTeX Font Info:    Font shape `EU1/Optima(0)/m/n' will be
+(Font)              scaled to size 10.86053pt on input line 246.
+LaTeX Font Info:    Font shape `EU1/CMUBright(0)/m/n' will be
+(Font)              scaled to size 13.14908pt on input line 247.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 247.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 247.
+
+[3]
+LaTeX Font Info:    Font shape `EU1/Optima(1)/bx/it' will be
+(Font)              scaled to size 12.95155pt on input line 254.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 254.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 254.
+
+LaTeX Font Info:    Font shape `EU1/Optima(1)/m/n' will be
+(Font)              scaled to size 7.24036pt on input line 262.
+LaTeX Font Info:    Font shape `EU1/Optima(1)/m/n' will be
+(Font)              scaled to size 5.43027pt on input line 262.
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 264.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 264.
  (./HW3.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 269.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 269.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 264.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 264.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1726,12 +1764,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 43945 strings out of 493591
- 916052 string characters out of 6143546
- 976454 words of memory out of 5000000
- 46807 multiletter control sequences out of 15000+600000
- 6482 words of font info for 62 fonts, out of 8000000 for 9000
+ 44038 strings out of 493591
+ 918169 string characters out of 6143546
+ 974826 words of memory out of 5000000
+ 46882 multiletter control sequences out of 15000+600000
+ 13403 words of font info for 99 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 61i,24n,105p,10362b,33356s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,18n,105p,10362b,33235s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on HW3.pdf (5 pages).
