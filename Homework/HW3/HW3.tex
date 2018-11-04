@@ -1,4 +1,4 @@
-%!TEX program = xelatex 
+%!TEX program = xelatex
 \documentclass[A4paper]{article}
 \usepackage{geometry}
 \geometry{left = 3cm, right = 3cm, top = 3cm, bottom = 3cm}
@@ -41,9 +41,9 @@
 \setlength{\parindent}{0em}
 
 %%%%%%%%%%%Configurations for code%%%%%%%%%%%%%%%%%%%%%%%
-\SetKwInOut{Input}{Input} 
-\SetKwInOut{Output}{Output} 
-\SetKwProg{Fn}{Function}{\string:}{end} 
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+\SetKwProg{Fn}{Function}{\string:}{end}
 \SetKwFunction{mstnew}{MST\_New}
 \SetKwFunction{tw}{TreeWeight}
 \SetKwFunction{dps}{DFS}
@@ -58,31 +58,31 @@
 %\definecolor{myblack}{rgb}{0,0,0}
 %\definecolor{myblue}{RGB}{27,154,154}
 %\lstset{
-% backgroundcolor=\color{white}, 
-% basicstyle = \footnotesize\Inputmono,       
-% breakatwhitespace = false,        
-% breaklines = true,                 
-% captionpos = b,                    
+% backgroundcolor=\color{white},
+% basicstyle = \footnotesize\Inputmono,
+% breakatwhitespace = false,
+% breaklines = true,
+% captionpos = b,
 % commentstyle = \color{mygray}\bfseries,
-% extendedchars = false,             
-% frame =shadowbox, 
+% extendedchars = false,
+% frame =shadowbox,
 % framerule=0.5pt,
 % frameround=tttt,
 % keepspaces=true,
 % keywordstyle=\color{myblue}\bfseries, % keyword style
 % language = Verilog,                     % the language of code
-% otherkeywords={string}, 
-% numbers=left, 
+% otherkeywords={string},
+% numbers=left,
 % numbersep=5pt,
 % numberstyle=\tiny\color{mymauve},
-% rulecolor=\color{black},         
-% showspaces=false,  
-% showstringspaces=false, 
-% showtabs=false,    
-% stepnumber=0,         
+% rulecolor=\color{black},
+% showspaces=false,
+% showstringspaces=false,
+% showtabs=false,
+% stepnumber=0,
 % stringstyle=\color{mymauve},        % string literal style
-% tabsize=2,          
-% title=\lstname                      
+% tabsize=2,
+% title=\lstname
 %}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -104,7 +104,7 @@
 \end{figure}
 \hrule
 \vspace*{0.25cm}
-\sc{UM--SJTU Joint Institute \vspace*{0.3em}} \\ 
+\sc{UM--SJTU Joint Institute \vspace*{0.3em}} \\
 VE477 Intro to Algorithms\\
 \end{large}
 \hrulefill
@@ -145,7 +145,7 @@ Not done yet.
 	\If{S size >1}{
 		\KwRet{No result}
 	}
-	
+
 	\While{$S$ $\neq  \varnothing$}{
 		remove $n$ from $S$\;
 		Append $n$ to tail of $L$\;
@@ -165,10 +165,10 @@ Not done yet.
 \newpage
 \begin{flushleft}
 \subsection{Complexity}
-The complexity is a DFS with stack, and the algorithm will visit every vertex and every edge in the graph for only once, so the overall complexity is 
+The complexity is a DFS with stack, and the algorithm will visit every vertex and every edge in the graph for only once, so the overall complexity is
 \[
  	\mathcal{O}(V+E)
- \] 
+ \]
 \end{flushleft}
 \subsection{}
 Karp has proved that the complexity of finding a Hamilton cycle belongs to $\mathcal{NP}$-complete. And obviously, this problem could be reduced to the problem of \textit{finding a Hamilton path}, which means finding a Hamilton path will be $\mathcal{NP}$-complete problem.
@@ -177,11 +177,11 @@ Karp has proved that the complexity of finding a Hamilton cycle belongs to $\mat
 \subsection{}
 The answer is no. The reason is that, to be bounded by polynomial, it should have time complexity of $\mathcal{O}(n^k)$. However, in this case, for\[
 	\lceil \log n \rceil !
-\] 
+\]
 We are not able to find a $k$ satisfying the condition since the existing factorial calculation.
 \subsection{}
 Yes.\\
-The definition of $\log ^*$ is 
+The definition of $\log ^*$ is
 \[
 	x = \left\{
 	\begin{aligned}
@@ -190,7 +190,7 @@ The definition of $\log ^*$ is
 	\end{aligned}
 	\right.
 \]
-And the definition of $f(x)$ to be asymptotically larger than $g(x)$ is 
+And the definition of $f(x)$ to be asymptotically larger than $g(x)$ is
 \[
 	\underset{x\rightarrow \infty}{lim} \frac{f(x)}{g(x)} = \infty
 \]
@@ -230,7 +230,7 @@ We will only need 3 weigh.
 \section{Rubik's Cube}
 The Rubik's cube is a cube with 6 sides in different color, and each side is cut into 9 identical square pieces. There is an internal pivot such that enable each side to rotate, when the side is rotating, 3 adjacent square pieces that adjacent to the rotating side in all 4 adjacent sides will move with the side. To solve a Rubik's cube, all sides should be restored to same color. \\
 \par \textbf{Solving Strategy 1: CFOP} A method called CFOP, which is a short spelling for Cross, First-2-layers, Orienting-the-last-layer, Permutation-last-layer. First build a cross, on a single layer, the cross should be also valid for the adjacent for side. Second, finish the bottom two layer according to formula. Third, finish upper slide, without considering the permutation of the layer.(namely the color are correct however the position may be wrong) Fourth, finish the permutation, using formula.
-\par \textbf{Solving Strategy 2: Heise Method}  A method is defined in 4 steps. First, build 4 successive square-shaped blocks. 
+\par \textbf{Solving Strategy 2: Heise Method}  A method is defined in 4 steps. First, build 4 successive square-shaped blocks.
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.1\textwidth]{HW3_pb1.png}
@@ -243,25 +243,25 @@ Second, match the sequence and orient edges.
 \includegraphics[width=0.1\textwidth]{HW3_pb2.png}
 \end{figure}
 Third, solve the remaining edges and any two corners. Fourth, solve all the corners. \\
-\url{https://www.ryanheise.com/cube/heise_method.html} 
+\url{https://www.ryanheise.com/cube/heise_method.html}
 \section{The $\mathcal{NP}$ classes}
 \subsection{Simple Path}
 This problem is hard to decide, but easy to verify. To prove it is in $\mathcal{NP}$, we need to have a certificate $y$ s.t. we let $y$ to be the path. And with $y$, we can check whether it is a simple path in $\mathcal{O}(N)$ and gives a $True$ answer. This proves that it is in $\mathcal{NP}$.
 \subsection{}
 Not done yet.
-\subsection{Vertex cover} 
+\subsection{Vertex cover}
 To prove it is in $\mathcal{NP}$, let the certificate $y$ be the vertex cover. And we can verify it by visiting every vertex and every adjacent to the node, which will lead to a time complexity at most $\mathcal{O}(VE)$, which is polynomial time and gives a $True$ answer. This proves it is in $\mathcal{NP}$
 \section{\textit{PRIMES} is in $\mathcal{P}$}
-Prime number theorem is described as 
+Prime number theorem is described as
 \[
 	\underset{x\rightarrow \infty}{lim} \frac{\pi(x)}{\frac{x}{\log(x)}} = 1
 \]
-which means the primes become less common when the number becomes larger. At first glance, it seems that the problem will take $\mathcal{O}(n)$ time complexity in that it takes trial division, however, the point is that, to test the primes, for different scale numbers, it will take different time. This is due to when we consider the bits of the decimal numbers, for a number $n$, it will be $\log n$ bits, and thus it is no longer a polynomial time problem. 
-\par So we can conclude that 
+which means the primes become less common when the number becomes larger. At first glance, it seems that the problem will take $\mathcal{O}(n)$ time complexity in that it takes trial division, however, the point is that, to test the primes, for different scale numbers, it will take different time. This is due to when we consider the bits of the decimal numbers, for a number $n$, it will be $\log n$ bits, and thus it is no longer a polynomial time problem.
+\par So we can conclude that
 \[
 	\text{PRIMES} \nsubseteq \mathcal{P}
 \]
-\end{document}	
+\end{document}
 
 
 
@@ -299,7 +299,7 @@ which means the primes become less common when the number becomes larger. At fir
 	\textbf{Append} main\_break\_point \textbf{to} main\_break\_point\_list\;
 	\While{There is at least one breakpoint}{
 		Cut a segment from the permutation with only one break point\;
-		
+
 		\If{All break points in main\_break\_point\_list are different from newly-created break point \textbf{and}\\
 			The number of new break point to be least \textbf{or} no new breakpoint}{
 				Insert it in the cycle\;
@@ -312,7 +312,7 @@ which means the primes become less common when the number becomes larger. At fir
 }
 \end{algorithm}
 \subsection{}
-The complexity is mainly decided by the updating process. Now we have the number of all possible break points to be 
+The complexity is mainly decided by the updating process. Now we have the number of all possible break points to be
 \[
 	(N-1)^2
 \]
@@ -349,5 +349,3 @@ It belongs to cubic time complexity.
 		}
 
 	}
-
-

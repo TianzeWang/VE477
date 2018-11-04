@@ -100,3 +100,5 @@ m = [m1, m2, m3, m4]
 f = [w1, w2, w3, w4]
 # Pair(m, f)
 pair(m ,f)
+
+

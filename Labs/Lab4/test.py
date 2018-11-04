@@ -6,5 +6,3 @@ class f:
 
 
 fxh = f(1, "fxh")
-ctw = f(2, "ctw")
-list = [fxh, ctw]

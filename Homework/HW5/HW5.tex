@@ -1,0 +1,207 @@
+% !TEX program = xelatex
+\documentclass{article}
+\usepackage{geometry}
+\geometry{left = 3cm, right = 3cm, top = 3cm, bottom = 3cm}
+\usepackage[linesnumbered,ruled,longend]{algorithm2e}
+\usepackage{amsmath}
+\usepackage{amsfonts,amssymb}
+\usepackage{blkarray}
+\usepackage{booktabs}
+\usepackage{dsfont}
+\usepackage{enumerate}
+\usepackage{epsf}
+\usepackage{fontspec}
+\usepackage{forest}
+\usepackage[colorlinks=true,linkcolor=purple]{hyperref}
+\usepackage{listings}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{tikz}
+%\usepackage{indentfirst}
+%\usepackage[usenames,dvipsnames]{xcolor}
+\newfontfamily\Inputmono{Consolas}
+\renewcommand\thesection{Question\ \arabic{section}}%\arabic{section}}
+\renewcommand\thesubsection{(\arabic{subsection})}
+\renewcommand\thesubsubsection{\arabic{subsubsection}.}
+\newcommand{\qedhere}{$\hfill\ensuremath{\square}$}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\newcommand\mycommfont[1]{\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+%\setmainfont{Citadel Script}
+%\setmainfont{Chalkboard}
+\setmainfont{CMU Bright}
+%\setmainfont{Apple Chancery}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\renewcommand{\familydefault}{\sfdefault}
+%\renewcommand{\footnotesize}{\sfdefault}
+\setlength{\parskip}{0.25em}
+\setlength{\parindent}{0em}
+
+%%%%%%%%%%%Configurations for code%%%%%%%%%%%%%%%%%%%%%%%
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+\SetKwProg{Fn}{Function}{\string:}{end}
+\SetKwFunction{mstnew}{MST\_New}
+\SetKwFunction{tw}{TreeWeight}
+\SetKwFunction{dps}{DFS}
+\SetKwFunction{con}{Is\_Connected}
+\SetKwFunction{hor}{Three\_Fastest\_Horses}
+%%%%%%%%%%%Here is the configurations for Code%%%%%%%%%%%
+
+%\definecolor{mygreen}{rgb}{0,0.6,0}
+%\definecolor{mygray}{rgb}{0.7,0.7,0.7}
+%\definecolor{mymauve}{rgb}{0.58,0,0.82}
+%\definecolor{mywhite}{rgb}{1,1,1}
+%\definecolor{myblack}{rgb}{0,0,0}
+%\definecolor{myblue}{RGB}{27,154,154}
+%\lstset{
+% backgroundcolor=\color{white},
+% basicstyle = \footnotesize\Inputmono,
+% breakatwhitespace = false,
+% breaklines = true,
+% captionpos = b,
+% commentstyle = \color{mygray}\bfseries,
+% extendedchars = false,
+% frame =shadowbox,
+% framerule=0.5pt,
+% frameround=tttt,
+% keepspaces=true,
+% keywordstyle=\color{myblue}\bfseries, % keyword style
+% language = Verilog,                     % the language of code
+% otherkeywords={string},
+% numbers=left,
+% numbersep=5pt,
+% numberstyle=\tiny\color{mymauve},
+% rulecolor=\color{black},
+% showspaces=false,
+% showstringspaces=false,
+% showtabs=false,
+% stepnumber=0,
+% stringstyle=\color{mymauve},        % string literal style
+% tabsize=2,
+% title=\lstname
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%\setmainfont{Savoye LET}
+%\setmainfont{Cormorant Upright}
+\setmainfont{Cormorant Upright}
+\renewcommand\arraystretch{1.5}
+
+
+\thispagestyle{empty}
+
+\begin{center}
+\begin{large}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{Logo2}
+\end{figure}
+\hrule
+\vspace*{0.25cm}
+\sc{ \Large  UM--SJTU Joint Institute \vspace*{0.3em}} \\
+\Large  VE477 Intro to Algorithms\\
+\end{large}
+\hrulefill
+
+\vspace*{3cm}
+
+\begin{Large}
+\sc{{Homework 5}} \\
+\end{Large}
+\vspace*{2cm}
+\begin{large}
+\sc{{Wang, Tianze\\ 515370910202}} \\
+\end{large}
+\end{center}
+\newpage
+\setmainfont{Optima}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\tableofcontents
+%\newpage
+\setcounter{page}{1}
+\section{Partition Problem}
+\subsection{Definition}
+It is the task of deciding whether a given multiset $S$ of positive integers can be partitioned into two subsets $S_1$ and $S_2$ such that the sum of the numbers in $S_1$ equals the sum of the numbers in $S_2$.
+\[
+	S = S_1 \cup S_2 \ \land \ S_1 \cap S_2 = \varnothing\ \land \ \sum S_1 = \sum S_2
+\]
+\subsection{Simple Solution}
+No, it is not a good decision. For example, suppose we have a set like \[
+	\{1,\ 2, \ 97, \ 99 \}
+\]
+And we wish to partition it into two sets. Using this method will lead to a max set of $196$, however if we partition it into 
+\[
+	\{1,2,97\}, \{99\}
+\]
+This will lead to a better solution, which is $100$. 
+\subsection{Recursive Algorithm}
+\newpage
+\section{Critical Thinking}
+Here we use the idea as: The binary representative of a decimal number.
+\subsection*{0-4 to 0-7}
+7 can be represented as 111 in binary. Thus 0 to 7 is $000_b$ to $111_b$.
+\begin{algorithm}
+\Input{7}
+\Output{a random integer between 0-7}
+\SetKwFunction{gen}{generator}
+\Fn{\gen{3}}{
+	i $\leftarrow$ 3 \;
+	\While{i $\neq$ 0}{
+		j $\leftarrow$ get an output from black box \;
+		\tcc{$<<$ means the operation of shift left}
+		\uIf{j = 0 or 1}{
+			$b = 0$ \;
+			$a = (a << 1) + b$ \;
+			$i--$ \;
+		}
+		\uElseIf{j = 2 or 3}{
+			$b = 1$ \;
+			$a = (a << 1) + b$ \;
+			$i--$ \;
+		}
+		\Else{
+			Continue\;
+		}
+	}
+	\KwRet{a}
+}
+\end{algorithm}
+\newpage
+\subsection{0-4 to common case}
+For the common case, we apply the same idea, but we need a judging condition to represent whether our result falls into the range of acceptance.
+\begin{algorithm}
+\Input{n}
+\Output{a random integer between 0-n}
+\SetKwFunction{gen}{generator}
+\Fn{\gen{n}}{
+	A $\leftarrow$ a binary number \;
+	\While{a>n}{
+	i $\leftarrow$ $\lceil \log_2 n \rceil$ \;
+	\While{i $\neq$ 0}{
+		j $\leftarrow$ get an output from black box \;
+		\tcc{$<<$ means the operation of shift left}
+		\uIf{j = 0 or 1}{
+			$b = 0$ \;
+			$a = (a << 1) + b$ \;
+			$i--$ \;
+		}
+		\uElseIf{j = 2 or 3}{
+			$b = 1$ \;
+			$a = (a << 1) + b$ \;
+			$i--$ \;
+		}
+		\Else{
+			Continue\;
+		}
+	}
+	}
+}
+\end{algorithm}
+\end{document}
