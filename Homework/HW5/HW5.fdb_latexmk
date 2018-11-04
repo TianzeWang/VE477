@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1541298414 "HW5.tex" "HW5.pdf" "HW5" 1541298416
+["pdflatex"] 1541323820 "HW5.tex" "HW5.pdf" "HW5" 1541323896
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -180,12 +180,12 @@
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1484319860 3520381 ff8107c8aac6ea0a9b25c7e51d4d2ff4 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "HW5.aux" 1541298416 1245 d9092ab641a132f5d01908124dfd80c8 ""
-  "HW5.out" 1541298416 383 285ae19e09d778ab04d0d738cba2fca7 ""
-  "HW5.tex" 1541298414 5526 5d63c4ec6e4964a2c7fa894b02d35c1a ""
+  "HW5.aux" 1541323822 2631 0ae18d92affd9add0136a778ae56d1c6 ""
+  "HW5.out" 1541323822 911 3de5783131b185b9e838418a96bbf2a5 ""
+  "HW5.tex" 1541323895 10216 b1b3cc733a1cef887dd983125625ea4b ""
   "Logo2.png" 1506329285 23557 e963250a164034ed0f577fe4308eb37b ""
   (generated)
-  "HW5.log"
-  "HW5.out"
   "HW5.aux"
+  "HW5.out"
   "HW5.pdf"
+  "HW5.log"

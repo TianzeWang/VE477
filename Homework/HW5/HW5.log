@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  4 NOV 2018 10:26
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  4 NOV 2018 17:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1687,22 +1687,22 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
-) [1]
+)
 LaTeX Font Info:    Font shape `EU1/Optima(1)/bx/n' will be
-(Font)              scaled to size 8.91983pt on input line 151.
+(Font)              scaled to size 8.91983pt on input line 142.
 LaTeX Font Info:    Font shape `EU1/Optima(1)/bx/n' will be
-(Font)              scaled to size 6.24388pt on input line 175.
+(Font)              scaled to size 6.24388pt on input line 191.
 LaTeX Font Info:    Font shape `EU1/Optima(1)/m/it' will be
-(Font)              scaled to size 9.12689pt on input line 175.
+(Font)              scaled to size 9.12689pt on input line 191.
 LaTeX Font Info:    Font shape `EU1/Optima(0)/m/n' will be
-(Font)              scaled to size 9.05045pt on input line 175.
-
-[2] [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 207.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 207.
+(Font)              scaled to size 9.05045pt on input line 191.
+ [1]
+[2] [3] [4] [5] [6] [7]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 349.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 349.
  (./HW5.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 207.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 207.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 349.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 349.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1713,12 +1713,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 43940 strings out of 493591
- 915945 string characters out of 6143546
- 972202 words of memory out of 5000000
- 46797 multiletter control sequences out of 15000+600000
+ 43949 strings out of 493591
+ 915987 string characters out of 6143546
+ 980859 words of memory out of 5000000
+ 46806 multiletter control sequences out of 15000+600000
  6482 words of font info for 62 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 61i,22n,105p,10362b,33293s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,25n,105p,10362b,33371s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on HW5.pdf (4 pages).
+Output written on HW5.pdf (8 pages).

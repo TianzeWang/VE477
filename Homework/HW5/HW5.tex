@@ -128,10 +128,7 @@
 \setcounter{page}{1}
 \section{Partition Problem}
 \subsection{Definition}
-It is the task of deciding whether a given multiset $S$ of positive integers can be partitioned into two subsets $S_1$ and $S_2$ such that the sum of the numbers in $S_1$ equals the sum of the numbers in $S_2$.
-\[
-	S = S_1 \cup S_2 \ \land \ S_1 \cap S_2 = \varnothing\ \land \ \sum S_1 = \sum S_2
-\]
+It is the task of deciding whether a given multiset $S$ of positive integers can be partitioned into several subsets $S_1$, $S_2$,..., $S_k$ such that the maximum of the sum of each set is as small as possible.
 \subsection{Simple Solution}
 No, it is not a good decision. For example, suppose we have a set like \[
 	\{1,\ 2, \ 97, \ 99 \}
@@ -142,12 +139,75 @@ And we wish to partition it into two sets. Using this method will lead to a max 
 \]
 This will lead to a better solution, which is $100$. 
 \subsection{Recursive Algorithm}
+The recursive algorithm is defined as follows. Starting from the last partition, we place a divider, which will yields to two sets for best position: \textbf{the last partition} and \textbf{the first $k-2$ partitions}. To minimize the total cost, we should try to make the rest $k-2$ partitions as equal as possible. So on and so forth. 
+
+To make the long story short, we calculate all the possible solutions, and we find the minimum result.
+
+\subsection{Complexity}
+The calculating process will cost $k\cdot n$ total combinations. 
+
+To find the minimum path, it will cost $n^2$, since we need to check each entry. Thus the total complexity is 
+\[
+	\mathcal{O}(kn^3)
+\]
+
+\subsection{Stored Quantities}
+We should store all the sum from the first element to every element $p[k] = \sum_{i=1}^k s[i]$, which will save time when we calculate the block size. E.g. 
+\begin{equation*}
+s_3+ \cdots + s_5= \sum_{i=1}^5 s_i- \sum_{i=1}^3 s_i = p[5] - p[3]
+\end{equation*}
+
+\subsection{Pseudocode}
+Here we store everything in the DP matrix.
+\begin{algorithm}
+\caption{Refer to CSE417 in Washington}
+\Input{multiset S, integer k}
+\Output{linear partition with smallest max size}
+\SetKwFunction{parz}{partition}
+\Fn{\parz{S,k}}{
+	$M[1,1] = s_1$ \;
+	\tcc{First consider two base cases}
+	\For{i=1 to n}{
+		$M[i,1] = M[i-1,1]+s_i$ \;
+	}
+	\For{j=1 to k}{
+		$M[1,j] = s_1$\;
+	}
+	\For{i=2 to n}{
+		\For{j=2 to k}{
+			%$M[i,j]=\min_{t<i}\{\max\{M[t,j-1], p[i]-p[t]\}\} $
+			$M[i,j] = \infty$ \;
+			\For{pos = 1 to i-1}{
+				$s = \max\{M[pos, j-1] , p[i] - p[pos]\}$\;
+				\If{$M[i,j]>s$}{
+					$M[i,j] = s$\;
+					%$D[i,j] = pos$
+				}
+			}
+		}
+	}
+	%\KwRet{$D[n,k]$}
+}
+\end{algorithm}
+
+\subsection{Correctness}
+The algorithm will always yield to a correct result in that it will calculate the minimized result after calculating all the basis for the calculation. Also, it follows the idea that we formed in the very beginning.
+
+\subsection{Complexity}
+The complexity is decided by line 9 to 21 in Algorithm 1, that we need at most $k\cdot n$ for each iteration of $i$, so the total complexity is then
+\[
+	\mathcal{O}(kn^2)
+\]
+
+\subsection{Path}
+Each time when we update $M$ we store the position of the partition simultaneously. And finally by reading the position, we can find the partition directly.
 \newpage
 \section{Critical Thinking}
 Here we use the idea as: The binary representative of a decimal number.
 \subsection*{0-4 to 0-7}
 7 can be represented as 111 in binary. Thus 0 to 7 is $000_b$ to $111_b$.
 \begin{algorithm}
+\caption{0-4 to generate 0-7}
 \Input{7}
 \Output{a random integer between 0-7}
 \SetKwFunction{gen}{generator}
@@ -177,6 +237,7 @@ Here we use the idea as: The binary representative of a decimal number.
 \subsection{0-4 to common case}
 For the common case, we apply the same idea, but we need a judging condition to represent whether our result falls into the range of acceptance.
 \begin{algorithm}
+\caption{0-4 to generate 0-n}
 \Input{n}
 \Output{a random integer between 0-n}
 \SetKwFunction{gen}{generator}
@@ -204,4 +265,90 @@ For the common case, we apply the same idea, but we need a judging condition to 
 	}
 }
 \end{algorithm}
+\newpage
+\section{Bellman-Ford Algorithm}
+To detect the negative cycle, we apply the relax operation on all edges in a graph for $n$ times, if it can be uploaded on the $n-th$ iteration, it means that there exists a negative cycle.
+\begin{algorithm}
+\caption{Relax}
+\Input{an edge $e$ starting from $u$, ending at $v$}
+\Output{Relaxed info of $u$ and $v$}
+\SetKwFunction{rel}{relax}
+\Fn{\rel{E}}{
+	\If{v.d (distance from source vertex to $v$) $>$ u.d (distance from source vertex to $u$) + $E$.weight}{
+		$v.d = u.d + w(u,v)$\;
+		$v.p = u$\;
+	}
+}
+\end{algorithm}
+\begin{algorithm}
+\caption{Detect negative cycle}
+\Input{Graph $G$ with n nodes}
+\Output{Whether there is a negative cycle}
+\SetKwFunction{Detect}{detect}
+\Fn{\Detect{G}}{
+	\For{i = 1 to n-1}{
+		\For{All edges in graph}{
+			\rel{}\;
+		}
+	}
+	\For{All edges in graph}{
+		\rel{}\;
+		\If{any edge is relaxed}{
+			\KwRet{Exists negative cycle}\;
+		}
+	}
+	\KwRet{Does not exists negative cycle}\;
+}
+\end{algorithm}
+\section{Augmenting Path}
+\section{Wifi Network}
+\begin{enumerate}
+\item First check whether the number of clients exceeds the maximum capacity of all connections. If this fails, then return no.
+\item Then decide each cell phone can connect to which hot spots.
+\item Then for each hotspot, we decide whether it can accommodate all the possible connections. Here we apply the greedy method to calculate.
+\end{enumerate}
+\begin{algorithm}
+\Input{k hotspots with each l, r; n clients}
+\Output{whether user can all connect to Internet}
+\SetKwFunction{wif}{wifi\_connection}
+\Fn{\wif{k hotspots, n clients}}{
+	\If{Client number > sum of maximum connection number for all hotspots}{
+		\KwRet{False}
+	}
+	
+	\For{All n clients}{
+		\For{All k hot spots}{
+			Decide whether the client can connect to the hotspot.
+			\If{Can connect}{
+				Append client to hotspot.available\_user\;
+			}
+			}
+	}
+	\tcc{Greedy Method.}
+	\While{Not all cases exhausted}{
+		\For{all hotspots}{
+			\For{The rest clients that not connected and in hotspot.available\_user list}{
+				Connect as many clients as possible. The client must be different from last iteration.
+			}
+		}
+		\If{All clients are connected}{
+			\KwRet{True}
+		}
+	}
+	\KwRet{False}
+}
+\end{algorithm}
+Since we have tried out every case, we will definitely get the correct answer on whether hostspots can hold the clients.
+
+
+The method yields to a maximum time complexity as:
+\[
+	\mathcal{O}(n^{kl})
+\]
+which is a polynomial time.
 \end{document}
+
+
+
+
+
