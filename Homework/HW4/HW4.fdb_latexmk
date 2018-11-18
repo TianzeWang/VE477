@@ -37,9 +37,9 @@
   "HW4.aux" 1540434850 747 7ec4738831a544a91859162cca63a336 ""
   "HW4.tex" 1540435153 3445 997fbf6ec5e3f70b1efb2032ae85f81f ""
   (generated)
-  "HW4.dvi"
   "HW4.log"
-["pdflatex"] 1540716829 "HW4.tex" "HW4.pdf" "HW4" 1540716835
+  "HW4.dvi"
+["pdflatex"] 1542335315 "HW4.tex" "HW4.pdf" "HW4" 1542335319
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -231,12 +231,12 @@
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1484319860 3520381 ff8107c8aac6ea0a9b25c7e51d4d2ff4 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "HW4.aux" 1540716834 2569 bf85b1531abc480206569328689a480b ""
-  "HW4.out" 1540716834 1182 29e7d3b2956b91514e40d9115b0fb579 ""
-  "HW4.tex" 1540452645 16732 ec2720b5adb2cb48f13d3af7744e99fa ""
+  "HW4.aux" 1542335318 2569 13737f7ad514675ef904424bcd748436 ""
+  "HW4.out" 1542335318 1182 29e7d3b2956b91514e40d9115b0fb579 ""
+  "HW4.tex" 1542335288 16741 8908e125f226c65a6f4e7da542a5e8ac ""
   "Logo2.png" 1506329285 23557 e963250a164034ed0f577fe4308eb37b ""
   (generated)
-  "HW4.out"
   "HW4.pdf"
-  "HW4.log"
   "HW4.aux"
+  "HW4.out"
+  "HW4.log"

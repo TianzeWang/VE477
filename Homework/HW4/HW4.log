@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  28 OCT 2018 16:53
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  16 NOV 2018 10:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1723,18 +1723,18 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [2] [3]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 396.
+(hyperref)                removing `math shift' on input line 397.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 396.
+(hyperref)                removing `math shift' on input line 397.
 
 [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 407.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 407.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 408.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 408.
  (./HW4.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 407.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 407.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 408.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 408.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
