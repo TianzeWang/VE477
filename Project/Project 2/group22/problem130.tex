@@ -1,0 +1,180 @@
+%
+% do not add anything in this part
+%
+\ifx\onefile\undefined
+
+	\documentclass{article}
+
+	%if tcolorbox and tikz are installed use next line
+	\usepackage[tcbox]{projectalgo}
+	\usepackage{projectalgo}
+	\usepackage{enumerate}
+	\usepackage{algorithm2e}
+	% replace type by one of graph, math, combinatory, string, network, datastructure, ai, image
+	\pbtype{image}
+
+	\begin{document}
+\fi
+
+%
+% things can be added below
+%
+
+\def\pbname{Lens Distortion} %change this, do not use any number, just the name
+
+\section{\pbname} 
+
+% only for overview, so short description (no more than 1-2 lines)
+\begin{overview}
+\item [Algorithm:] Lens Distortion Correction~(algo.~\ref{problem130}) 
+	% - replace nb with problem number (e.g. problem101)
+	% -	must match the label of the algorithm 
+	% - for more than one algo list each of them and use problem101a, problem101b, problem101c etc.
+\item [Input:] An image with distortion 
+\item [Complexity:]$\mathcal{O}(n)$, $n$ is the number of pixel
+\item [Data structure compatibility:] Image
+\item [Common applications:] Professional photography, image restoration in MR, computer vision, digital image processing.
+\end{overview}
+
+
+
+\begin{problem}{\pbname}
+	Given an image with distortion, correct the distortion and output an image with the distortion fixed.
+\end{problem}
+
+\subsection*{Description}
+Due to the defect in wide-angle lens or telescope lens, the image of the line from a photograph will not be straight when it is on the photograph. And this is called a distortion. The correction of such a distortion then becomes an important topic in image calibration. In this problem we will discuss about the radial distortion, which includes two types: barrel and pincushion distortion.
+
+The radial distortion can be measured with the Brown model, \begin{equation}\label{eq:1}
+	\begin{pmatrix} {x}_{res}-x_c \\ {y}_{res} - y_c\end{pmatrix} = L(r) \begin{pmatrix} x- x_c \\ y- y_c\end{pmatrix}
+\end{equation}
+$(x_{res},y_{res})$ is the correct position of each pixel $(x,y)$, and $L(r)$ is a function on $r = \sqrt{(x-x_c)^2+(y-y_c)^2}$, $(x_c,y_c)$ is the center of the image. 
+
+To help restore the image, there are four stages. 
+\begin{enumerate}[1.]
+\item Canny method: detect an edge.\newline
+In this stage, the canny method will detect the edge. The whole process can be found in the reference part.~\hyperref[canny]{[1]}
+\item Hough transformation: distortion parameter estimation.\newline
+For Hough transformation, we will restrict the function $L(H)$ in equation \ref{eq:1} as 
+\[
+	L(r) = \frac{1}{1+k_1r^2+k_2r^4+\cdots +k_ir^{2i}+\cdots}
+\]	
+And we will get 
+\begin{equation}\label{eq:2}
+	r_{res} = \frac{r}{1+k_1r^2}
+\end{equation}
+Note here $r_{res}$ is the distance from the center after applying the model. Since the original Hough transform will separate a line segment into several, which will not help the image restoration, an improved hough transformation is introduced. The algorithm of this improved hough transformation is described in algorithm 1.
+\item Distortion parameter optimize.
+
+In this stage, the previous parameter obtained from the hough transformation will be optimized by removing a certain number of trivial edges, which is less-visited. In the second algorithm, the main purpose it to minimize the error from previous algorithm 1.
+
+\item Image correction.
+Now we have the correction parameter, we will use the equation \ref{eq:2} to obtain \[
+	(1+k_1\cdot r^2)r_{res} - r = 0
+\]
+Solving this equation and we can get the corrected image. 
+\end{enumerate}
+
+% add comment in the pseudocode: \cmt{comment}
+% define a function name: \SetKwFunction{shortname}{Name of the function}
+% use the defined function: \shortname{$variables$}
+% use the keyword ``function'': \Fn{function name}, e.g. \Fn{\shortname{$var$}}
+\begin{Algorithm}[Line detection with hough transformation\label{problem130}]
+	% - replace nb with problem number (e.g. problem101)
+	% -	must match the reference in the overview
+	% - when writing more than one algo use problem101a, problem101b, problem101c etc.
+	%\SetKwFunction{myfunction}{MyFunction}	
+	\Input{Image coordinate, Image and maximum expected line segments $N$}
+	\Output{parameter $p_0$ for normalized distortion, most used lines}
+	%	\Fn{\myfunction{$a,b$}}{
+	%	}
+	\BlankLine
+	\SetKwFunction{ld}{line\_detection}
+	\Fn{\ld{Image, $N$}}{
+		\For{$p = \left\{p_{min}+n \delta \right\}$, $p \leq p_{max}$}{
+		\For{$(x,y)$ in image}{
+		\cmt{$\alpha$ is the orientation parameter}\\
+			Update $\alpha$ according to the old coordinate and old orientation parameter\;
+			Mark the new $\alpha$ as $\alpha_{new}$\;
+			\For{$\beta \in  [\alpha_{new}- d_\alpha, \alpha_{new}+d_\alpha]$}{
+			\cmt{Update new distance}\\
+				$d_l= |\cos{\beta} x_{res} + \sin{\beta} y_{res} + d |$ \;
+				weight of selected line with parameter $\{dist, \beta, p\}$ + $\frac{1}{1+d_l}$ \;
+			}
+		
+		\cmt{Sum to be all weight}\\
+		}
+		$sum = \sum weight(d, \alpha, p)$\;
+		\If{$sum > -1$}{
+		$p_0 = p$\;
+		$max_{Hough} = sum$\;
+		}
+	}
+		\KwRet{$p_0$}\;
+	}
+
+\end{Algorithm}
+
+\begin{Algorithm}[Optimize $p_0$]
+	\Input{$p_0$}
+	\Output{$p_{opt}$}
+
+	\SetKwFunction{opt}{Optimize}
+	\Fn{\opt{$p_0$}}{
+		$p_{opt} \leftarrow p_0$\;
+		$\sigma = 1$\;
+		$p = p_0 + tolerence + 1$\;
+		\While{$|p_{opt}-p_0|>tolerence$}{
+		\cmt{$E()$ is the expectation function}\\
+			\While{$E(p)>E(p_{opt})$}{
+				$\sigma = \sigma\cdot 10$\;
+				$p_{new} = p_{opt} - \frac{E(p_{opt})}{E(p_{opt})+ \sigma}$\;
+			}
+			$\sigma = \sigma /10$\;
+			$p = p_{opt}$\;
+			$p_{opt} = p_{new}$\;
+		}
+		\KwRet{$p_{opt}$}
+	}
+\end{Algorithm}
+
+\begin{Algorithm}[image restoration]
+	\Input{Image and lens model}
+	\Output{Perfect image without distortion}
+	\SetKwFunction{imr}{image\_restoration}
+	\Fn{\imr{Image, parameter $r$}}{
+		\For{$(x_{res},y_{res}) \in $ Output image}{
+			$r_{res} = \sqrt{(x_{res}-x_c)^2 + (y_{res}-y_c)^2}$\;
+			$id = \lfloor r_{res} \rfloor$\;
+			$wei = r_{res} - id$\;
+			\cmt{Vector contains result from $r = \frac{1-\sqrt{1- 4k_1(r_{res})^2}}{2 k_1 r_{res}}$}
+			$r = (1 - wei)\cdot Vector[id] + wei\cdot Vector[id + 1]$\;
+			$(x,y) = (x_c+ r \frac{x_{res}-x_c}{r_res},y_c+ r \frac{y_{res}-y_c}{y_res})$\;
+			\KwRet{The image built with $(x_{res}, y_{res})$}\;
+		}
+	}
+\end{Algorithm}
+\newpage
+Something about time complexity: The time complexity of this algorithm shall be analyzed step by step. 
+\begin{enumerate}
+\item Edge detector: canny method. In this step, the time complexity is $\mathcal{O}(N)$, where $N$ is the number of pixels.
+\item Hough transform: In this step, the time complexity is $\mathcal{O}(N_{lines})$
+\item Distortion parameter optimization: In this step, the time complexity is given by $\mathcal{O}(N_{edges})$
+\item Image correction: In this step, the time complexity is given by $\mathcal{O}(N_{pixels})$
+\end{enumerate}
+Since $N_{pixels} >> N_{lines} >> N_{edges}$, the final time complexity is given by $\mathcal{O}(N_{pixels})$
+\subsection*{References}
+% list references where to find information on the given problem
+% prefer books, research articles, or internet sources that are likely to remain available over time
+% as much as possible offer several options, including at least one which provide a detailed study of the problem
+% if available include links to programs/code solving the problem
+
+\begin{itemize}\itemsep .125cm
+	\item \label{canny}J. Canny, A computational approach to edge detection, IEEE Transactions on Pattern Analysis and Machine Intelligence, 8 (1986), pp. 679–698. \url{http://dx.doi.org/10.1109/TPAMI.1986. 4767851.}
+	\item M. Alem´an-Flores, L. Alvarez, L. Gomez, and D. Santana-Cedr´es, Automatic Lens Distortion Correction Using One-Parameter Division Models, Image Processing On Line, 4 (2014), pp. 327–343. \url{http://dx.doi.org/10.5201/ipol.2014.106.}
+	\item L. Alvarez, L. Gomez, and J.R. Sendra, Algebraic Lens Distortion Model Estimation, Image Processing On Line, 1 (2010). \url{http://dx.doi.org/10.5201/ipol.2010.ags-alde.}
+\end{itemize}
+
+\ifx\onefile\undefined
+	\end{document}
+\fi

@@ -1,0 +1,71 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{projectalgo}[2015/10/10 ve477 project]
+
+\RequirePackage{kvoptions}
+\DeclareBoolOption{tcbox}
+
+\ProcessKeyvalOptions*
+
+% geometry, fonts, links...
+\RequirePackage[margin=2.5cm]{geometry}
+\renewcommand{\familydefault}{\sfdefault}
+%\RequirePackage[cm]{sfmath}
+\RequirePackage{cmbright}
+
+\RequirePackage[colorlinks=true, breaklinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+
+\RequirePackage{setspace}
+\onehalfspacing
+%\setlength\parindent{0pt} % noindent
+
+% figures + tables
+\RequirePackage{graphicx}
+\RequirePackage{subfigure,caption}
+\usepackage{multicol,multirow,booktabs}
+\usepackage{float}
+
+% math
+\RequirePackage{amsmath,amssymb,amsfonts}
+\RequirePackage{commath,cases,bm}
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}  
+\newtheorem{lemma}{Lemma}  
+\newtheorem{definition}{Definition}
+
+% pseudocode
+\RequirePackage[linesnumbered,ruled,longend]{algorithm2e}
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+\newcommand{\To}{\KwTo}
+\newcommand{\Ret}{\KwRet}
+\SetKwProg{Fn}{Function}{\string:}{end}
+\SetKw{and}{ and }
+\SetKw{oor}{ or }
+\SetAlTitleSty{}
+\SetTitleSty{textit}{}
+\newcommand{\cmt}[1]{\tcc*[f]{#1}}
+\newcommand{\NULL}{{\tt NULL}}
+\newcommand{\get}{\ensuremath{\gets}}
+
+\newenvironment{Algorithm}[1][]{\def\algoname{#1}\bigskip\begin{algorithm}}{\caption{\algoname}\end{algorithm}}
+
+\RequirePackage{ifthen}
+\newcommand{\pbtype}[1]{\ifthenelse{\equal{#1}{graph}}{\def\pbtypecol{green}}{\ifthenelse{\equal{#1}{math}}{\def\pbtypecol{orange}}{\ifthenelse{\equal{#1}{combinatory}}{\def\pbtypecol{blue}}{\ifthenelse{\equal{#1}{string}}{\def\pbtypecol{red}}{\ifthenelse{\equal{#1}{network}}{\def\pbtypecol{yellow}}{\ifthenelse{\equal{#1}{ai}}{\def\pbtypecol{cyan}}{\ifthenelse{\equal{#1}{image}}{\def\pbtypecol{magenta}}{\def\pbtypecol{gray}}}}}}}}}
+\newenvironment{problem}[1]{\smallskip {\bf Problem.} #1\par}{\par}
+
+% overview
+\renewcommand{\descriptionlabel}[1]{\hspace{20pt}\textbullet\ \em{#1}}
+\newenvironment{overview}{\medskip\begin{description}}{\end{description}\bigskip}
+
+\ifprojectalgo@tcbox
+%\ifx\tbox\undefined
+%\else
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins}
+\RequirePackage{varwidth}
+\newtcolorbox{problembox}[2][]{skin=enhanced jigsaw,interior hidden,boxsep=5pt,top=5pt,colframe=#1,coltitle=#1!50!black,fonttitle=\bfseries\sffamily,attach boxed title to top left={xshift=15mm},boxed title style={empty,boxrule=0.5mm},varwidth boxed title=0.5\linewidth,underlay boxed title={\draw[white,line width=1.5mm]([xshift=0.3mm-\tcboxedtitleheight*2]title.south west)--([xshift=-0.3mm+\tcboxedtitleheight*2]title.south east);\path[draw=#1,bottom color=white,top color=#1!50!white,line width=0.5mm]([xshift=0.25mm-\tcboxedtitleheight*2,yshift=-0.25mm]title.south west)cos +(\tcboxedtitleheight,\tcboxedtitleheight/2)sin +(\tcboxedtitleheight,\tcboxedtitleheight/2)-- ([xshift=0.25mm,yshift=-0.25mm]title.north west)-- ([yshift=-0.25mm]title.north east)cos +(\tcboxedtitleheight,-\tcboxedtitleheight/2)sin +(\tcboxedtitleheight,-\tcboxedtitleheight/2); },title={#2}}
+\tcolorboxenvironment{overview}{blanker,before skip=10pt,after skip=10pt,borderline west={3mm}{0pt}{\pbtypecol}}
+\renewenvironment{problem}[1]{\smallskip\begin{problembox}[\pbtypecol]{#1}}{\end{problembox}\smallskip}
+\fi
+\endinput

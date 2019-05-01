@@ -1,0 +1,173 @@
+%
+% do not add anything in this part
+%
+
+\ifx\onefile\undefined
+
+	\documentclass{article}
+
+	%if tcolorbox and tikz are installed use next line
+	\usepackage[tcbox]{projectalgo}
+	\usepackage{projectalgo}
+	\usepackage{comment}
+	\usepackage{enumerate}
+	% replace type by one of graph, math, combinatory, string, network, datastructure, ai, image
+	\pbtype{graph}
+
+	\begin{document}
+\fi
+
+%
+% things can be added below
+%
+
+\def\pbname{Matching} %change this, do not use any number, just the name
+
+\section{\pbname} 
+
+% only for overview, so short description (no more than 1-2 lines)
+\begin{overview}
+\item [Algorithm:] maximum matching~(algo.~\ref{problem30}) 
+	% - replace nb with problem number (e.g. problem101)
+	% -	must match the label of the algorithm 
+	% - for more than one algo list each of them and use problem101a, problem101b, problem101c etc.
+\item [Input:] A graph with a set of Edges $E$ and a set of Vertices $V$
+\item [Complexity:] $\mathcal{O}(|V|^2\cdot |E|)$
+\item [Data structure compatibility:] Graph (Bipartite graph supported)
+\item [Common applications:] matching skeleton, chemistry analysis, marriage problem, 
+\end{overview}
+
+
+
+\begin{problem}{\pbname}
+	Given a graph $G$ with a set of vertices $V$ and a set of edges $E$, find the maximum number of edges satisfying that no two edges share common vertices.
+\end{problem}
+
+\subsection*{Description}
+%Detailed description of the problem; More detailed information on the input and complexity; more applications with details on how they relate to each other (if this is the case).
+
+\begin{enumerate}[1.]
+\item Problem Clarification: Suppose we have a connected undirected graph, and our purpose is to find the maximum number of edges in the graph that any two do not share a same vertex.
+
+\item Algorithm Clarification: To solve this problem, we will use an algorithm called \textbf{Blossom algorithm}, which was developed by \textit{Jack Edmond}. The main idea of this algorithm is to improve the previous or initial matching along newly-defined `augmenting paths' in the graph.
+
+\item Augmenting Path: Before introducing augmenting path, there are several definitions worthy of introducing.
+	\begin{enumerate}
+	\item \textbf{Exposed}: a vertex is called exposed if no edge incident with it.
+	\item \textbf{Alternating Path}: a path that the edge is alternately in the match or not in the match. \textit{E.g. The path starts with an edge in the match, and the next edge following is not in the match, and the next following edge is in the match, so on and so forth.} It could be taken as a locally optimized match satisfying the match condition.
+	\end{enumerate}
+	Then it comes to the definition of \textbf{Augmenting Path}: An \underline{alternating path} starting and ending with two \underline{Exposed} vertices. 
+
+	To augment along an augmenting path, simply replace \textit{all the edges in the match} with \textit{all the edges not in the edge}. 
+\end{enumerate}
+
+
+% add comment in the pseudocode: \cmt{comment}
+% define a function name: \SetKwFunction{shortname}{Name of the function}
+% use the defined function: \shortname{$variables$}
+% use the keyword ``function'': \Fn{function name}, e.g. \Fn{\shortname{$var$}}
+\begin{Algorithm}[find max matching\label{problem30}]
+	% - replace nb with problem number (e.g. problem101)
+	% -	must match the reference in the overview
+	% - when writing more than one algo use problem101a, problem101b, problem101c etc.
+	\SetKwFunction{findmaxmatching}{Find\_max\_matching}	
+	\Input{a Graph $G$, initial matching $M$}
+	\Output{maximum matching}
+	%	\Fn{\myfunction{$a,b$}}{
+	%	}
+	\BlankLine
+	\Fn{\findmaxmatching{graph $G$, matching $M$}}{
+		\While{exists an augmenting path $P$}{
+			$M$ $\leftarrow$ Augment $M$ on $P$\;
+			\KwRet{\findmaxmatching{$G$, $M$}}\;
+		}
+		\KwRet{M}\;
+	}
+\end{Algorithm}
+Now the hard point here is to efficiently find the augmenting path according to definition. 
+
+\newpage
+\subsection*{Finding augmenting path}
+To find augmenting path, there are two operations, which is called blossoms and contractions.
+\begin{enumerate}[1.]
+\item \textbf{Blossoms}: a blossom is defined as a cycle with odd edges ($2k+1$) inside, and exactly $k$ edges are in the match.
+\item \textbf{Contractions}: a contraction means to take the whole blossoms as a simple node.
+\end{enumerate}
+
+The algorithm of finding an augmenting path is then given as:
+
+\begin{Algorithm}[find augmenting path]
+	% - replace nb with problem number (e.g. problem101)
+	% -	must match the reference in the overview
+	% - when writing more than one algo use problem101a, problem101b, problem101c etc.
+	\SetKwFunction{findaug}{Find\_max\_matching\_including\_augPath}	
+	\Input{a Graph $G$}
+	\Output{augmenting path in $G$}
+	%	\Fn{\myfunction{$a,b$}}{
+	%	}
+	\BlankLine
+	\Fn{\findaug{graph $G$}}{
+		F $\leftarrow$ all nodes in graph\;
+		\While{F is not empty}{
+			pick an $e$ from $F$\;
+			Add $e$ to Q\;
+			T $\leftarrow$ empty set\;
+			Add $e$ to $T$\;
+			\While{Q is not empty}{
+				v $\leftarrow$ pop an element from Q\;
+				\For{All neighbors of $v$}{
+					Denote the neighbor as $w$\;
+					\uIf{$w$ is not in $T$ \and $w$ is matched}{
+						Add $w$ to $T$\;
+						Add $u$(the other node connected to $w$) to $T$\;
+						push $u$ to $Q$\;
+					}
+					\uElseIf{$w$ is in $T$ \and the cycle is even length}{
+						Do nothing\;
+					}
+					\uElseIf{$w$ is in $T$ \and the cycle is odd length}
+					{
+						Contract\;
+					}
+					\Else{
+					push $w$ and $v$ to the match\;
+					All the nodes that contracted be expanded and construct augmenting path\;
+					invert augmenting path\;
+					}
+				}
+			}
+		}
+		\KwRet{The final match}
+	}
+\end{Algorithm}
+\newpage
+	\begin{comment}
+		S $\leftarrow$ []\;
+		Set all vertices in $G$ unmarked\;
+		Set all edges in $E \backslash M$ unmarked\;
+		\For{All the exposed vertex}{
+			create a tree for each vertex\;
+			add the tree to $S$\;
+		}
+		\While{$\exists$ an unmarked vertex $v\in S$ and the distance between $v$ and its root is even}{
+		\While{there is an unmarked edge $e = \{v,w\}$}{
+		\If{w not in $F$}{
+			x
+		}
+		}
+		}
+		\end{comment}
+		Something more about time complexity: The time complexity for the algorithm is $\mathcal{O}(|V|\cdot |E|^2)$. which is easy to derive by checking the iterations in the loop number in the algorithm.
+\subsection*{References}
+% list references where to find information on the given problem
+% prefer books, research articles, or internet sources that are likely to remain available over time
+% as much as possible offer several options, including at least one which provide a detailed study of the problem
+% if available include links to programs/code solving the problem
+
+\begin{itemize}\itemsep .125cm
+	\item TUM, Edmond's Blossom Algorithm ~\url{https://www-m9.ma.tum.de/graph-algorithms/matchings-blossom-algorithm/index_en.html}
+	\item László Lovász; M. D. Plummer (1986), Matching Theory, North-Holland
+\end{itemize}
+\ifx\onefile\undefined
+	\end{document}
+\fi

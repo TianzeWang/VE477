@@ -1,0 +1,115 @@
+%
+% do not add anything in this part
+%
+\ifx\onefile\undefined
+
+	\documentclass{article}
+
+	%if tcolorbox and tikz are installed use next line
+	\usepackage[tcbox]{projectalgo}
+	\usepackage{projectalgo}
+	\usepackage{enumerate}
+	\usepackage{algorithm2e}
+	% replace type by one of graph, math, combinatory, string, network, datastructure, ai, image
+	\pbtype{graph}
+
+	\begin{document}
+\fi
+
+%
+% things can be added below
+%
+
+\def\pbname{Closure Problem} %change this, do not use any number, just the name
+
+\section{\pbname} 
+
+% only for overview, so short description (no more than 1-2 lines)
+\begin{overview}
+\item [Algorithm:] Max-weight closure finding~(algo.~\ref{problem23}) 
+	% - replace nb with problem number (e.g. problem101)
+	% -	must match the label of the algorithm 
+	% - for more than one algo list each of them and use problem101a, problem101b, problem101c etc.
+\item [Input:] A directed graph 
+\item [Complexity:]$\mathcal{O}(|V|\cdot |E|^2)$
+\item [Data structure compatibility:] directed graph
+\item [Common applications:] open pit mining, military application, job scheduler, network flow design
+\end{overview}
+
+
+
+\begin{problem}{\pbname}
+	Given a directed graph, with each vertex has some weight. Find the maximum-weight directed graph that has no edges start within the graph and end outside the graph.
+\end{problem}
+
+\subsection*{Description}
+\begin{enumerate}
+\item Closure: A closure is defined as a set of vertices, for a directed graph, there is no outgoing edges. And this means that there shall only be edges pointing from any node outside the closure to the nodes inside the closure.
+\item Problem clarification: In this project I will focus on the maximum weight closure problem, that is to find the closure with the greatest sum of vertices' weight.
+\item Problem solution: To solve the closure problem, it could be \textbf{reduced} into a maximum flow problem in the following way, which will be discussed in algo~\ref{problem23}.
+\begin{enumerate}
+\item Add two nodes, $s$ and $t$ to the original graph.
+\item For all nodes with positive weight, add a directed edge from $s$ to the node and set the capacity of the edge to be the absolute value of node's weight.
+\item For all nodes with negative weight, add a directed edge from the node to $t$ and set the capacity of the edge to be the absolute value as node's weight.
+\item For all other existed edges, set their capacity to be $\infty$.
+\end{enumerate}
+\end{enumerate}
+\newpage
+% add comment in the pseudocode: \cmt{comment}
+% define a function name: \SetKwFunction{shortname}{Name of the function}
+% use the defined function: \shortname{$variables$}
+% use the keyword ``function'': \Fn{function name}, e.g. \Fn{\shortname{$var$}}
+\begin{Algorithm}[Reduction to the max flow\label{problem23}]
+	% - replace nb with problem number (e.g. problem101)
+	% -	must match the reference in the overview
+	% - when writing more than one algo use problem101a, problem101b, problem101c etc.
+	%\SetKwFunction{myfunction}{MyFunction}	
+	\Input{A directed graph $G=(V,E)$}
+	\Output{A new directed graph after redution}
+	%	\Fn{\myfunction{$a,b$}}{
+	%	}
+	\BlankLine
+	\SetKwFunction{rd}{reduce}
+	\Fn{\rd{G}}{
+	$H \leftarrow \{\}$\;
+	$H.V = G.V + \{s\} + \{t\}$\;
+	\For{All nodes $n_1$ in $G.V$ with $G.V.weight > 0$}{
+		Add edge $<s,n_1>$ to $H.E$\;
+		$<s,n_1>.capacity = n_1.weight$\;
+	}
+	\For{All nodes $n_2$ in $G.V$ with $G.V.weight < 0$}{
+		Add edge $<n_2,t>$ to $H.E$\;
+		$<s,n_1>.capacity = n_1.weight$\;
+	}
+	\For{All other edges in $G.E$}{
+		$H.E.capacity = \infty$\;
+	}
+	\SetKwFunction{kw}{edmond\_karp}
+	\cmt{Apply Edmond Karp algorithm on $H$, to get the max cut. Edmond Karp algorithm already discussed in class, no need to write it out here.}\\
+	\kw{H}\;
+	\KwRet{$H.left-\{s\}$}\
+	}
+\end{Algorithm}
+
+After performing this algorithm, the returned part are the nodes within the closure.
+\newpage
+\subsection*{Time complexity}
+For this problem, since the original problem can be reduced in a maximum flow problem within polynomial time $\mathcal{O}(|V|+|E|)$, so there are in the same complexity space, and the total time complexity is decided by the time complexity of the Edmond Karp algorithm, which is given by 
+\[
+	\mathcal{O}(|V|\cdot |E|^2)
+\]
+\subsection*{References}
+% list references where to find information on the given problem
+% prefer books, research articles, or internet sources that are likely to remain available over time
+% as much as possible offer several options, including at least one which provide a detailed study of the problem
+% if available include links to programs/code solving the problem
+
+\begin{itemize}\itemsep .125cm
+	\item Schrijver, A. (2002). "On the history of the transportation and maximum flow problems". Mathematical Programming. 91 (3): 437–445. 
+	\item Ahuja, Ravindra K.; Magnanti, Thomas L.; Orlin, James B. (1993), "19.2 Maximum weight closure of a graph", Network flows, Englewood Cliffs, NJ: Prentice Hall Inc., pp. 719–724, ISBN 0-13-617549-X, MR 1205775.
+	\item Picard, Jean-Claude (1976), "Maximal closure of a graph and applications to combinatorial problems", Management Science, 22 (11): 1268–1272.
+\end{itemize}
+
+\ifx\onefile\undefined
+	\end{document}
+\fi

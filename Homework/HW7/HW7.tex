@@ -1,0 +1,226 @@
+% !TEX program = xelatex
+\documentclass{article}
+\usepackage{geometry}
+\geometry{left = 3cm, right = 3cm, top = 3cm, bottom = 3cm}
+\usepackage[linesnumbered,ruled,longend]{algorithm2e}
+\usepackage{amsmath}
+\usepackage{amsfonts,amssymb}
+\usepackage{blkarray}
+\usepackage{booktabs}
+\usepackage{dsfont}
+\usepackage{enumerate}
+\usepackage{epsf}
+\usepackage{fontspec}
+\usepackage{forest}
+\usepackage[colorlinks=true,linkcolor=purple]{hyperref}
+\usepackage{listings}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{tikz}
+%\usepackage{indentfirst}
+%\usepackage[usenames,dvipsnames]{xcolor}
+\newfontfamily\Inputmono{Consolas}
+\renewcommand\thesection{Question\ \arabic{section}}%\arabic{section}}
+\renewcommand\thesubsection{(\arabic{subsection})}
+\renewcommand\thesubsubsection{\arabic{subsubsection}.}
+\newcommand{\qedhere}{$\hfill\ensuremath{\square}$}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\newcommand\mycommfont[1]{\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+%\setmainfont{Citadel Script}
+%\setmainfont{Chalkboard}
+\setmainfont{CMU Bright}
+%\setmainfont{Apple Chancery}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\renewcommand{\familydefault}{\sfdefault}
+%\renewcommand{\footnotesize}{\sfdefault}
+\setlength{\parskip}{0.25em}
+\setlength{\parindent}{0em}
+
+%%%%%%%%%%%Configurations for code%%%%%%%%%%%%%%%%%%%%%%%
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+\SetKwProg{Fn}{Function}{\string:}{end}
+\SetKwFunction{mstnew}{MST\_New}
+\SetKwFunction{tw}{TreeWeight}
+\SetKwFunction{dps}{DFS}
+\SetKwFunction{con}{Is\_Connected}
+\SetKwFunction{hor}{Three\_Fastest\_Horses}
+%%%%%%%%%%%Here is the configurations for Code%%%%%%%%%%%
+
+%\definecolor{mygreen}{rgb}{0,0.6,0}
+%\definecolor{mygray}{rgb}{0.7,0.7,0.7}
+%\definecolor{mymauve}{rgb}{0.58,0,0.82}
+%\definecolor{mywhite}{rgb}{1,1,1}
+%\definecolor{myblack}{rgb}{0,0,0}
+%\definecolor{myblue}{RGB}{27,154,154}
+%\lstset{
+% backgroundcolor=\color{white},
+% basicstyle = \footnotesize\Inputmono,
+% breakatwhitespace = false,
+% breaklines = true,
+% captionpos = b,
+% commentstyle = \color{mygray}\bfseries,
+% extendedchars = false,
+% frame =shadowbox,
+% framerule=0.5pt,
+% frameround=tttt,
+% keepspaces=true,
+% keywordstyle=\color{myblue}\bfseries, % keyword style
+% language = Verilog,                     % the language of code
+% otherkeywords={string},
+% numbers=left,
+% numbersep=5pt,
+% numberstyle=\tiny\color{mymauve},
+% rulecolor=\color{black},
+% showspaces=false,
+% showstringspaces=false,
+% showtabs=false,
+% stepnumber=0,
+% stringstyle=\color{mymauve},        % string literal style
+% tabsize=2,
+% title=\lstname
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%\setmainfont{Savoye LET}
+%\setmainfont{Cormorant Upright}
+\setmainfont{Cormorant Upright}
+\renewcommand\arraystretch{1.5}
+
+
+\thispagestyle{empty}
+
+\begin{center}
+\begin{large}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{Logo2}
+\end{figure}
+\hrule
+\vspace*{0.25cm}
+\sc{ \Large  UM--SJTU Joint Institute \vspace*{0.3em}} \\
+\Large  VE477 Intro to Algorithms\\
+\end{large}
+\hrulefill
+
+\vspace*{3cm}
+
+\begin{Large}
+\sc{{Homework 7}} \\
+\end{Large}
+\vspace*{2cm}
+\begin{large}
+\sc{{Wang, Tianze\\ 515370910202}} \\
+\end{large}
+\end{center}
+\newpage
+\setmainfont{Optima}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\tableofcontents
+%\newpage
+\setcounter{page}{1}
+\section{Karger-Stein’s Algorithm}
+\subsection{$n<6$, $P \geq 15$}
+Given that $n<6$, it is intuitive that
+\[
+	\binom{n}{2} < \binom{6}{2} = 15 
+\]
+The probability is calculated as
+\[
+	\frac{\binom{t}{2}}{\binom{n}{2}}\geq \frac{1}{\binom{n}{2}} \geq \frac{1}{\binom{6}{2}} = \frac{1}{15}
+\]		
+\qedhere
+\subsection{}
+As shown before, $P_0 = \frac{1}{15}$.
+By observing the definition of $P(k)$,
+\[
+	\begin{aligned}
+	P(t) &= 1- (1- \frac{1}{2}P(\frac{t}{\sqrt{2}}))^2\\
+		&= P(\frac{t}{\sqrt{2}}) - \frac{1}{4} P(\frac{t}{\sqrt{2}})
+	\end{aligned}
+\]
+We set $p_k = P(\frac{t}{\sqrt{2}})$ and $p_{k+1} = P(t)$, immediately we will have the result.
+\qedhere
+
+\subsection{}
+\par $Z_0 = \frac{1}{1/15}*4-1 = 59$ 
+\begin{align*}
+z_{k+1} &= \frac{4}{p_{k+1}}-1 \\
+&= \frac{4}{p_k- \frac{1}{4}p_k^2}-1 \\
+&=\frac{(4-p_k)^2+p_k^2}{(4-p_k)p_k}+1\\
+&= z_k + \frac{1}{z_k} +1
+\end{align*}
+
+\subsection{}
+The depth of the recursion is the biggest value that $k$ can be, and it is 
+\[
+	2 \log n+ \mathcal{O}(1)
+\]
+So we can conclude that 
+\[
+	P > \frac{2}{2 \log n+ \mathcal{O}(1)} = \Omega (\frac{1}{\log n})
+\]		
+\qedhere
+\section{Simplex Method}
+\subsection{Tableaux}
+The problem can be converted into the following matrix.
+\[
+	\begin{pmatrix}
+	x_4 & 1 & 1 & 4 & 1 & 0 & 0 & 30\\
+	x_5 & 2 & 2 & 5 & 0 & 1 & 0 & 24\\
+	x_6 & 4 & 1 & 2 & 0 & 0 & 1 & 36 \\
+		& 3 & 1 & 2 & 0 & 0 & 0 & 0 
+	\end{pmatrix}
+\]
+The simplex method is to use th initially set-up as a base solution. And in each operation, it wishes to find a better solution than the former step by multiplying different coefficient and change of variable. At the initial, we have the equation set-up as: maximize $C_1X$, given
+\[
+	AX \leq b
+\]
+with all values in $X$ to be $\geq 0$. Next the iteration step could be summarized as 
+\[
+	X_n = b_n-AX
+\]
+And then the new problem is to maximize $C_1X+C_2X_n$. Then we could solve the problem.
+
+\subsection{Geometric}
+In geometric perspective, it means that, in an $n-dimension$ space, we need to find the optimized vertex in the convex polyhedron bounded by given constraints. Simplex method will indicate where to find the next optimized result, and when to halt when we already have the best solution.
+
+\section{Critical Thinking}
+Yes it is. We use a doubly linked list, 
+\begin{itemize}
+\item minimum element: always make the minimum element at one end of the list. Can be directly got.
+\item push: compare with the minimum element each time, if smaller than minimum element, put it adjacent to the former minimum element and make it at one end of the list; if bigger or equal to minimum element, put it adjacent to the minimum element while the minimum element is still at that node. Each time push something, use a flag to denote the newly-pushed element. 
+\item pop: simply pop the element with flag, since the element is either at the end or at the place next to the end, it is constant time.
+\end{itemize}
+
+\section{Farka's Lemma}
+To prove this Lemma, we will only need to prove that $statement_i \equiv reverse \ statement_j$.
+
+Consider a Linear Programming problem as: 
+\[
+	min\{c^T y: M^T y= V, y\geq 0\}
+\]
+The duality problem is then given as 
+\[
+	max\{z^T x: Mx\leq 0\}
+\]
+The original problem cannot be solved only given the duality problem cannot be solved or without boundary. In the above case, if set $x=0$, we can always make it hold. So it cannot be solved only if without boundary. We check the Farka's lemma, and we will find that if the duality problem has no boundary, this problem has no boundary. Which mans we only need to make $Mx\leq 0$ and $V^T x \geq 0$. And this means only one of 
+\[
+	Mx\leq 0 \cap V^T x> 0 
+\] 
+and 
+\[
+	 M^T y = V \cap y \geq 0
+\]
+can be true.
+\end{document}
+
+
+

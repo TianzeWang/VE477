@@ -1,0 +1,141 @@
+%
+% do not add anything in this part
+%
+
+\ifx\onefile\undefined
+
+	\documentclass{article}
+
+	%if tcolorbox and tikz are installed use next line
+	\usepackage[tcbox]{projectalgo}
+	\usepackage{projectalgo}
+	\usepackage{comment}
+	\usepackage{enumerate}
+	% replace type by one of graph, math, combinatory, string, network, datastructure, ai, image
+	\pbtype{graph}
+
+	\begin{document}
+\fi
+
+%
+% things can be added below
+%
+
+\def\pbname{Maximally-matchable edges} %change this, do not use any number, just the name
+
+\section{\pbname} 
+
+% only for overview, so short description (no more than 1-2 lines)
+\begin{overview}
+\item [Algorithm:] Maximally-matchable edges~(algo.~\ref{problem18}) 
+	% - replace nb with problem number (e.g. problem101)
+	% -	must match the label of the algorithm 
+	% - for more than one algo list each of them and use problem101a, problem101b, problem101c etc.
+\item [Input:] A bipartite graph with a set of Edges $E$ and a set of Vertices $V$, and $V=V_1 \cup V_2$, and a given maximum matching in $G$.
+\item [Complexity:] $\mathcal{O}(|V|+ |E|)$
+\item [Data structure compatibility:] Bipartite Graph
+\item [Common applications:] matching skeleton, chemistry analysis, marriage problem
+\end{overview}
+
+\begin{problem}{\pbname}
+	Given a bipartite graph $G$ with a set of vertices $V$ and a set of edges $E$, find the edges in the matching that has greatest cardinality. 
+\end{problem}
+
+\subsection*{Description}
+%Detailed description of the problem; More detailed information on the input and complexity; more applications with details on how they relate to each other (if this is the case).
+
+\begin{enumerate}[1.]
+\item Problem Clarification: Suppose we have a bipartite graph, our goal is to find the set of edges, that the set of edges covers greatest cardinality of vertices.
+
+\item Scope Clarification: We assume we are given the maximum matching, since the matching problem is out of the scope. (Another problem (30))
+
+\item Algorithm clarification: The algorithm uses an idea called from specific to general occasions. 
+\begin{itemize}
+\item It first considers a case that the bipartite graph is balanced (Same cardinality for two bipartite) . There are several definitions worth of discussing.
+	\begin{enumerate}[(1)]
+	\item Perfect Matching: Suppose the graph is $G=(V,E)$, if the cardinality of the maximum matching is $t$, due to symmetry, we can define the perfect matching as:
+	\[
+		M=\{(v_1,v_1'), (v_2, v_2')..., (v_{n/2},v_{n/2}')\}
+	\]
+	where $v_i \in V_1$ and $v_i' \in V_2$, $|V_1| = |V_2| = \frac{n}{2}$. The matching is defined as :
+	\end{enumerate}
+\item Second we need to consider the general bipartite graph with following definitions:
+	\begin{enumerate}[(1)]
+	\item Upper and Lower nodes: The upper node is the node with index smaller the cardinality of the match. $i \leq t$. Otherwise it is called lower node.
+	\item Upper and Lower edges: Upper edge connects two upper nodes, and all other situations are lower edges.
+	\end{enumerate}
+\end{itemize}
+\item The idea to deal with the normal bipartite graph is to first calculate the perfect matching part in a graph $G'$, then use a directed graph $H$, which is defined as drawing an edge in $H$ if exists an edge in $G$ s.t. $\{v_i, v_j'\} \in E$. By concatenating the new graph $H$ with the original derived $G'$, we can get the maximum 
+\end{enumerate}
+
+% add comment in the pseudocode: \cmt{comment}
+% define a function name: \SetKwFunction{shortname}{Name of the function}
+% use the defined function: \shortname{$variables$}
+% use the keyword ``function'': \Fn{function name}, e.g. \Fn{\shortname{$var$}}
+\begin{Algorithm}[find max matching edge from perfect graph\label{problem18}]
+	\SetKwFunction{Findm}{find\_max\_matchingEdge}
+	\SetKwFunction{dg}{direct\_graph}
+	\Input{A perfect bipartite graph $G$, that can be perfectly matched with $V_1$ and $V_2$}
+	\Output{All maximally-matchable edges}
+	\Fn{\Findm{G}}{
+		Set all the edges from $G.E$ as not maximally-matchable\;
+		$H = G.$\dg{}\;
+		\For{all edges $e$ in $H.edges$}{
+			\If{$e.start$ and $e.end$ belong to the same connected component of $H$}{
+				Append $e'$ corresponds to $e$ in $G$ to the list of maximally-matchable edges\;
+			}
+		}
+		Append all $(v_i, v_i') \in E$ to the list of maximally-matchable\;
+	}
+\end{Algorithm}
+\newpage
+\begin{flushleft}
+Now it comes to the common case.
+\end{flushleft}
+\begin{Algorithm}[find max matching edge from general graph\label{problem18b}]
+\SetKwFunction{gf}{general\_case\_find}
+\Input{bipartite graph $G$ without constraints, given maximum matching}
+\Output{Maximally matchable edges in $Graph.Edges$}
+\Fn{\gf{$G$}}{
+	$E.lower\_edge.maximally\_matchable \leftarrow $ True\;
+	$E.upper\_edge.maximally\_matchable \leftarrow$ False\;  
+	$G_u \leftarrow$ the perfect bipartite sub-graph from $G$\;
+	\Findm{$G_u$}\;
+	\For{Each of the node from $G.V.left$ as source}{
+		\For{Each of the node from $G.V.right$ as sink}{
+			Construct \textbf{directed graph} $H_L$\;
+		}
+	}
+	\For{Each of the node from $G.V.right$ as source}{
+		\For{Each of the node from $G.V.left$ as sink}{
+			Construct \textbf{directed graph} $H_R$\;
+		}
+	}
+	\While{$H_L.BFS() != \varnothing$}{
+		Each visit mark the corresponding $e'$ in $G$ as maximally-reachable\;
+	}
+	\While{$H_R.BFS()!= \varnothing$}{
+		Each visit mark the corresponding $e'$ in $G$ as maximally-reachable\;
+	}
+}
+\end{Algorithm}
+
+\subsubsection*{Time complexity}
+Since each operation in the algorithm before is linear, and for each edge and each node, it will consume linear time, the total time complexity is \[
+	\mathcal{O}(|V|+|E|)
+\]
+
+\subsection*{References}
+% list references where to find information on the given problem
+% prefer books, research articles, or internet sources that are likely to remain available over time
+% as much as possible offer several options, including at least one which provide a detailed study of the problem
+% if available include links to programs/code solving the problem
+
+\begin{itemize}\itemsep .125cm
+	\item TUM, Edmond's Blossom Algorithm ~\url{https://www-m9.ma.tum.de/graph-algorithms/matchings-blossom-algorithm/index_en.html}
+	\item László Lovász; M. D. Plummer (1986), Matching Theory, North-Holland
+	\item Tamir T (2011), Finding all maximally-matchable edges in a bipartite graph, The Open University
+\end{itemize}
+\ifx\onefile\undefined
+	\end{document}
+\fi
